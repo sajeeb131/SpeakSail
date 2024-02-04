@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.footer {
+    background-color: #002E88;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    height: 236px;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo {
+    margin-left: 50px;
+    width: 340px;
+    height: 125px;
+  }
+  
+  .tagline {
+    text-align: center;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
