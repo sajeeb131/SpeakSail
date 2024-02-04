@@ -16,7 +16,12 @@
 }
 li a{
     padding: 32px;
+
+}
+ul li a{
     text-decoration: none;
+    list-style: none;
+    color: #616161;
 }
 .btn{
     margin: 5px;
