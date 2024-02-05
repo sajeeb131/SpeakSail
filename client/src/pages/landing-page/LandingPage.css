@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
+/* get started */
 .container-getStarted{
     margin: 0px 80px 40px 80px;
     padding: 40px 80px 0px 80px;;
@@ -79,3 +80,43 @@
     margin-top: 20px;
     width: 200px;
 }
+
+
+/* offer */
+
+.container-offer{
+    margin-top: 40px;
+    background: #F4FFF5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    margin-bottom: 40px;
+
+}
+.container-offer-half{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+    
+    
+}
+.container-offer-left{
+    position: relative;
+    left: -200px;
+    padding-right: 50px;
+}
+.container-offer-right-point{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    padding-bottom: 0px;
+
+}
+.container-offer-right-point p{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+/* tools */

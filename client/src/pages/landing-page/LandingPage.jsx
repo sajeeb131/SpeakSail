@@ -8,6 +8,8 @@ import icon1 from "../../assets/icons/objective1.png"
 import icon2 from "../../assets/icons/objective2.png"
 import icon3 from "../../assets/icons/objective3.png"
 import icon4 from "../../assets/icons/objective4.png"
+import image2 from '../../assets/images/Settings-bro 1.png'
+import icon5 from "../../assets/icons/mdi_tick-circle.png"
 const LandingPage = () => {
   return (
     <div>
@@ -56,7 +58,7 @@ const LandingPage = () => {
           </div>
           <div className='container-objective-points-indv'>
             
-            <img src={icon4} alt='' width={35} height={40}/>
+            <img src={icon4} alt='' width={40} height={40}/>
             
             <div className=''>
               <p>To cater the needs of students
@@ -65,7 +67,47 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      
+      {/* part: what we offer */}
+      <div className='container-offer'>
+      <div className='container-offer-heading'><h1>What <span style={{color: '#FABC2A'}}>We Offer</span></h1></div>
+        <div className='container-offer-half'>
+          
+          <div className='container-offer-left'>
+            <img src={image2} alt='' width={480} height={340}/>
+          </div>
+          <div className='container-offer-right'>
+              <div className='container-offer-right-point'>
+                <img src={icon5} alt='' width={30} height={30}/>
+                <div>
+                  <p style={{fontWeight:'600'}}>Customized lessons in all four language skills </p>
+                  <p>Reading, Writing, Listening and Speaking.</p>
+                </div>
+              </div>
+              <div className='container-offer-right-point'>
+                <img src={icon5} alt='' width={30} height={30}/>
+                <div>
+                  <p style={{fontWeight:'600'}}>Daily Missions </p>
+                  <p>Providing daily missions keep students motivated and learn more..</p>
+                </div>
+              </div>
+              <div className='container-offer-right-point'>
+                <img src={icon5} alt='' width={30} height={30}/>
+                <div>
+                  <p style={{fontWeight:'600'}}>Practice exercises </p>
+                  <p>Reading, Writing, Listening and Speaking..</p>
+                </div>
+              </div>
+              <div className='container-offer-right-point'>
+                <img src={icon5} alt='' width={30} height={30}/>
+                <div>
+                  <p style={{fontWeight:'600'}}>Vocab Treasure </p>
+                  <p>Lorem ipsum dolor sit.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      </div>
       <Footer />
     </div>
   );
