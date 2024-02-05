@@ -150,3 +150,43 @@
     font-weight: 400;
     line-height: normal;
 }
+
+
+/* About us */
+.container-aboutUs{
+    padding: 50px 100px 0px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 200px;
+    
+}
+.container-aboutUs-heading{
+    position: relative;
+    top: 80px;
+}
+.container-aboutUs h1{
+    color: #002E88;
+    font-weight: 600;
+    line-height: normal;
+}
+.container-aboutUs-half{
+    margin-top: 0;
+    padding-top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align:end;
+}
+.container-aboutUs-right{
+    position: relative;
+    left: 300px;
+    width: 40%;
+    color: #7C7C7C;
+    text-align: right;
+    font-family: Urbanist;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

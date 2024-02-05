@@ -4,6 +4,8 @@ import InitialNav from '../../components/InitialNav';
 import Footer from '../../components/Footer';
 import image from '../../assets/images/header image.png'; 
 import image3 from '../../assets/images/teacher-avatar.png'; 
+import image4 from '../../assets/images/About us page-cuate 1.png'; 
+
 import "./LandingPage.css"
 import icon1 from "../../assets/icons/objective1.png"
 import icon2 from "../../assets/icons/objective2.png"
@@ -127,6 +129,31 @@ const LandingPage = () => {
           <img src={image3} alt='' width={600} height={400}/>
 
         </div>
+      </div>
+      {/* About Us */}
+      <div className='container-aboutUs'>
+        <div className='container-aboutUs-heading'><h1>About <span style={{color:'#FABC2A'}}>Us</span></h1></div>
+        
+        <div className='container-aboutUs-half'>
+          <div className='container-aboutUs-left'>
+            <img src={image4} alt='' width={600} height={400}/>
+
+          </div>
+          <div className='container-aboutUs-right'>
+            <p>Welcome to <span style={{color:"#FABC2A"}}>SpeakSail</span>, where we are focused in filling the gap 
+                of the evident oral English communication issue targeting the 
+                primary (class 1 to class 5) level students. Even though English 
+                plays a major role in global communication, Bangladesh is yet 
+                to form a
+                bridge to join this globalization, in respect to the 
+                lack of effective oral English communication. Keeping 
+                these issues in mind, we have introduced a  system that 
+                will be focused
+                on the aspects of speaking and listening to 
+                promote better communication. </p>
+          </div>
+        </div>
+        
       </div>
       <Footer />
     </div>
