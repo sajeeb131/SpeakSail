@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import InitialNav from '../../components/InitialNav';
 import Footer from '../../components/Footer';
 import image from '../../assets/images/header image.png'; 
+import image3 from '../../assets/images/teacher-avatar.png'; 
 import "./LandingPage.css"
 import icon1 from "../../assets/icons/objective1.png"
 import icon2 from "../../assets/icons/objective2.png"
@@ -107,6 +108,25 @@ const LandingPage = () => {
             </div>
           </div>
         
+      </div>
+      {/* Tools for teachers and learners */}
+      <div className='container-tools'>
+        <div className='container-tools-left'>
+            <div>
+              <h1><span style={{color:'#FABC2A'}}>Tools</span> for Teachers</h1>
+              <h1>and Learners</h1>
+            </div>
+            <div>
+              <p>Class has a dynamic set of teaching tools built to
+                be deployed and used during class. Teachers can
+                handout assignments in real-time for students to
+                complete and submit their work.</p>
+            </div>
+        </div>
+        <div className='container-tools-right'>
+          <img src={image3} alt='' width={600} height={400}/>
+
+        </div>
       </div>
       <Footer />
     </div>

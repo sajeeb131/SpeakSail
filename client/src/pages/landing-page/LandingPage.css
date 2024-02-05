@@ -120,3 +120,33 @@
 }
 
 /* tools */
+.container-tools{
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+.container-tools-left{
+    width: 50%;
+    padding-left: 196px;
+}
+.container-tools-right{
+    width: 50%;
+}
+.container-tools-left h1{
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: #002E88;
+}
+.container-tools-left p{
+    margin-top: 40px;
+    width: 52%;
+    color: #7C7C7C;
+    font-family: Urbanist;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
