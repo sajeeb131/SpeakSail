@@ -17,6 +17,8 @@
 }
 .container-getStarted-half{
     width: 50%;
+    /*Abrar's CSS change here */
+    margin-left: 240px;
 }
 .container-getStarted-half-heading{
     margin-top: 50px;
