@@ -44,3 +44,38 @@
 .container-getStarted-half img{
     margin-left: 100px;
 }
+
+
+/* objective */
+.container-objective{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+.container-objective-heading{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.container-objective-heading h1{
+    color: #002E88;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    font-size: 40px;
+}
+.container-objective-points{
+    display: flex;
+    flex-direction: row;
+}
+.container-objective-points-indv{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; 
+}
+.container-objective-points-indv div{
+    margin-top: 20px;
+    width: 200px;
+}
