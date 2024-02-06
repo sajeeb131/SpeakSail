@@ -55,3 +55,31 @@
     width: 0; 
     transition: width 0.5s ease; 
 }
+/* lessons */
+.container-homepage-lessons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container-homepage-lessons h1{
+    color: #002E88;
+}
+.container-homepage-lessons-half{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+    gap: 40px;
+}
+.container-homepage-lessons-indv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #93FF96;
+    width: 380px;
+    height: 200px;
+}
+
+
+
+
