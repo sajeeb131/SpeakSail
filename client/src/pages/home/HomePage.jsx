@@ -4,7 +4,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import './HomePage.css'
 const HomePage = () => {
-    const [username, setUsername] = useState("Abrar");
+    const [username, setUsername] = useState("Username");
     const [overallProgress, setOverallProgress] = useState(50);
     const progressStyle = {
         width: `${overallProgress}%`
