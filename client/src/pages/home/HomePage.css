@@ -1,0 +1,57 @@
+/* username */
+.container-homepage-header{
+    margin: 20px 0px 40px 0px;
+    display: flex;
+    justify-content: center;
+}
+.container-homepage-header h1{
+    color: #002E88;
+    
+    font-size: 40px;
+}
+.container-homepage-header h1 span{
+    padding: 12px;
+    background-color: #93FF96;
+    border-radius: 5px;
+}
+/* progress */
+.container-homepage-progress{
+    
+    display: flex;
+    justify-content: center;
+}
+.container-homepage-progress-bar{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 85%;
+    height: 150px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: var(--Purples-Purple-3, #EECAF2);
+}
+.container-homepage-progress-bar h1{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #002E88;
+}
+.container-homepage-progress-bar-line {
+    width: 85%;
+    
+    height: 10px; 
+    background-color: #FDE4A9; 
+    position: relative; 
+    top: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #FABC2A; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 0; 
+    transition: width 0.5s ease; 
+}
