@@ -55,31 +55,31 @@ const HomePage = () => {
                 <h1>Lessons</h1>
             </div>
             <div className='container-homepage-lessons-half'>
-                <div className='container-homepage-lessons-indv' >
+                <div className='container-homepage-lessons-indv' id='listening' >
 
                     <h2>Listening</h2>
                     <div className='container-homepage-progress-bar-line'>
-                        <div className="progress-bar" style={progressStyles.listening}></div>
+                        <div className="progress-bar listening" style={{ ...progressStyles.listening, backgroundColor: '#FABC2A;' }} ></div>
                     </div>
                 </div>
-                <div className='container-homepage-lessons-indv'>
+                <div className='container-homepage-lessons-indv' id='speaking'>
                     <h2>Speaking</h2>
                     <div className='container-homepage-progress-bar-line'>
-                        <div className="progress-bar" style={progressStyles.speaking}></div>
+                    <div className="progress-bar" style={{ ...progressStyles.speaking, backgroundColor: '#52D1DC' }}></div>
                     </div>
                 </div>
             </div>
             <div className='container-homepage-lessons-half'>
-                <div className='container-homepage-lessons-indv'>
+                <div className='container-homepage-lessons-indv' id='reading'>
                     <h2>Reading</h2>
                     <div className='container-homepage-progress-bar-line'>
-                        <div className="progress-bar" style={progressStyles.reading}></div>
+                    <div className="progress-bar" style={{ ...progressStyles.reading, backgroundColor: '#FF5E5B' }}></div>
                     </div>
                 </div>
-                <div className='container-homepage-lessons-indv'>
+                <div className='container-homepage-lessons-indv' id='writing'>
                     <h2>Writing</h2>
                     <div className='container-homepage-progress-bar-line'>
-                        <div className="progress-bar" style={progressStyles.writing}></div>
+                    <div className="progress-bar" style={{ ...progressStyles.writing, backgroundColor: '#93FF96' }}></div>
                     </div>
                     
                 </div>
@@ -171,7 +171,7 @@ const HomePage = () => {
                 </div>
             </div>
         </div>
-        
+        <Footer></Footer>
     </div>
   )
 }

@@ -84,6 +84,22 @@
     height: 200px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+#listening{
+    background-color: #52D1DC;
+    color: #002E88;
+}
+#speaking{
+    background-color: #FABC2A;
+    color: #002E88;
+}
+#reading{
+    background-color: #93FF96;
+    color: #002E88;
+}
+#writing{
+    background-color: #FF5E5B;
+    color: #002E88;
+}
 /* materials */
 
 .container-homepage-material{
