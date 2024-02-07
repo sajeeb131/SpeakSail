@@ -4,6 +4,9 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import './HomePage.css'
 
+import VocabMission from '../../assets/images/VT-Card.png'
+import DailyMission from '../../assets/images/DM-CARD.png'
+
 const HomePage = () => {
     const [username, setUsername] = useState("Username");
     const [overallProgress, setOverallProgress] = useState(80);
@@ -47,7 +50,16 @@ const HomePage = () => {
             </div>
         </div>
         {/* part 3: vocab treasure, daily mission */}
-        <div></div>
+        <div className='container-vb-tr'>
+            <div className='halff'>
+                <h2>Vocab Treasure</h2>
+                <img src={VocabMission}></img>
+            </div>
+            <div className='halff'>
+                <h2>Daily Mission</h2>
+                <img src={DailyMission}></img>
+            </div>
+        </div>
         
         {/* part 4: lessons */}
         <div className='container-homepage-lessons'>
