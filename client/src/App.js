@@ -6,6 +6,8 @@ import LandingPage from './pages/landing-page/LandingPage';
 import HomePage from './pages/home/HomePage'
 import ListeningMain from './pages/listeningMain/ListeningMain';
 import Status503 from './pages/Status/Status503';
+import Dashboard from './pages/teachers/dashboard/Dashboard';
+
 function App() {
   return (
     <div className="App">       
@@ -25,6 +27,11 @@ function App() {
 
           <Routes>
             <Route path='/listening-main' element={<ListeningMain/>}/>
+          </Routes>
+
+            {/* Teachers route */}
+            <Routes>
+            <Route path='/teachers/dashboard' element={<Dashboard/>}/>
           </Routes>
         </BrowserRouter>
     </div>
