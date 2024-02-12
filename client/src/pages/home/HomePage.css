@@ -58,6 +58,26 @@
     width: 0; 
     transition: width 0.5s ease; 
 }
+/* Vocab and daily mission */
+.container-vb-tr{
+    display: flex;
+    justify-content: space-around;
+    margin: 0 250px;
+}
+.halff{
+    width: 45%;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+.halff h2{
+    margin-top: 0;
+    text-align: center;
+}
+.halff img{
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
 /* lessons */
 .container-homepage-lessons{
     display: flex;
@@ -83,6 +103,22 @@
     width: 380px;
     height: 200px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+#listening{
+    background-color: #52D1DC;
+    color: #002E88;
+}
+#speaking{
+    background-color: #FABC2A;
+    color: #002E88;
+}
+#reading{
+    background-color: #93FF96;
+    color: #002E88;
+}
+#writing{
+    background-color: #FF5E5B;
+    color: #002E88;
 }
 /* materials */
 
