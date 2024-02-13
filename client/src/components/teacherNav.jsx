@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const teacherNav = () => {
   return (
-    <div className="navbar">
+    <div className="teacherNavbar">
     <div className="logo">
       <img src={LogoWhite} alt='Logo'></img>
     </div>

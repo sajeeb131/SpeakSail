@@ -15,7 +15,7 @@ const InitialNav = () => {
                 <img src={Logo} alt='Logo'/>
             </div>
             <ul className='nav-link'>
-                <li><Link to='/'>Home</Link></li>
+                <li><Link to='/home'>Home</Link></li>
                 <li><Link to="/objective">Objective</Link></li>
                 <li><Link to="/what-we-offer">What We Offer</Link></li>
                 <li><Link to="/tools">Tools</Link></li>
