@@ -1,0 +1,28 @@
+.page-container {
+    position: relative;
+}
+.navbar-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 327px;
+}
+.content-beside-navbar {
+    margin-left: 400px;
+    margin-top: 34px;
+}
+
+.top{
+    background-color: white;
+    height: 116px;
+}
+.top .search-field{
+    width: 350px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: none;
+    background-color: rgb(228, 227, 227);
+}
