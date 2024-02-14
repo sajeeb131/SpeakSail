@@ -4,7 +4,9 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 //Pages and Components
 import LandingPage from './pages/landing-page/LandingPage';
 import HomePage from './pages/home/HomePage'
-import ListeningMain from './pages/listeningMain/ListeningMain';
+import ListeningMain from './pages/lessons/ListeningMain';
+import WritingMain from './pages/lessons/WritingMain';
+import ReadingMain from './pages/lessons/ReadingMain';
 import Status503 from './pages/Status/Status503';
 import Dashboard from './pages/teachers/dashboard/Dashboard';
 
@@ -26,7 +28,13 @@ function App() {
           </Routes>
 
           <Routes>
-            <Route path='/listening-main' element={<ListeningMain/>}/>
+            <Route path='/lessons/listening-main' element={<ListeningMain/>}/>
+          </Routes>
+          <Routes>
+            <Route path='/lessons/writing-main' element={<WritingMain/>}/>
+          </Routes>
+          <Routes>
+            <Route path='/lessons/reading-main' element={<ReadingMain/>}/>
           </Routes>
 
             {/* Teachers route */}
