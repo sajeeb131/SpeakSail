@@ -26,3 +26,34 @@
     box-shadow: none;
     background-color: rgb(228, 227, 227);
 }
+.middle{
+    display: flex;
+}
+.middle-left{
+    width: 60%;
+}
+.middle-right{
+    width: 40%;
+}
+.upper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.stats-banner{
+    width: 240px;
+    height: 160px;
+    background-color: lightblue;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+}
+#ban1{
+    background-color: #FF5E5B;
+}
+#ban2{
+    background-color: #52D1DC;
+}
+#ban3{
+    background-color: #FABC2A;
+}
