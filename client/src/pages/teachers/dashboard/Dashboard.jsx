@@ -43,9 +43,9 @@ const Dashboard = () => {
               {topStudents.map((Item, key)=>{
                 return(
                   <div className='student-info'>
-                      <div className="student-box">Name: {Item.name}</div>
-                      <div className="student-box">Class: {Item.class}</div>
-                      <div className="student-box">{Item.completed}%</div>
+                      <h2>Name: {Item.name}</h2>
+                      <h3>Class: {Item.class}</h3>
+                      <h3>{Item.completed}%</h3>
                   </div>
                 )
               })}

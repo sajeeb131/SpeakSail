@@ -41,12 +41,31 @@
     gap: 20px;
 }
 .stats-banner{
-    width: 240px;
+    text-align: center;
+    font-family: 'Urbanist';
+    color: #002E88;
+    width: 280px;
     height: 160px;
     background-color: lightblue;
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
+}
+.stats-banner:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.stats-banner h2{
+    padding-top: 30px;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+.stats-banner h1{
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
 }
 #ban1{
     background-color: #FF5E5B;
@@ -57,3 +76,17 @@
 #ban3{
     background-color: #FABC2A;
 }
+.mid{
+    width: 800px;
+    margin-top: 20px;
+}
+.student-info {
+    width: 338px;
+    display: grid;
+    grid-template: auto auto / auto auto;
+    gap: 20px;
+    background-color: #D3FFD5;
+    padding: 10px;
+    margin: 5px;
+}
+  
