@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../assets/images/LogoWhite.png'
 import './navbar.css'
-import image from "../assets/images/50955.jpg"
+import image from "../assets/images/student.jpg"
 
 
 const InitialNav = () => {
@@ -39,7 +39,7 @@ const InitialNav = () => {
                         </defs>
                     </svg>
                 </Link>
-                <Link to="/profile" className='navbar-avatar'>
+                <Link to="/profile/ProfilePage" className='navbar-avatar'>
                     <img src={profilePic} alt=""/>
                 </Link>
             </div>

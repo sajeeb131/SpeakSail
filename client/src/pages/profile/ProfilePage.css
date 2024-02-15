@@ -1,0 +1,81 @@
+.container-profilepage-user{
+    display: inline-flex;
+    height: 447px;
+    width: 100%;
+    
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: var(--Purples-Purple-3, #EECAF2);
+    
+}
+.userdetails-main{
+    /* margin: 10% 10% 10% 10%; */
+    display: flex;
+    width: 85%;
+    height: 85%;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    align-content: center;
+    background-color: white;
+    border-radius: 1cap;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.userdetails-main .userdetails{
+    width: 55%;
+    margin: 10%;
+}
+.userdetails-text{
+    padding: 14px;
+    color: var(--Text-Colours-Primary-Text-color, #002E88);
+    
+}
+.userdetails-main .userdetails h1{
+    font-size: 45px;
+}
+.userdetails-main .userdetails h2{
+    font-size: 35px;
+}
+.userdetails-main .userdetails h3{
+    font-size: 30px;
+}
+.userdetails-main .userdetails h4{
+    font-size: 25px;
+}
+.container-profilepage-user .userphoto{
+    margin: 10px;
+    margin-right: 50px;
+    border: 9px solid #eeeeee;
+    width: 170px; 
+    height: 170px; 
+    display: flex; 
+    padding: 0px;
+    border-radius: 50%;
+}
+.container-profilepage-user .userphoto .userphoto-image{
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    border-radius: 50%; 
+}
+.container-profilepage-user .photoUploadButton{
+    margin-top: 17%;
+    width: 20px;
+}
+.userphoto-uploadImage{
+    width: 25px;
+}
+.container-profilepage-achievements{
+    display: flex;
+    align-content: center;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+.container-profilepage-achievements .achievements-image{
+    width: 60%;
+    border-radius: 50%
+}
+

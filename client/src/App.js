@@ -9,6 +9,7 @@ import WritingMain from './pages/lessons/WritingMain';
 import ReadingMain from './pages/lessons/ReadingMain';
 import Status503 from './pages/Status/Status503';
 import Dashboard from './pages/teachers/dashboard/Dashboard';
+import ProfilePage from './pages/profile/ProfilePage';
 
 function App() {
   return (
@@ -36,7 +37,10 @@ function App() {
           <Routes>
             <Route path='/lessons/reading-main' element={<ReadingMain/>}/>
           </Routes>
-
+          <Routes>
+            <Route path='/profile/ProfilePage' element={<ProfilePage/>}/>
+          </Routes>
+          
             {/* Teachers route */}
             <Routes>
             <Route path='/teachers/dashboard' element={<Dashboard/>}/>
