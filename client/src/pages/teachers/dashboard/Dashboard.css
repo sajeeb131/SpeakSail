@@ -76,17 +76,57 @@
 #ban3{
     background-color: #FABC2A;
 }
-.mid{
-    width: 800px;
-    margin-top: 20px;
+#headers2{
+    margin: 10px 20px;
+    color: #002E88;
+    font-family: 'Urbanist';
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
 }
-.student-info {
-    width: 338px;
+.mid {
+    margin: 30px 50px;
     display: grid;
-    grid-template: auto auto / auto auto;
-    gap: 20px;
-    background-color: #D3FFD5;
-    padding: 10px;
-    margin: 5px;
-}
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px; 
+  }
   
+.student-info {
+    background-color: #D3FFD5;
+    color: #002E88;
+    width: 500px;
+    border: 1px solid #ccc; 
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.student-info .img-block{
+    flex: 0 0 auto;
+    margin-right: 10px;
+}
+.img-block img {
+    max-width: 100%; 
+  }
+.info-block {
+    flex: 1; 
+}
+.bot {
+    color: #002E88;
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+  }
+  
+  .class-info {
+    font-size: 1.1rem;
+    padding: 6px 12px;
+    background-color: #D3FFD5;
+    border: 1px solid #ccc; 
+    width: 820px;
+    margin: 16px 34px; 
+  }
+  
+  .class-box {
+    padding: 10px;
+  }
