@@ -10,6 +10,7 @@ import ReadingMain from './pages/lessons/ReadingMain';
 import Status503 from './pages/Status/Status503';
 import Dashboard from './pages/teachers/dashboard/Dashboard';
 import ProfilePage from './pages/profile/ProfilePage';
+import LoginPage from './pages/login/LoginPage';
 
 function App() {
   return (
@@ -44,6 +45,11 @@ function App() {
             {/* Teachers route */}
             <Routes>
             <Route path='/teachers/dashboard' element={<Dashboard/>}/>
+          </Routes>
+
+          {/* Login route */}
+          <Routes>
+            <Route path='/login/LoginPage' element={<LoginPage/>}/>
           </Routes>
         </BrowserRouter>
     </div>
