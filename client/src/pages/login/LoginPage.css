@@ -144,3 +144,118 @@ align-items: flex-start;
 gap: 30px 0;
 }
 
+.login {
+    position: relative;
+    font-size: 26px;
+    font-weight: 600;
+    font-family: sans-serif;
+    color: white;
+    text-align: left;
+    }
+    
+    .frame-email-address,
+    .text-password {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    }
+    
+    .text-password {
+    cursor: pointer;
+    border: 0;
+    padding: 13px 15px;
+    background-color: #52d1dc;
+    border-radius: 10px;
+    flex-direction: row;
+    justify-content: center;
+    }
+    
+    .text-password:hover {
+    background-color: #1f9ea8;
+    }
+    
+    .frame-email-address {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 100px 0;
+    }
+    
+    .dont-have-an,
+    .span {
+    font-weight: 500;
+    font-family: sans-serif;
+    }
+    
+    .span {
+    font-weight: 600;
+    }
+    
+    .dont-have-an-account {
+    color: #b9b9b9;
+    }
+    
+    .signup1 {
+    color: #002e88;
+    }
+    
+    .signup {
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    }
+    
+    .dont-have-an-container {
+    /* cursor: pointer; */
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    position: relative;
+    font-size: 20px;
+    text-align: left;
+    display: inline-block;
+    max-width: 100%;
+    }
+    .credentials-container,
+    .login-container {
+    width: 613px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 43px 0;
+    max-width: 100%;
+    }
+    
+    .login-container {
+    margin: 0;
+    width: 851px;
+    background-color: white;
+    align-items: center;
+    padding: 50px 150px;
+    box-sizing: border-box;
+    gap: 22px 0;
+    min-width: 851px;
+    min-height: 750px;
+    }
+    
+    .loginImage {
+    height: 714px;
+    width: 714px;
+    position: relative;
+    object-fit: cover;
+    max-width: 100%;
+    }
+    
+    .login-page {
+    width: 100%;
+    position: relative;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 54px 50px 53px;
+    box-sizing: border-box;
+    gap: 0 73px;
+    letter-spacing: normal;
+    }

@@ -45,10 +45,21 @@ const LoginPage = () => {
                         </button>
                     </div>
 
+                    <div className="dont-have-an-container">
+                        <span className="dont-have-an-account">
+                            <span className="dont-have-an">Don’t have an account?</span>
+                            <span className="span">{` `}</span>
+                        </span>
+                        <span className="signup">
+                            {/* <span className="signup1">Signup</span> */}
+                            <Link>Signup</Link>
+                        </span>
+                    </div>
                     
                 </div>
             </form>
             
+            <img className="loginImage" loading="eager" alt="" src={LoginImage} />
            
         </div>
 
