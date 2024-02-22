@@ -49,7 +49,7 @@ function App() {
 
           {/* Login route */}
           <Routes>
-            <Route path='/login/LoginPage' element={<LoginPage/>}/>
+            <Route path='/login' element={<LoginPage/>}/>
           </Routes>
         </BrowserRouter>
     </div>
