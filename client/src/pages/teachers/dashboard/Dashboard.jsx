@@ -1,18 +1,24 @@
 import React, { useState } from 'react'
 import Navbar from '../../../components/teacherNav'
 import './Dashboard.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'
 import avatar1 from '../../../assets/images/PFP.png'
+import avatar2 from '../../../assets/images/teacherAvatar.png'
 import { DUMMY_POST } from './data'
 import { DUMMY_POST1 } from './data2'
+import { DUMMY_POST2 } from './data3'
 
 
 const Dashboard = () => {
   const [totalStudents, setTotalStudents] = useState(0);
   const [totalClasses, setTotalClasses] = useState(5);
   const [studentImg, setStudentImg] = useState(avatar1);
+  const [teachertImg, setTeacherImg] = useState(avatar2);
+  const [teacherName, setTeacherName] = useState('Jane Doe');
+  const [teacherId, setTeacherId] = useState('0432');
   const [topStudents, setTopStudents] = useState(DUMMY_POST);
   const [recents, setRecents] = useState(DUMMY_POST1);
+  const [deadlines, setDeadlines] = useState(DUMMY_POST2);
   return (
     <div className='page-container'>
       <div className="navbar-container">
@@ -73,7 +79,25 @@ const Dashboard = () => {
           </div>
 
           <div className='middle-right'>
-
+                <div className='profile-box'>
+                    <img src={teachertImg} alt='Teacher Avatar'></img>
+                    <h2>{teacherName}</h2>
+                    <h3>Profile ID: {teacherId}</h3>
+                    <Link>Edit Profile</Link>
+                </div>
+                <div className='deadline-box'>
+                    <h1>Upcoming Deadlines</h1>
+                    {deadlines.slice(0,3).map((item, key)=>{
+                      return(
+                        <div className='deadline-info'>
+                            <h2>{item.lessonName}</h2>
+                            <h3>Assigned to class: {item.class}</h3>
+                            <p>Deadline: {item.deadline}</p>
+                            <button>Remind Class</button>
+                        </div>
+                      )
+                    })}
+                </div>
           </div>
         </div>
       </div>
