@@ -11,6 +11,7 @@ import Status503 from './pages/Status/Status503';
 import Dashboard from './pages/teachers/dashboard/Dashboard';
 import ProfilePage from './pages/profile/ProfilePage';
 import LoginPage from './pages/login/LoginPage';
+import SignUpPage from './pages/signup/SignUpPage';
 
 function App() {
   return (
@@ -21,14 +22,17 @@ function App() {
               <Route path='/503' element={<Status503/>}/>
           </Routes>
 
+          {/* landing page route */}
           <Routes>
             <Route path='/' element={<LandingPage/>}/>
           </Routes>
 
+          {/* homepage route */}
           <Routes>
             <Route path='/home' element={<HomePage/>}/>
           </Routes>
 
+          {/* lessons main routes */}
           <Routes>
             <Route path='/lessons/listening-main' element={<ListeningMain/>}/>
           </Routes>
@@ -50,6 +54,9 @@ function App() {
           {/* Login route */}
           <Routes>
             <Route path='/login' element={<LoginPage/>}/>
+          </Routes>
+          <Routes>
+            <Route path='/signup' element={<SignUpPage/>}/>
           </Routes>
         </BrowserRouter>
     </div>

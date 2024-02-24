@@ -143,6 +143,26 @@ flex-direction: column;
 align-items: flex-start;
 gap: 30px 0;
 }
+.register-dropdown {
+    width: 100%; /* Adjust width as needed */
+    height: 31px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: sans-serif;
+    color: #b9b9b9;
+
+    cursor: pointer;
+    position: relative;
+    text-align: left;
+}
+
+.register-dropdown option {
+    background-color: white;
+    color: #b9b9b9;
+}
 
 .login {
     position: relative;
@@ -154,25 +174,40 @@ gap: 30px 0;
     }
     
     .frame-email-address,
-    .text-password {
+    .text-password,
+    .text-password2 {
     align-self: stretch;
     display: flex;
     align-items: center;
     }
     
     .text-password {
-    cursor: pointer;
-    border: 0;
-    padding: 13px 15px;
-    background-color: #52d1dc;
-    border-radius: 10px;
-    flex-direction: row;
-    justify-content: center;
+        cursor: pointer;
+        border: 0;
+        padding: 13px 15px;
+        background-color: #52d1dc;
+        border-radius: 10px;
+        flex-direction: row;
+        justify-content: center;
     }
+    .text-password2 {
+        cursor: pointer;
+        border: 0;
+        padding: 13px 15px;
+        background-color: #FABC2A;
+        border-radius: 10px;
+        flex-direction: row;
+        justify-content: center;
+    }
+   
     
     .text-password:hover {
     background-color: #1f9ea8;
     }
+    .text-password2:hover {
+        background-color: #ffb300;
+    }
+    
     
     .frame-email-address {
     flex-direction: column;
