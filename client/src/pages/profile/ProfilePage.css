@@ -78,4 +78,48 @@
     width: 60%;
     border-radius: 50%
 }
+.container-profilepage-stats{
+    display: flex;
+    margin-left: 15%;
+}
+.profilepage-stats-achievements{
+    width: 671px;
+    height: 500px;
+    margin-right: 50px;
+    margin-bottom: 30px;
+    /* flex-shrink: 0; */
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 
+    
+}
+.stats-header{
+    background-color: #FF5E5B;
+    padding: 30px;
+    color: var(--Text-Colours-Primary-Text-color, #002E88);
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 125%; 
+    border-radius: 10px 10px 0 0;
+
+}
+.achievements-header{
+    background-color: #52D1DC;
+    padding: 30px;
+    color: var(--Text-Colours-Primary-Text-color, #002E88);
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 125%; 
+    border-radius: 10px 10px 0 0;
+}
+.lessonsCompletion-stats{
+    padding: 20px;
+}
+.lessonsCompletion-stats .stats-text{
+    color: #002E88;
+    font-size: 25px;
+    padding: 10px;
+    font-weight: 500;
+}

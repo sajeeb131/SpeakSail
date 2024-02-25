@@ -50,7 +50,7 @@ const ProfilePage = () => {
                     <img className='userphoto-image' src={userphoto} alt=""/>
                 </div>
                 <div className="photoUploadButton">
-                    <img className='userphoto-uploadImage' src={upload} alt="" />
+                    <a href=""><img className='userphoto-uploadImage' src={upload} alt="" /></a>
                 </div>
             </div>
         </div>
@@ -66,6 +66,31 @@ const ProfilePage = () => {
             </div>
             <div className="achievements-fourthAchievement">
             <img className='achievements-image' src={badgereading} alt="" />
+            </div>
+        </div>
+        <div className="container-profilepage-stats">
+            <div className="profilepage-stats-achievements">
+                <div className="stats-header">
+                    <h1 className='stats-headerText'>Stats</h1>
+                </div>
+                <div className="lessonsCompletion-stats">
+                    <h3 className='stats-text'>Sentence Dictations:</h3>
+                    <h3 className='stats-text'>Question and Answer:</h3>
+                    <h3 className='stats-text'>Poems:</h3>
+                    <h3 className='stats-text'>Storytelling:</h3>
+                    <h3 className='stats-text'>Digital Story boarding:</h3>
+                    <h3 className='stats-text'>Picture Description:</h3>
+                    <h3 className='stats-text'>Chain Story:</h3>
+                </div>
+            </div>
+            <div className="profilepage-stats-achievements">
+                <div className="achievements-header">
+                    <h1 className='stats-headerText'>Achievements</h1>
+                </div>
+                <div className="profilepage-achievements">
+                    
+                </div>
+
             </div>
         </div>
         <Footer></Footer>
