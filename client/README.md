@@ -2,10 +2,10 @@
 
 / - landing page
 /home - home page
-/lessons/listening-main - listening main page
-/lessons/writing-main - writing main page
-/lessons/speaking-main - speaking main page
-/listening/sentence-dictation - sentence dictation page
+/lessons/listening - listening main page
+/lessons/writing - writing main page
+/lessons/speaking - speaking main page
+/lessons/listening/sentence-dictation - sentence dictation page
 /listening/QA - question & answer page
 /503 - service unavailable page
 

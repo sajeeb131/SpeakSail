@@ -35,13 +35,13 @@ function App() {
 
           {/* lessons main routes */}
           <Routes>
-            <Route path='/lessons/listening-main' element={<ListeningMain/>}/>
+            <Route path='/lessons/listening' element={<ListeningMain/>}/>
           </Routes>
           <Routes>
-            <Route path='/lessons/writing-main' element={<WritingMain/>}/>
+            <Route path='/lessons/writing' element={<WritingMain/>}/>
           </Routes>
           <Routes>
-            <Route path='/lessons/reading-main' element={<ReadingMain/>}/>
+            <Route path='/lessons/reading' element={<ReadingMain/>}/>
           </Routes>
           <Routes>
             <Route path='/profile/ProfilePage' element={<ProfilePage/>}/>
@@ -62,7 +62,7 @@ function App() {
 
           {/* listening-lessons pages */}
           <Routes>
-            <Route path='/listening/sentence-dictation' element={<SentenceDictation/>}/>
+            <Route path='/lessons/listening/sentence-dictation' element={<SentenceDictation/>}/>
           </Routes>
 
         </BrowserRouter>
