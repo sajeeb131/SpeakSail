@@ -12,6 +12,7 @@ import Dashboard from './pages/teachers/dashboard/Dashboard';
 import ProfilePage from './pages/profile/ProfilePage';
 import LoginPage from './pages/login/LoginPage';
 import SignUpPage from './pages/signup/SignUpPage';
+import SentenceDictation from './pages/listening/SentenceDictation';
 
 function App() {
   return (
@@ -58,6 +59,12 @@ function App() {
           <Routes>
             <Route path='/signup' element={<SignUpPage/>}/>
           </Routes>
+
+          {/* listening-lessons pages */}
+          <Routes>
+            <Route path='/listening/sentence-dictation' element={<SentenceDictation/>}/>
+          </Routes>
+
         </BrowserRouter>
     </div>
   );
