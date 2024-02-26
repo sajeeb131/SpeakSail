@@ -8,6 +8,14 @@ const InitialNav = () => {
     const onClick = () =>{
         navigate('/')
     }
+    const handleClickLogin = () => {
+        navigate('/login');
+    };
+
+    const handleClickSignup = () => {
+        navigate('/signup');
+    };
+
   return (
     <>
         <div className='navbar'>
@@ -22,8 +30,8 @@ const InitialNav = () => {
                 <li><Link to="/about-us">About us</Link></li>
             </ul>
             <div className='buttons'>
-                <button className='btn login-btn'>Login</button>
-                <button className='btn signup-btn'>Signup</button>
+                <button className='btn login-btn' onClick={handleClickLogin}>Login</button>
+                <button className='btn signup-btn' onClick={handleClickSignup}>Signup</button>
             </div>
         </div>
     </>

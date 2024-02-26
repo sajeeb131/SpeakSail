@@ -12,6 +12,7 @@ import Dashboard from './pages/teachers/dashboard/Dashboard';
 import ProfilePage from './pages/profile/ProfilePage';
 import LoginPage from './pages/login/LoginPage';
 import SignUpPage from './pages/signup/SignUpPage';
+import SentenceDictation from './pages/listening/SentenceDictation';
 
 function App() {
   return (
@@ -34,13 +35,13 @@ function App() {
 
           {/* lessons main routes */}
           <Routes>
-            <Route path='/lessons/listening-main' element={<ListeningMain/>}/>
+            <Route path='/lessons/listening' element={<ListeningMain/>}/>
           </Routes>
           <Routes>
-            <Route path='/lessons/writing-main' element={<WritingMain/>}/>
+            <Route path='/lessons/writing' element={<WritingMain/>}/>
           </Routes>
           <Routes>
-            <Route path='/lessons/reading-main' element={<ReadingMain/>}/>
+            <Route path='/lessons/reading' element={<ReadingMain/>}/>
           </Routes>
           <Routes>
             <Route path='/profile/ProfilePage' element={<ProfilePage/>}/>
@@ -58,6 +59,12 @@ function App() {
           <Routes>
             <Route path='/signup' element={<SignUpPage/>}/>
           </Routes>
+
+          {/* listening-lessons pages */}
+          <Routes>
+            <Route path='/lessons/listening/sentence-dictation' element={<SentenceDictation/>}/>
+          </Routes>
+
         </BrowserRouter>
     </div>
   );
