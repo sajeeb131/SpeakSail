@@ -1,12 +1,16 @@
 import React from 'react'
 import { useState } from 'react'
-import Navbar from '../../components/Navbar'
 import { Link } from 'react-router-dom'
+import AudioPlayer from 'react-h5-audio-player'
+import 'react-h5-audio-player/lib/styles.css'
 import {MdClose} from 'react-icons/md'
 import { AiOutlineSound } from "react-icons/ai";
-import './ListeningStyle.css'
-import Footer from '../../components/Footer'
 
+import './ListeningStyle.css'
+import './AudioPlayer.css'
+import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
+import audio from '../../assets/audio/sample-6s.mp3'
 const SentenceDictation = () => {
   const [progress, setProgress] = useState(30);
   const progressStyle = {
@@ -41,12 +45,17 @@ const SentenceDictation = () => {
                   <h1>Sentence Dictation</h1>
                   <div className="sd-middle">
                     <AiOutlineSound size={28} color='blue'/>
-                    <h2>recording goes here</h2>
+                    <AudioPlayer
+                      
+                      src={audio}
+                      onPlay={e => console.log("onPlay")}
+                      // other props here
+                    />
                     
                   </div>
                   <div className='sd-bottom'>
                       
-                      <textarea name="" id="" cols="30" rows="6" maxLength={400} placeholder={placeholder} onClick={handleClick}></textarea>
+                      <textarea name="" id="" cols="50" rows="6" maxLength={400} placeholder={placeholder} onClick={handleClick}></textarea>
                     </div>
               </div>
               </div>

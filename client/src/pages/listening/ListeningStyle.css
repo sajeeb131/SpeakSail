@@ -78,7 +78,7 @@
 .sd-bottom textarea{
     display: flex;
     
-    padding: 1px 150px 22px 9px;
+    padding: 20px 20px 20px 20px;
     align-items: center;
 
     border-radius: 10px;
@@ -87,14 +87,20 @@
     width: calc(100% - 20px);
     height: 100px;
     resize: none;
-}
-.sd-bottom textarea::placeholder{
-    font-size: 30px;
+    font-size: 20px;
 }
 .sd-bottom textarea:focus{
-    padding-top: 20px;
-    padding-left: 25px;
+    border: none;
+    outline: none;
+
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+.sd-bottom textarea::placeholder{
     font-size: 20px;
+}
+.sd-bottom textarea:focus{
+    
+    
     
 }
 .sd-main h1{

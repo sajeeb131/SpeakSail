@@ -67,13 +67,13 @@ const HomePage = () => {
                 <h1>Lessons</h1>
             </div>
             <div className='container-homepage-lessons-half'>
-                <div className='container-homepage-lessons-indv' id='listening' >
+                <Link to="/lessons/listening" className='container-homepage-lessons-indv' id='listening' >
 
                     <h2>Listening</h2>
                     <div className='container-homepage-progress-bar-line'>
                         <div className="progress-bar listening" style={{ ...progressStyles.listening, backgroundColor: '#FABC2A;' }} ></div>
                     </div>
-                </div>
+                </Link>
                 <div className='container-homepage-lessons-indv' id='speaking'>
                     <h2>Speaking</h2>
                     <div className='container-homepage-progress-bar-line'>
