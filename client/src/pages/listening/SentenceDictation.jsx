@@ -11,15 +11,10 @@ import './AudioPlayer.css'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import audio from '../../assets/audio/sample-6s.mp3'
+import ProgressBar from '../../components/progress-bar/ProgressBar'
 const SentenceDictation = () => {
-  const [progress, setProgress] = useState(30);
-  const progressStyle = {
-    width: `${progress}%`
-  };
   
-  const incrementProgress = () => {
-    setProgress(progress + 0);
-  };
+  const [progressPercentage, setProgress] = useState(40);
 
   const [placeholder, setPlaceholder] = useState('Start Writing...');
 
@@ -38,18 +33,15 @@ const SentenceDictation = () => {
               
               <Link><MdClose size={28}/></Link>
               <div className='container-sd-main'>
-                <div className='container-pb-main'>
-                  <div className='container-pb-line'style={progressStyle}></div>
-                </div>
+                {/*  */}
+                <ProgressBar progress={progressPercentage}/>
                 <div className="sd-main">
                   <h1>Sentence Dictation</h1>
                   <div className="sd-middle">
                     <AiOutlineSound size={28} color='blue'/>
                     <AudioPlayer
-                      
                       src={audio}
                       onPlay={e => console.log("onPlay")}
-                      // other props here
                     />
                     
                   </div>

@@ -32,28 +32,7 @@
     align-items: flex-start;
     justify-content: flex-start;
 }
-.container-pb-main{
-    margin-left: 80px;
-    width: 1200px;
-    height: 28px;
-    flex-shrink: 0;
-    border-radius: 30px;
-    background: #E7E7E7;
-    position: relative;
-    cursor: none;
-}
-.container-pb-line{
-    height: 100%;
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 0; 
-    transition: width 0.5s ease; 
-    border-radius: 30px;
-    background: #93FF96;
-    cursor: none;
-
-}
+/*  */
 .sd-main{
     margin: 0px 80px;
     
