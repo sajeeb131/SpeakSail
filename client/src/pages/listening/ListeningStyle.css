@@ -34,7 +34,7 @@
 }
 /*  */
 .sd-main{
-    margin: 0px 80px;
+    margin: 0px 110px;
     
     margin-top: 25px;
     margin-bottom: 80px;
@@ -57,7 +57,7 @@
 .sd-bottom textarea{
     display: flex;
     
-    padding: 20px 20px 20px 20px;
+    padding: 10px 10px 10px 10px;
     align-items: center;
 
     border-radius: 10px;
@@ -89,10 +89,10 @@
     font-size: 40px;
     font-style: normal;
     font-weight: 700;
-    line-height: 125%; /* 50px */
+    line-height: 125%; 
 }
 .container-sd-button{
-    margin: 40px 0px;
+    margin: 28px 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -125,8 +125,8 @@
     line-height: 125%; 
 }
 .sd-horizontal-line {
-    border: none; /* Remove default border */
-    border-top: 1px solid #0f0f0f; /* Add top border */
+    border: none; 
+    border-top: 1px solid #0f0f0f; 
     
-    width: 100%; /* Ensure the line spans the entire width */
+    width: 100%; 
   }

@@ -31,7 +31,7 @@ const SentenceDictation = () => {
           <div className='container-pb-full'>
             <div className='container-pb'>
               
-              <Link><MdClose size={28}/></Link>
+              
               <div className='container-sd-main'>
                 {/*  */}
                 <ProgressBar progress={progressPercentage}/>

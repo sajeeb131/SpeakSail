@@ -1,3 +1,9 @@
+
+.container-pbar{
+    display: flex;
+    flex-direction: row;
+
+}
 .container-pb-main{
     margin-left: 80px;
     width: 1200px;
