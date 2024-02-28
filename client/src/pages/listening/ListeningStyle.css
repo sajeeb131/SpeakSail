@@ -130,3 +130,76 @@
     
     width: 100%; 
   }
+
+  /* QA page css */
+
+  .container-qa{
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    margin-top: 40px;
+  }
+  .qa-main{
+    
+    display: flex;
+    flex-direction: column;
+   
+  }
+  .qa-top{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 30px 110px 50px;
+    row-gap: 20px;
+  }
+  .qa-top h1{
+    color: #002E88;
+    color: var(--Text-Colours-Primary-Text-color, #002E88);
+    font-family: Urbanist;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%; /* 50px */
+  }
+  .qa-top-r{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 629px;
+  }
+  .qa-middle{
+    margin-left: 155px;
+  }
+  .qa-middle-q{
+    margin-bottom: 28px;
+  }
+  .qa-middle p{
+    color: #000;
+    font-family: Urbanist;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 125%; /* 37.5px */
+  }
+  .qa-middle textarea{
+    display: flex;
+    margin-top: 10px;
+    padding: 10px 10px 10px 10px;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid #002E88;
+    
+    resize: none;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid #002E88;
+  }
+  .qa-middle textarea:focus{
+    border: none;
+    outline: none;
+
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  }
+

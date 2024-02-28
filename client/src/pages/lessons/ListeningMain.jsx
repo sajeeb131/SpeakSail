@@ -24,7 +24,7 @@ const ListeningMain = () => {
                 
             </Link>
             
-            <Link className='listeningMain-section-half' to='/503'>
+            <Link className='listeningMain-section-half' to='QA'>
                 <div className="listeningMain-section-half-left">
                     <h2>Question and Answer</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>

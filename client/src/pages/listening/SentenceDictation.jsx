@@ -1,9 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
-import {MdClose} from 'react-icons/md'
 import { AiOutlineSound } from "react-icons/ai";
 
 import './ListeningStyle.css'
@@ -48,7 +46,7 @@ const SentenceDictation = () => {
                   <div className='sd-bottom'>
                       
                       <textarea name="" id="" cols="50" rows="6" maxLength={400} placeholder={placeholder} onClick={handleClick}></textarea>
-                    </div>
+                  </div>
               </div>
               </div>
               
