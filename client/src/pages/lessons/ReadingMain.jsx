@@ -13,7 +13,7 @@ const ListeningMain = () => {
       <div className='container-listeningMain'>
         <div className='listeningMain-header'> <h1>Reading Lessons</h1></div>
         <div className="listeningMain-section"> 
-            <Link className='listeningMain-section-half' to="/503">
+            <Link className='listeningMain-section-half' to="/lessons/reading/Comprehension">
                 <div className="listeningMain-section-half-left">
                     <h2>Comprehension</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>

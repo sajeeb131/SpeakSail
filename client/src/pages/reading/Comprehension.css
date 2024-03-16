@@ -1,0 +1,72 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.container-pbar{
+    display: flex;
+    justify-content: center;
+}
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.container h1{
+    color: #002E88;
+    font-family: 'Urbanist';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%
+}
+.container p {
+    margin-bottom: 20px;
+    color: #2D2D2D;
+    font-family: 'Urbanist';
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 125%;
+}
+
+form {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    font: 'Urbanist';
+}
+form input{
+    width: 17px; /* Set width and height to make it larger */
+    height: 17px;
+    border-radius: 50%; /* Make it round */
+    border: 2px solid #000; /* Example border style */
+    display: inline-block;
+    margin-right: 10px;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+.btn-submit{
+    font-family: 'Urbanist';
+    color: #002E88;
+    background-color: #93FF96;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    padding: 15px 39px;
+    border-radius: 10px;
+    line-height: 125%;
+    margin-left: 200px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+.bottom-tag{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}

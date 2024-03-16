@@ -13,7 +13,9 @@ import ProfilePage from './pages/profile/ProfilePage';
 import LoginPage from './pages/login/LoginPage';
 import SignUpPage from './pages/signup/SignUpPage';
 import SentenceDictation from './pages/listening/SentenceDictation';
-import QuestionAnswer from './pages/listening/QuestionAnswer'
+import QuestionAnswer from './pages/listening/QuestionAnswer';
+import Comprehension from './pages/reading/Comprehension';
+
 function App() {
   return (
     <div className="App">       
@@ -66,6 +68,9 @@ function App() {
           </Routes>
           <Routes>
             <Route path='/lessons/listening/QA' element={<QuestionAnswer/>}/>
+          </Routes>
+          <Routes>
+            <Route path='/lessons/reading/Comprehension' element={<Comprehension/>}/>
           </Routes>
 
         </BrowserRouter>
