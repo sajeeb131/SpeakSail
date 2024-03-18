@@ -15,7 +15,7 @@ import SignUpPage from './pages/signup/SignUpPage';
 import SentenceDictation from './pages/listening/SentenceDictation';
 import QuestionAnswer from './pages/listening/QuestionAnswer';
 import Comprehension from './pages/reading/Comprehension';
-
+import Storytelling from './pages/speaking/Storytelling';
 function App() {
   return (
     <div className="App">       
@@ -71,6 +71,9 @@ function App() {
           </Routes>
           <Routes>
             <Route path='/lessons/reading/Comprehension' element={<Comprehension/>}/>
+          </Routes>
+          <Routes>
+              <Route path='/lessons/speaking/storytelling' element={<Storytelling/>}/>
           </Routes>
 
         </BrowserRouter>
