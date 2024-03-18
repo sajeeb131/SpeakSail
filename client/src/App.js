@@ -15,6 +15,7 @@ import SignUpPage from './pages/signup/SignUpPage';
 import SentenceDictation from './pages/listening/SentenceDictation';
 import QuestionAnswer from './pages/listening/QuestionAnswer';
 import Comprehension from './pages/reading/Comprehension';
+import VocabTreasure from './pages/vocab-treasure/VocabTreasure';
 
 function App() {
   return (
@@ -71,6 +72,11 @@ function App() {
           </Routes>
           <Routes>
             <Route path='/lessons/reading/Comprehension' element={<Comprehension/>}/>
+          </Routes>
+
+          {/* Extra features */}
+          <Routes>
+            <Route path='/vocab-treasure/VocabTreasure' element={<VocabTreasure/>}/>
           </Routes>
 
         </BrowserRouter>
