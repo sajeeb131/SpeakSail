@@ -5,6 +5,7 @@
 /lessons/listening - listening main page
 /lessons/writing - writing main page
 /lessons/speaking - speaking main page
+/lessons/speaking/storytelling - storytelling page
 /lessons/listening/sentence-dictation - sentence dictation page
 /listening/QA - question & answer page
 /503 - service unavailable page
