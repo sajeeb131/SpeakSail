@@ -25,5 +25,8 @@ const DailyMission = () => {
             </section>
 
         </div>
-    )
-}
+    );
+};
+
+
+export default DailyMission;
