@@ -70,6 +70,46 @@ const VocabTreasure = () => {
                         </div>
                     </div>
 
+                    {/* box 2 */}
+                    <div className="meaning">
+                        <div className="word-meaning">
+                            <div className="word">
+                                <div className="parts-of-speech">
+                                    <span className="word-name">{`altas `}</span>
+                                    <i className="noun">(noun)</i>
+                                </div>
+                            </div>
+
+                            <div className="speaker">
+                                <img
+                                className="speaker-icon"
+                                loading="lazy"
+                                alt=""
+                                src={Volume}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="meaning-of-the-word">
+                            <ol className="meaning-of-the-word-order">
+                                <li className="meaning-of-the-word-list">
+                                    <span>
+                                        <span>a book of maps</span>
+                                    </span>
+                                </li>
+                            </ol>
+                            <p className="example-container">
+                                <span>
+                                    <span>{`       `}</span>
+                                    <span className="example">{`“The class tried to find Bangladesh in the `}</span>
+                                </span>
+                                <span className="main-word">
+                                    <i className="accident">atlas.”</i>
+                                </span>
+                            </p>
+                            
+                        </div>
+                    </div>
                    
                 </div>
             </div>
