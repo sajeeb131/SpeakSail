@@ -41,4 +41,110 @@ body {
     letter-spacing: normal;
   }
 
+@media screen and (max-width: 750px) {
+    .whole-container {
+        gap: 28px 57px;
+    }
+}
+
+.daily {
+    margin: 0;
+    position: relative;
+    font-size: inherit;
+    line-height: 63px;
+    font-weight: 600;
+    font-family: inherit;
+}
+
+.daily-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 17px 0 0;
+}
+
+.mission {
+    position: relative;
+    font-size: 50px;
+    line-height: 63px;
+    font-weight: 600;
+    font-family: Urbanist;
+    color: #002e88;
+    text-align: left;
+}
+
+.heading,
+.lesson-heading,
+.mission-heading {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.mission-heading {
+    border: 0;
+    padding: 17px 24px;
+    background-color: #52D1DC;
+    border-radius: 10px;
+    overflow: hidden;
+    justify-content: flex-start;
+}
+
+.heading,
+.lesson-heading {
+  max-width: 100%;
+}
+
+.heading {
+    justify-content: flex-start;
+    gap: 5px;
+}
+  .lesson-heading {
+    align-self: stretch;
+    justify-content: center;
+    padding: 0 20px 0 24px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 50px;
+    color: #002e88;
+    font-family: Urbanist;
+}
+
+@media screen and (max-width: 1050px) {
+    .treasure,
+    .vocab {
+      font-size: 40px;
+      line-height: 50px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .treasure,
+    .vocab {
+      font-size: 30px;
+      line-height: 37px;
+    }
+    .heading {
+      flex-wrap: wrap;
+    }
+}
+
+.main-section {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
+}
+
+.task-instruction {
+    color: #000;
+    font-family: Urbanist;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 125%; /* 37.5px */
+}
+
+
 

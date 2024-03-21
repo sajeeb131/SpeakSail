@@ -20,6 +20,14 @@ const DailyMission = () => {
                                 <div className="mission">Mission</div>
                             </div>
                         </div>
+
+                        {/* Main Section */}
+                        <div className="main-section">
+                            <div className="task-instruction">
+                                <h4>Complete the following sentence by using the correct word.</h4>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
