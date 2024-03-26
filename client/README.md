@@ -8,6 +8,7 @@
 /lessons/speaking/storytelling - storytelling page
 /lessons/listening/sentence-dictation - sentence dictation page
 /listening/QA - question & answer page
+/lessons/PictureDescription - Picture Description
 /503 - service unavailable page
 
 

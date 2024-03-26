@@ -1,0 +1,75 @@
+.container-pd{
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    margin-top: 40px;
+}
+.pd-main{
+
+display: flex;
+flex-direction: column;
+}
+.pd-top {
+display: flex; /* Maintains flexbox layout */
+flex-direction: column; /* Keeps h1 and p stacked vertically */
+align-items: flex-start; /* Maintains left alignment */
+margin: 30px 110px 50px; /* Adjust margins as needed */
+row-gap: 20px; /* Spacing between elements */
+flex-wrap: wrap; /* Allows content to wrap if necessary */
+}
+.pd-top-image{
+display: flex;
+flex-direction: column;
+align-self: center;
+}
+
+.pd-top h1 {
+color: #002E88;
+font-family: Urbanist;
+font-size: 40px;
+font-weight: 700;
+line-height: 125%;
+max-width: 70%; /* Adjust as needed to limit h1 width */
+}
+.qa-top-r{
+display: flex;
+flex-direction: row;
+align-items: center;
+gap: 20px;
+width: 629px;
+}
+.pd-middle{
+margin-left: 155px;
+}
+.qa-middle-q{
+margin-bottom: 28px;
+}
+.qa-middle p{
+color: #000;
+font-family: Urbanist;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 125%; /* 37.5px */
+}
+.qa-middle textarea{
+display: flex;
+margin-top: 10px;
+padding: 10px 10px 10px 10px;
+align-items: center;
+border-radius: 10px;
+border: 1px solid #002E88;
+
+resize: none;
+font-size: 20px;
+border-radius: 10px;
+border: 1px solid #002E88;
+}
+.qa-middle textarea:focus{
+border: none;
+outline: none;
+
+box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
