@@ -21,7 +21,7 @@ flex-wrap: wrap; /* Allows content to wrap if necessary */
 display: flex;
 flex-direction: column;
 align-self: center;
-width: 800px;
+width: 680px;
 }
 
 .pd-top h1 {
@@ -58,10 +58,10 @@ width: 1000px;
     font-weight: 450;
     line-height: 125%; /* 50px */
 }
-.middle-submit{
-    /* display: flex;
-    align-self: flex-end; */
-}
+/* .middle-submit{
+    display: flex;
+    align-self: flex-end;
+} */
 .pd-middle .btn-submit{
     display: inline-flex;
     padding: 15px 39px;
