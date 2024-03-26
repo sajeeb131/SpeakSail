@@ -6,7 +6,6 @@
     margin-top: 40px;
 }
 .pd-main{
-
 display: flex;
 flex-direction: column;
 }
@@ -22,6 +21,7 @@ flex-wrap: wrap; /* Allows content to wrap if necessary */
 display: flex;
 flex-direction: column;
 align-self: center;
+width: 800px;
 }
 
 .pd-top h1 {
@@ -30,46 +30,49 @@ font-family: Urbanist;
 font-size: 40px;
 font-weight: 700;
 line-height: 125%;
-max-width: 70%; /* Adjust as needed to limit h1 width */
+max-width: 70%;
 }
-.qa-top-r{
-display: flex;
-flex-direction: row;
-align-items: center;
-gap: 20px;
-width: 629px;
-}
-.pd-middle{
-margin-left: 155px;
-}
-.qa-middle-q{
-margin-bottom: 28px;
-}
-.qa-middle p{
-color: #000;
-font-family: Urbanist;
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-line-height: 125%; /* 37.5px */
-}
-.qa-middle textarea{
-display: flex;
-margin-top: 10px;
-padding: 10px 10px 10px 10px;
-align-items: center;
-border-radius: 10px;
-border: 1px solid #002E88;
 
-resize: none;
-font-size: 20px;
-border-radius: 10px;
-border: 1px solid #002E88;
+.pd-middle{
+    align-self: center;
+    margin-bottom: 50px;
 }
-.qa-middle textarea:focus{
+
+.pd-middle textarea{
+display: flex;
+margin-top: 115px;
+margin-bottom: 40px;
+padding: 20px 20px 20px 20px;
+align-items: center;
+border-radius: 10px;
+resize: none;
+font-size: 30px;
+border: 2px solid #002E88;
+width: 1000px;
+}
+.pd-middle textarea::placeholder{
+    color: #A4A4A4;
+    font-family: Urbanist;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 450;
+    line-height: 125%; /* 50px */
+}
+.middle-submit{
+    /* display: flex;
+    align-self: flex-end; */
+}
+.pd-middle .btn-submit{
+    display: inline-flex;
+    padding: 15px 39px;
+    align-items: flex-end;
+    gap: 19px;
+    margin-left: 83.8%;
+    border: none;
+}
+.pd-middle textarea:focus{
 border: none;
 outline: none;
-
 box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
 
