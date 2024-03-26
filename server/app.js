@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require('mongoose')
 
 //routes
-
+const userRoute = require('./routes/user-route')
 
 //middleware
 app.use(express.json())
@@ -15,6 +15,8 @@ app.use(express.json())
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
+app.use('/user', userRoute); 
+
 
 
 //mongoDB connection
