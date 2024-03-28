@@ -18,6 +18,7 @@ import Comprehension from './pages/reading/Comprehension';
 import Storytelling from './pages/speaking/Storytelling';
 import VocabTreasure from './pages/vocab-treasure/VocabTreasure';
 import DailyMission from './pages/daily-mission/DailyMission';
+import PictureDescription from './pages/writing/PictureDescription';
 import LessonsTable from './pages/lessons-table/LessonsTable'
 
 function App() {
@@ -78,6 +79,9 @@ function App() {
           </Routes>
           <Routes>
               <Route path='/lessons/speaking/storytelling' element={<Storytelling/>}/>
+          </Routes>
+          <Routes>
+            <Route path='/lessons/PictureDescription' element={<PictureDescription/>}/>
           </Routes>
 
           {/* Extra features */}
