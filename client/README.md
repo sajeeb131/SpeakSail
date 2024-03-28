@@ -7,7 +7,8 @@
 /lessons/speaking - speaking main page
 /lessons/speaking/storytelling - storytelling page
 /lessons/listening/sentence-dictation - sentence dictation page
-/listening/QA - question & answer page
+/lessons/listening/QA - question & answer page
+/lessons-table - this page should not be accessable through url
 /503 - service unavailable page
 
 

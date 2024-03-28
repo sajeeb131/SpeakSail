@@ -18,6 +18,7 @@ import Comprehension from './pages/reading/Comprehension';
 import Storytelling from './pages/speaking/Storytelling';
 import VocabTreasure from './pages/vocab-treasure/VocabTreasure';
 import DailyMission from './pages/daily-mission/DailyMission';
+import LessonsTable from './pages/lessons-table/LessonsTable'
 
 function App() {
   return (
@@ -85,6 +86,11 @@ function App() {
           </Routes>
           <Routes>
             <Route path='/daily-mission/DailyMission' element={<DailyMission/>}/>
+          </Routes>
+
+          {/* lessons table */}
+          <Routes>
+            <Route path='/lessons-table' element={<LessonsTable/>}/>
           </Routes>
 
         </BrowserRouter>
