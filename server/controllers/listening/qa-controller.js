@@ -60,8 +60,8 @@ const getAnswersByLesson = async (req, res) => {
 };
 const getAnswersByStudentID = async (req, res) => {
     try {
-      const lessonNumber = req.params.studentID;
-      const answer = await ListeningQA_Answers.find({ lessonNumber });
+      const studentID = req.params.studentID;
+      const answer = await ListeningQA_Answers.find({ studentID });
       res.json(answer);
     } catch (err) {
       console.error(err);

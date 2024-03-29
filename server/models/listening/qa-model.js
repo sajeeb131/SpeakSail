@@ -31,7 +31,7 @@ const listeningQAAnswerSchema = new mongoose.Schema({
   },
   feedback: {
     type: Boolean,
-    required: true,
+    required: false,
   },
 });
 
