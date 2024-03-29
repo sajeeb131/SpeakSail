@@ -21,7 +21,7 @@ const listeningQAAnswerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  userID: {
+  studentID: {
     type: String,
     required: true,
   },

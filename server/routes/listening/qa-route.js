@@ -6,10 +6,11 @@ const router = express.Router();
 // Lesson routes
 router.post('/qa', listeningQA.createLesson);
 router.get('/qa', listeningQA.getLessons);
-router.get('/qa/:id', listeningQA.getLessonByNumber);
+router.get('/qa/:lessonNumber', listeningQA.getLessonByNumber);
 
 // Answer routes
-router.post('/qa/:lessonNumber/answers', listeningQA.createAnswers);
+router.post('/qa/answer', listeningQA.createAnswers);
 router.get('/qa/:lessonNumber/answers', listeningQA.getAnswersByLesson);
+router.get('/qa/:studentID/answers', listeningQA.getAnswersByLesson);
 
 module.exports = router;

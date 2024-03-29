@@ -37,13 +37,11 @@ const getLessonByNumber = async (req, res) => {
 
 const createAnswers = async (req, res) => {
   try {
-    const lessonNumber = req.params.lessonNumber;
-    const newAnswers = new ListeningQA_Answers({
-      lessonNumber,
+    const newAnswer = new ListeningQA_Answers({
       ...req.body,
     });
-    await newAnswers.save();
-    res.status(201).json(newAnswers);
+    await newAnswer.save();
+    res.status(201).json(newAnswer);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Error creating answers' });
@@ -60,5 +58,15 @@ const getAnswersByLesson = async (req, res) => {
     res.status(500).json({ message: 'Error retrieving answers' });
   }
 };
+const getAnswersByStudentID = async (req, res) => {
+    try {
+      const lessonNumber = req.params.studentID;
+      const answer = await ListeningQA_Answers.find({ lessonNumber });
+      res.json(answer);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Error retrieving answers' });
+    }
+  };
 
-module.exports = {getAnswersByLesson, createAnswers, getLessonByNumber, getLessons, createLesson}
+module.exports = {getAnswersByLesson, createAnswers, getLessonByNumber, getLessons, createLesson, getAnswersByStudentID}
