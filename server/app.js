@@ -3,19 +3,26 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
 
-//routes
-const userRoute = require('./routes/user-route')
-
+//routes imports
+const studentRoute = require('./routes/user/student-route')
+const teacherRoute = require('./routes/user/teacher-route')
+const qaRoute = require('./routes/listening/qa-route')
 //middleware
 app.use(express.json())
 
 
 
-// Define routes
+//main routes
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
-app.use('/user', userRoute); 
+
+app.use('/student', studentRoute); 
+// app.use('/teacher', teacherRoute);
+
+app.use('/lessons/listening',qaRoute)
+
+
 
 
 

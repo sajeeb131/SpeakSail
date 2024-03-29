@@ -1,4 +1,4 @@
-const User = require('../models/user-model');
+const User = require("../../models/user/student-model");
 const jwt = require('jsonwebtoken');
 
 const createToken = (_id) => {
@@ -17,7 +17,7 @@ const loginUser = async (req, res) => {
 
     const isMatch = await user.comparePassword(password); 
     if (!isMatch) {
-      throw new Error('Invalid email or password');
+      throw new Error('Password did not match');
     }
 
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, private');
