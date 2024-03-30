@@ -1,18 +1,30 @@
 const mongoose =  require('mongoose')
 
-const listeningSenDictSchema = new mongoose.Schema({
+const readingComprehensionSchema = new mongoose.Schema({
     lessonNumber:{
         type: String,
         required: true,
         unique: true,
     },
-    audioFilePath:{
+    passage: {
         type: String,
+        required: true,
+    },
+    question: {
+        type: String,
+        required: true,
+    },
+    answer:{
+        type: String,
+        required: true,
+    },
+    options:{
+        type: [String],
         required: true,
     }
 });
 
-const listeningSenDictAnswerSchema = new mongoose.Schema({
+const readingComprehensionAnswerSchema = new mongoose.Schema({
     lessonType:{
         type: String,
         required: true,
@@ -36,6 +48,6 @@ const listeningSenDictAnswerSchema = new mongoose.Schema({
 });
 
 module.exports = {
-    ListeningSenDict: mongoose.model('ListeningSentenceDictation', listeningSenDictSchema),
-    ListeningSenDict_Answers: mongoose.model('ListeningSentenceDictation_Answers',listeningSenDictAnswerSchema),
+    ReadingComprehension: mongoose.model('readingComprehension', readingComprehensionSchema),
+    ReadingComprehension_answers: mongoose.model('readingComprehension_answers',readingComprehensionAnswerSchema),
 };
