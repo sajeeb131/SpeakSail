@@ -7,6 +7,7 @@ import HomePage from './pages/home/HomePage';
 import ListeningMain from './pages/lessons/ListeningMain';
 import WritingMain from './pages/lessons/WritingMain';
 import ReadingMain from './pages/lessons/ReadingMain';
+import SpeakingMain from './pages/lessons/speakingMain'
 import Status503 from './pages/Status/Status503';
 import Dashboard from './pages/teachers/dashboard/Dashboard';
 import ProfilePage from './pages/profile/ProfilePage';
@@ -39,6 +40,7 @@ function App() {
           <Route path='/lessons/listening' element={<ListeningMain />} />
           <Route path='/lessons/writing' element={<WritingMain />} />
           <Route path='/lessons/reading' element={<ReadingMain />} />
+          <Route path='/lessons/speaking' element={<SpeakingMain />} />
           
           {/* Profile page route */}
           <Route path='/profile' element={<ProfilePage />} />

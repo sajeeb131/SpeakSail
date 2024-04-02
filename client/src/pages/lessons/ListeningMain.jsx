@@ -18,7 +18,7 @@ const ListeningMain = () => {
       <div className='container-listeningMain'>
         <div className='listeningMain-header'> <h1>Listening Lessons</h1></div>
         <div className="listeningMain-section"> 
-            <div className='listeningMain-section-half' onClick={()=>handleLinkClick('Sentence Dictation')}>
+            <div className='listeningMain-section-half' onClick={()=>handleLinkClick('sentence-dictation')}>
                 <div className="listeningMain-section-half-left">
                     <h2>Sentence Dictation</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
@@ -29,7 +29,7 @@ const ListeningMain = () => {
                 
             </div>
             
-            <div className='listeningMain-section-half' onClick={()=>handleLinkClick('Question/Answer')}>
+            <div className='listeningMain-section-half' onClick={()=>handleLinkClick('qa')}>
                 <div className="listeningMain-section-half-left">
                     <h2>Question and Answer</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>

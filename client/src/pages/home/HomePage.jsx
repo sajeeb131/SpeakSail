@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import './HomePage.css'
@@ -32,6 +32,10 @@ const HomePage = () => {
             width: `${writingProgress}%`
         }
     };
+    const navigate = useNavigate();
+    const clickLessonLink = (lesson)=>{
+        navigate(`/lessons/${lesson}`)
+    }
     
     useEffect(()=>{
         const fetchData = async()=>{
@@ -91,14 +95,14 @@ const HomePage = () => {
                 <h1>Lessons</h1>
             </div>
             <div className='container-homepage-lessons-half'>
-                <Link to="/lessons/listening" className='container-homepage-lessons-indv' id='listening' >
+                <div className='container-homepage-lessons-indv' id='listening' onClick={()=>clickLessonLink('listening')} >
 
                     <h2>Listening</h2>
                     <div className='container-homepage-progress-bar-line'>
                         <div className="progress-bar listening" style={{ ...progressStyles.listening, backgroundColor: '#FABC2A;' }} ></div>
                     </div>
-                </Link>
-                <div className='container-homepage-lessons-indv' id='speaking'>
+                </div>
+                <div className='container-homepage-lessons-indv' id='speaking' onClick={()=>clickLessonLink('speaking')}>
                     <h2>Speaking</h2>
                     <div className='container-homepage-progress-bar-line'>
                     <div className="progress-bar" style={{ ...progressStyles.speaking, backgroundColor: '#52D1DC' }}></div>
@@ -106,13 +110,13 @@ const HomePage = () => {
                 </div>
             </div>
             <div className='container-homepage-lessons-half'>
-                <div className='container-homepage-lessons-indv' id='reading'>
+                <div className='container-homepage-lessons-indv' id='reading' onClick={()=>clickLessonLink('reading')}>
                     <h2>Reading</h2>
                     <div className='container-homepage-progress-bar-line'>
                     <div className="progress-bar" style={{ ...progressStyles.reading, backgroundColor: '#FF5E5B' }}></div>
                     </div>
                 </div>
-                <div className='container-homepage-lessons-indv' id='writing'>
+                <div className='container-homepage-lessons-indv' id='writing' onClick={()=>clickLessonLink('writing')}>
                     <h2>Writing</h2>
                     <div className='container-homepage-progress-bar-line'>
                     <div className="progress-bar" style={{ ...progressStyles.writing, backgroundColor: '#93FF96' }}></div>
