@@ -1,5 +1,6 @@
 const User = require("../../models/user/student-model");
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const createToken = (_id) => {
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: '3d' });
@@ -29,38 +30,45 @@ const loginUser = async (req, res) => {
     res.status(200).json({
       email,
       token,
-      id: user._id
-    });
+      id: user._id,
+      userID: user.userID,
+      name: user.fullName
+    });  // No need for explicit .json() call here
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
 
-// Signup user
+
 const signupUser = async (req, res) => {
   const { fullName, email, password, userID } = req.body;
 
   try {
-    const existingUser = await User.findOne({ email }); 
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
       throw new Error('Email already in use');
     }
 
+    const salt = await bcrypt.genSalt(10); // Generate a salt for password hashing
+    const hashedPassword = await bcrypt.hash(password, salt); // Hash the password
+
     const user = new User({
       fullName,
       email,
-      password, 
+      password: hashedPassword, // Use the hashed password
       userID,
     });
 
-    await user.save(); 
+    await user.save();
 
     const token = createToken(user._id);
 
-    res.status(200).json({ email, token }); 
+    res.status(200).json({ email, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
+
+
 
 module.exports = { signupUser, loginUser };

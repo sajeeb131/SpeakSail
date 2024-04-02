@@ -64,45 +64,9 @@ const userSchema = new Schema({
   },
 });
 
-userSchema.statics.signup = async function(fullName, email, password, userID) {
-    const exists = await this.findOne({email})
-    if(exists){
-        throw Error('Email already in use')
-    }
 
-    if(!email || !password){
-        throw Error('Email is not valid')
-    }
-    if(!validator.isEmail(email)){
-        throw Error('Email is not valid')
-    }
-    if(!validator.isStrongPassword(password)){
-        throw Error('Password not strong enough')
-    }
-
-    const salt = await bcrypt.genSalt(10)
-    const hash = await bcrypt.hash(password, salt)
-
-    const user = await this.create({fullName, email, password: hash, userID})
-    return user
-}
-
-
-userSchema.statics.login = async function(email, password){
-    if(!email || !password){
-        throw Error('Email is not valid')
-    }
-    const user = await this.findOne({email})
-    if(!user){
-        throw Error('Incorrect email')
-    }
-    const match = await bcrypt.compare(password, user.password)
-    if(!match){
-        throw Error('Incorrect password')
-    }
-
-    return user
-
-}
+userSchema.methods.comparePassword = async function (candidatePassword) {
+  return await bcrypt.compare(candidatePassword, this.password);
+};
 
 module.exports = mongoose.model('User', userSchema);

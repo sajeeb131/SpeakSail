@@ -1,9 +1,9 @@
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-//Pages and Components
+// Import your components
 import LandingPage from './pages/landing-page/LandingPage';
-import HomePage from './pages/home/HomePage'
+import HomePage from './pages/home/HomePage';
 import ListeningMain from './pages/lessons/ListeningMain';
 import WritingMain from './pages/lessons/WritingMain';
 import ReadingMain from './pages/lessons/ReadingMain';
@@ -19,85 +19,52 @@ import Storytelling from './pages/speaking/Storytelling';
 import VocabTreasure from './pages/vocab-treasure/VocabTreasure';
 import DailyMission from './pages/daily-mission/DailyMission';
 import PictureDescription from './pages/writing/PictureDescription';
-import LessonsTable from './pages/lessons-table/LessonsTable'
+import LessonsTable from './pages/lessons-table/LessonsTable';
 
 function App() {
   return (
-    <div className="App">       
-        <BrowserRouter>
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
           {/* Error pages */}
-          <Routes>
-              <Route path='/503' element={<Status503/>}/>
-          </Routes>
+          <Route path='/503' element={<Status503 />} />
 
-          {/* landing page route */}
-          <Routes>
-            <Route path='/' element={<LandingPage/>}/>
-          </Routes>
+          {/* Landing page route */}
+          <Route path='/' element={<LandingPage />} />
 
-          {/* homepage route */}
-          <Routes>
-            <Route path='/home' element={<HomePage/>}/>
-          </Routes>
+          {/* Home page route */}
+          <Route path='/home' element={<HomePage />} />
 
-          {/* lessons main routes */}
-          <Routes>
-            <Route path='/lessons/listening' element={<ListeningMain/>}/>
-          </Routes>
-          <Routes>
-            <Route path='/lessons/writing' element={<WritingMain/>}/>
-          </Routes>
-          <Routes>
-            <Route path='/lessons/reading' element={<ReadingMain/>}/>
-          </Routes>
-          <Routes>
-            <Route path='/profile/ProfilePage' element={<ProfilePage/>}/>
-          </Routes>
+          {/* Lessons main routes */}
+          <Route path='/lessons/listening' element={<ListeningMain />} />
+          <Route path='/lessons/writing' element={<WritingMain />} />
+          <Route path='/lessons/reading' element={<ReadingMain />} />
           
-            {/* Teachers route */}
-            <Routes>
-            <Route path='/teachers/dashboard' element={<Dashboard/>}/>
-          </Routes>
+          {/* Profile page route */}
+          <Route path='/profile' element={<ProfilePage />} />
 
-          {/* Login route */}
-          <Routes>
-            <Route path='/login' element={<LoginPage/>}/>
-          </Routes>
-          <Routes>
-            <Route path='/signup' element={<SignUpPage/>}/>
-          </Routes>
+          {/* Teachers route */}
+          <Route path='/teachers/dashboard' element={<Dashboard />} />
 
-          {/* lessons pages */}
-          <Routes>
-            <Route path='/lessons/listening/sentence-dictation' element={<SentenceDictation/>}/>
-          </Routes>
-          <Routes>
-            <Route path='/lessons/listening/QA' element={<QuestionAnswer/>}/>
-          </Routes>
-          <Routes>
-            <Route path='/lessons/reading/Comprehension' element={<Comprehension/>}/>
-          </Routes>
-          <Routes>
-              <Route path='/lessons/speaking/storytelling' element={<Storytelling/>}/>
-          </Routes>
-          <Routes>
-            <Route path='/lessons/PictureDescription' element={<PictureDescription/>}/>
-          </Routes>
+          {/* Authentication routes */}
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/signup' element={<SignUpPage />} />
+
+          {/* Lessons pages */}
+          <Route path='/lessons/listening/sentence-dictation' element={<SentenceDictation />} />
+          <Route path='/lessons/listening/QA' element={<QuestionAnswer />} />
+          <Route path='/lessons/reading/Comprehension' element={<Comprehension />} />
+          <Route path='/lessons/speaking/storytelling' element={<Storytelling />} />
+          <Route path='/lessons/PictureDescription' element={<PictureDescription />} />
 
           {/* Extra features */}
-          <Routes>
-            <Route path='/vocab-treasure/VocabTreasure' element={<VocabTreasure/>}/>
-          </Routes>
-          <Routes>
-            <Route path='/daily-mission/DailyMission' element={<DailyMission/>}/>
-          </Routes>
+          <Route path='/vocab-treasure' element={<VocabTreasure />} />
+          <Route path='/daily-mission' element={<DailyMission />} />
 
-          {/* lessons table */}
-          <Routes>
-            <Route path='/lessons-table' element={<LessonsTable/>}/>
-          </Routes>
-
-        </BrowserRouter>
+          {/* Lessons table */}
+          <Route path='/lessons-table/:lessonType' element={<LessonsTable />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

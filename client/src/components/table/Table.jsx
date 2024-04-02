@@ -1,16 +1,7 @@
 import React, { useState } from 'react';
 import './table.css'
-const Table = ({ student_id, lesson_type = "Sentence Dictation" }) => {
-  const data = [
-    { exercise: 'Exercise 1', status: true },
-    { exercise: 'Exercise 2', status: true },
-    { exercise: 'Exercise 3', status: false },
-    { exercise: 'Exercise 4', status: false },
-    { exercise: 'Exercise 5', status: true },
-    { exercise: 'Exercise 6', status: false },
-    { exercise: 'Exercise 7', status: true },
-    { exercise: 'Exercise 8', status: false },
-  ];
+const Table = ({ student_id, data, lesson_type}) => {
+  
     
   //checkbox logic
   const [checkedItems, setCheckedItems] = useState([]);
@@ -53,10 +44,10 @@ const Table = ({ student_id, lesson_type = "Sentence Dictation" }) => {
           </tr>
         </thead>
         <tbody>
-          {displayedData.map((item, index) => (
+          {data.map((item, index) => (
             <tr key={index}>
               <td className='table-lside'>{index + 1 + (currentPage - 1) * pageSize}</td>
-              <td className='table-mid'>{item.exercise}</td>
+              <td className='table-mid'>{item.lessonNumber}</td>
               <td className='table-rside'>
                 {item.status ? <CheckedIcon /> : <UncheckedIcon />}
               </td>

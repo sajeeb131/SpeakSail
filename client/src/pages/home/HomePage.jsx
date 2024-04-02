@@ -8,7 +8,7 @@ import VocabMission from '../../assets/images/VT-Card.png'
 import DailyMission from '../../assets/images/DM-CARD.png'
 
 const HomePage = () => {
-    const [username, setUsername] = useState("Username");
+    const username = localStorage.getItem('user');
     const [overallProgress, setOverallProgress] = useState(80);
     const progressStyle = {
         width: `${overallProgress}%`
