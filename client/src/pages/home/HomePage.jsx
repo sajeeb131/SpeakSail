@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
@@ -8,7 +8,8 @@ import VocabMission from '../../assets/images/VT-Card.png'
 import DailyMission from '../../assets/images/DM-CARD.png'
 
 const HomePage = () => {
-    const username = localStorage.getItem('user');
+    const userID = localStorage.getItem('user');
+    const [user, setUser] = useState([]);
     const [overallProgress, setOverallProgress] = useState(80);
     const progressStyle = {
         width: `${overallProgress}%`
@@ -31,12 +32,35 @@ const HomePage = () => {
             width: `${writingProgress}%`
         }
     };
+    
+    useEffect(()=>{
+        const fetchData = async()=>{
+            try{
+                const response = await fetch(`http://localhost:4000/home/${userID}`);
+                if(!response.ok){
+                    throw new Error('Failed to fetch data')
+                }
+                const data = await response.json();
+                setUser(data);
+                setListeningProgress(data.listening);
+                setReadingProgress(data.reading);
+                setWritingProgress(data.writing);
+                setSpeakingProgress(data.speaking);
+                console.log(data);
+            }
+            catch(error){
+                console.error('Error fetching data: ', error)
+            }
+        };
+        fetchData();
+    }, [userID]);
+
   return (
     <div className='container-homepage'>
         <Navbar/>
         {/* part 1: heading */}
         <div className='container-homepage-header'>
-            <h1>Welcome back, <span>{username}</span></h1>
+            <h1>Welcome back, <span>{user.fullName}</span></h1>
         </div>
         {/* part 2: progress bar */}
         <div className='container-homepage-progress'>

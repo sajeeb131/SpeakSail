@@ -10,10 +10,10 @@ const LessonsTable = () => {
   const [lessonData, setLessonData] = useState([]);
 
   useEffect(() => {
-    // Define an asynchronous function to fetch data from the database
+    //an asynchronous function to fetch data from the database
     const fetchData = async () => {
       try {
-        // Perform the fetch operation (assuming you have an API endpoint to fetch data)
+        // Perform the fetch operation
         const response = await fetch(`http://localhost:4000/lessons/listening/${lessonType}`);
         if (!response.ok) {
           throw new Error('Failed to fetch data');
@@ -39,7 +39,6 @@ const LessonsTable = () => {
   return (
     <div>
       <Navbar />
-      {/* Pass the fetched data to the Table component */}
       <Table data={lessonData} lesson_type={lessonType} />
       <Footer />
     </div>
