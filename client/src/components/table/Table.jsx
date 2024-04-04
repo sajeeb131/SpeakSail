@@ -13,7 +13,6 @@ const Table = ({ student_id, data, lesson_type}) => {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-
   const displayedData = data.slice((currentPage - 1) * pageSize, currentPage * pageSize);
 
 

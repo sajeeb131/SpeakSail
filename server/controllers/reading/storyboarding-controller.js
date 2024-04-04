@@ -1,5 +1,6 @@
 const {ReadingStoryboarding, ReadingStoryboarding_answers} = require('../../models/reading/storyboarding-model')
 
+const name = "Storyboarding"
 const createLesson = async(req,res) =>{
     try{
         const newLesson = new ReadingStoryboarding(req.body);
@@ -14,7 +15,7 @@ const createLesson = async(req,res) =>{
 const getLessons = async(req, res) =>{
     try{
         const lessons = await ReadingStoryboarding.find();
-        res.json(lessons);
+        res.json({lessons, name});
     }catch(err){
         console.error(err);
         res.status(400).json({message: 'Error retrieving lessons'})

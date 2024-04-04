@@ -1,5 +1,6 @@
 const {ReadingComprehension, ReadingComprehension_answers} = require('../../models/reading/comprehension-model')
 
+
 const createLesson = async(req,res) =>{
     try{
         const newLesson = new ReadingComprehension(req.body);
@@ -14,7 +15,8 @@ const createLesson = async(req,res) =>{
 const getLessons = async(req, res) =>{
     try{
         const lessons = await ReadingComprehension.find();
-        res.json(lessons);
+        const name = "Comprehension"
+        res.json({lessons, name});
     }catch(err){
         console.error(err);
         res.status(400).json({message: 'Error retrieving lessons'})

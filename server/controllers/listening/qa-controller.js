@@ -1,5 +1,7 @@
 const {ListeningQA, ListeningQA_Answers} = require('../../models/listening/qa-model'); 
 
+
+
 const createLesson = async (req, res) => {
   try {
     const newLesson = new ListeningQA(req.body);
@@ -14,7 +16,11 @@ const createLesson = async (req, res) => {
 const getLessons = async (req, res) => {
   try {
     const lessons = await ListeningQA.find();
-    res.json(lessons);
+    const name = "Question/Answer"
+    
+    res.json({lessons, name});
+    
+
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Error retrieving lessons' });
