@@ -6,7 +6,7 @@ import Footer from '../../components/Footer';
 import image1 from '../../assets/images/pana.png'
 import image2 from '../../assets/images/rafiki.png'
 
-const ListeningMain = () => {
+const SpeakingMain = () => {
   const navigate = useNavigate();
   const handleLinkClick = (lessonType) => {
     console.log(lessonType)
@@ -16,11 +16,11 @@ const ListeningMain = () => {
     <div>
       <Navbar/>
       <div className='container-listeningMain'>
-        <div className='listeningMain-header'> <h1>Writing Lessons</h1></div>
+        <div className='listeningMain-header'> <h1>Speaking Lessons</h1></div>
         <div className="listeningMain-section"> 
-            <div className='listeningMain-section-half' to="/503">
+            <div className='listeningMain-section-half' onClick={()=>handleLinkClick('storytelling')}>
                 <div className="listeningMain-section-half-left">
-                    <h2>Chain Story</h2>
+                    <h2>Storytelling</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
                 </div>
                 <div className="listeningMain-section-half-right">
@@ -29,9 +29,9 @@ const ListeningMain = () => {
                 
             </div>
             
-            <div className='listeningMain-section-half' onClick={()=>handleLinkClick('picturedescription')}>
+            <div className='listeningMain-section-half' >
                 <div className="listeningMain-section-half-left">
-                    <h2>Picture Description</h2>
+                    <h2>ABC Exercise</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
                 </div>
                 <div className="listeningMain-section-half-right">
@@ -46,4 +46,4 @@ const ListeningMain = () => {
   )
 }
 
-export default ListeningMain
+export default SpeakingMain;

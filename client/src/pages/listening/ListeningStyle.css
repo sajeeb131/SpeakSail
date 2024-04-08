@@ -147,12 +147,12 @@
    
   }
   .qa-top {
-    display: flex; /* Maintains flexbox layout */
-    flex-direction: column; /* Keeps h1 and p stacked vertically */
-    align-items: flex-start; /* Maintains left alignment */
-    margin: 30px 110px 50px; /* Adjust margins as needed */
-    row-gap: 20px; /* Spacing between elements */
-    flex-wrap: wrap; /* Allows content to wrap if necessary */
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    margin: 30px 110px 50px; 
+    row-gap: 20px; 
+    flex-wrap: wrap; 
   }
   
   .qa-top h1 {
@@ -161,7 +161,7 @@
     font-size: 40px;
     font-weight: 700;
     line-height: 125%;
-    max-width: 70%; /* Adjust as needed to limit h1 width */
+    max-width: 70%; 
   }
   .qa-top-r{
     display: flex;

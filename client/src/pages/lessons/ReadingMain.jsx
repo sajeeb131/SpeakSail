@@ -7,13 +7,18 @@ import image1 from '../../assets/images/pana.png'
 import image2 from '../../assets/images/rafiki.png'
 
 const ListeningMain = () => {
+  const navigate = useNavigate();
+  const handleLinkClick = (lessonType) => {
+    console.log(lessonType)
+    navigate(`/lessons-table/${lessonType}`); 
+  };
   return (
     <div>
       <Navbar/>
       <div className='container-listeningMain'>
         <div className='listeningMain-header'> <h1>Reading Lessons</h1></div>
         <div className="listeningMain-section"> 
-            <Link className='listeningMain-section-half' to="/lessons/reading/Comprehension">
+            <div className='listeningMain-section-half' onClick={()=>handleLinkClick('comprehension')}>
                 <div className="listeningMain-section-half-left">
                     <h2>Comprehension</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
@@ -22,9 +27,9 @@ const ListeningMain = () => {
                     <img src={image1} alt="" width="120px"/>
                 </div>
                 
-            </Link>
+            </div>
             
-            <Link className='listeningMain-section-half' to='/503'>
+            <div className='listeningMain-section-half' onClick={()=>handleLinkClick('storyboarding')}>
                 <div className="listeningMain-section-half-left">
                     <h2>Story boarding</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
@@ -33,7 +38,7 @@ const ListeningMain = () => {
                     <img src={image2} alt="" width="120px"/>
                 </div>
                     
-            </Link>
+            </div>
         </div>
       </div>
       <Footer/>

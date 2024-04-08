@@ -7,7 +7,9 @@
 /lessons/speaking - speaking main page
 /lessons/speaking/storytelling - storytelling page
 /lessons/listening/sentence-dictation - sentence dictation page
-/listening/QA - question & answer page
+/lessons/listening/QA - question & answer page
+/lessons/PictureDescription - Picture Description
+/lessons-table - this page should not be accessable through url
 /503 - service unavailable page
 
 
@@ -16,3 +18,4 @@ npm install boxicons --save
 npm install react-bootstrap bootstrap
 npm install react-icons --save
 npm i react-h5-audio-players
+npm install axios
