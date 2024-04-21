@@ -43,7 +43,7 @@ const Table = ({ student_id, data, lesson_type}) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
+          {displayedData.map((item, index) => (
             <tr key={index}>
               <td className='table-lside'>{index + 1 + (currentPage - 1) * pageSize}</td>
               <td className='table-mid'>{item.lessonNumber}</td>
@@ -85,4 +85,3 @@ const Table = ({ student_id, data, lesson_type}) => {
 };
 
 export default Table;
-
