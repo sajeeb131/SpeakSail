@@ -1,0 +1,17 @@
+.page-container {
+    position: relative;
+}
+.navbar-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 300px;
+}
+.content-beside-navbar {
+    width: 100%;
+    margin-left: 300px;
+    margin-top: 10px;
+}
+.upperN{
+    width: 100%;
+}
