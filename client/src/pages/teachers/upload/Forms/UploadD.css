@@ -39,7 +39,7 @@
   
   .form-group input[type='text'],
   .form-group input[type='file'] {
-    width: 60%;
+    width: 30%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -62,4 +62,7 @@
   button[type='submit']:hover {
     background-color: #45a049;
   }
-  
+  .storyArea{
+    width: 700px;
+    height: 160px;
+  }

@@ -32,3 +32,7 @@
 .linkss:hover {
   text-decoration: underline;
 }
+#correctAnswer{
+  width: 200px;
+  height: 30px;
+}
