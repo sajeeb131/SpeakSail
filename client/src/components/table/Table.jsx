@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState,  } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './table.css'
 const Table = ({ student_id, data, lesson_type}) => {
-  
+  console.log(lesson_type)
+  const navigate = useNavigate();
     
   //checkbox logic
   const [checkedItems, setCheckedItems] = useState([]);
+  
   
   
   //pagination logic
@@ -14,7 +17,31 @@ const Table = ({ student_id, data, lesson_type}) => {
     setCurrentPage(pageNumber);
   };
   const displayedData = data.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+  
+  const handleClick = (item) => {
 
+    // console.log(lesson_type)
+    let url = '';
+    const lessonNumber = item.lessonNumber;
+    if(lesson_type=="Comprehension"){
+       url = `/lessons/reading/Comprehension/${lessonNumber}`;
+    }
+    if(lesson_type=="Storytelling"){
+      url = `/lessons/speaking/Storytelling/${lessonNumber}`;
+    }
+    if(lesson_type=="Sentence Dictation"){
+       url = `/lessons/listening/sentence-dictation/${lessonNumber}`;
+    }
+    if(lesson_type=="Question/Answer"){
+      url = `/lessons/listening/QA/${lessonNumber}`;
+    }
+    if(lesson_type=="picturedescription"){
+      url = `/lessons/writing/PictureDescription/${lessonNumber}`;
+    }
+
+    
+    navigate(url);
+  }
 
   //checkbox icons
   const CheckedIcon = () => (
@@ -43,16 +70,45 @@ const Table = ({ student_id, data, lesson_type}) => {
           </tr>
         </thead>
         <tbody>
+        {console.log(displayedData)}
           {displayedData.map((item, index) => (
-            <tr key={index}>
+            
+            <tr
+              key={index}
+              onClick={() => handleClick(item)}
+              className={`table-row ${checkedItems.includes(item.id) ? 'clicked' : ''}`}
+              style={{ cursor: 'pointer' }}
+            >
               <td className='table-lside'>{index + 1 + (currentPage - 1) * pageSize}</td>
-              <td className='table-mid'>{item.lessonNumber}</td>
+              {lesson_type == 'Comprehension' && (
+                <td className='table-mid'>
+                  {item.passage.substring(0, 50)}
+                  
+                  {/* Add ellipsis (...) if the passage is truncated */}
+                  {item.passage.length > 50 && '...'}
+                </td>
+              )}
+              {lesson_type == 'Sentence Dictation' && (
+                <td className='table-mid'>
+                  {item.lessonName}
+                </td>
+              )}
+              {lesson_type == 'Question/Answer' && (
+                <td className='table-mid'>{item.lessonNumber}</td>
+              )}
+              {lesson_type == 'Picture Description' && (
+                <td className='table-mid'>{item.lessonNumber}</td>
+              )}
+              {lesson_type == 'Storytelling' && (
+                <td className='table-mid'>{item.lessonNumber}</td>
+              )}
               <td className='table-rside'>
                 {item.status ? <CheckedIcon /> : <UncheckedIcon />}
               </td>
             </tr>
           ))}
         </tbody>
+
       </table>
 
       </div>
@@ -81,7 +137,10 @@ const Table = ({ student_id, data, lesson_type}) => {
         )}
       </div>
     </div>
+
   );
+
+ 
 };
 
 export default Table;

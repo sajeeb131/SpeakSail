@@ -30,7 +30,8 @@ const getLessonByNumber = async (req,res) =>{
         if(!lesson){
             return res.status(404).json({message: 'Lesson not found'});
         }
-        res.json(`sentence dictation lesson: ${lesson}`);
+
+        res.json(lesson);
     }catch(err){
         console.error(err);
         res.status(400).json({message: 'Error retrieving lesson'});
@@ -73,4 +74,25 @@ const getAnswersByStudentID = async(req, res) =>{
     }
 };
 
-module.exports = {getAnswersByLesson, createAnswers, getLessonByNumber, getLessons, createLesson, getAnswersByStudentID}
+const updateCompletedBy = async (req, res) => {
+    try {
+        const lessonNumber = req.params.lessonNumber;
+        const userID = req.body.userID; 
+        const lesson = await ReadingComprehension.findOne({ lessonNumber });
+
+        if (!lesson) {
+            return res.status(404).json({ message: 'Lesson not found' });
+        }
+
+        lesson.completedBy.push(userID);
+        await lesson.save();
+
+        res.status(200).json({ message: 'CompletedBy updated successfully', lesson });
+    } catch (err) {
+        console.error(err);
+        res.status(400).json({ message: 'Error updating completedBy' });
+    }
+};
+
+
+module.exports = { getAnswersByLesson, createAnswers, getLessonByNumber, getLessons, createLesson, getAnswersByStudentID, updateCompletedBy };

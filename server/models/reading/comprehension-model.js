@@ -21,6 +21,10 @@ const readingComprehensionSchema = new mongoose.Schema({
     options:{
         type: [String],
         required: true,
+    },
+    completedBy: {
+        type: [String],
+        required: false
     }
 });
 

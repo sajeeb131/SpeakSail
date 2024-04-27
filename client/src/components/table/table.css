@@ -98,3 +98,9 @@
     cursor: default;
   }
   
+
+  /* Style table body rows on hover */
+.table-row:hover {
+  color: var(--Text-Colours-Primary-Text-color, #002E88);
+  cursor: pointer; /* Already set here */
+}

@@ -1,16 +1,21 @@
 const mongoose =  require('mongoose')
 
 const listeningSenDictSchema = new mongoose.Schema({
-    lessonNumber:{
-        type: String,
-        required: true,
-        unique: true,
+    lessonNumber: {
+      type: String,
+      required: true,
+      unique: true
     },
-    audioFilePath:{
+    lessonName: {
         type: String,
-        required: true,
-    }
-});
+        required: true
+    },
+    audioFilePath: {
+      type: String,
+      required: true
+    },
+  });
+  
 
 const listeningSenDictAnswerSchema = new mongoose.Schema({
     lessonType:{

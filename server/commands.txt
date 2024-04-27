@@ -2,3 +2,6 @@ npm install jsonwebtoken bcrypt validator express mongoose dotenv
 npm i http-proxy-middleware --save
 npm install cors
 npm install nodemon
+npm install --save multer
+npm install fs path
+npm install multer cloudinary

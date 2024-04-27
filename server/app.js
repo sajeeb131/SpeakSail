@@ -16,18 +16,14 @@ const writingPagesRoute = require('./routes/writing-route')
 
 //middleware
 app.use(express.json())
-app.use(cors())
+app.use(cors()) 
 
-
-
-//main routes
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+  res.send('Hello World!');
 });
 
-
 app.use('/student', studentRoute); 
-// app.use('/teacher', teacherRoute);
+//app.use('/teacher', teacherRoute);
 app.use('/home', homeRoute);
 
 app.use('/lessons/listening',listeningPagesRoute);

@@ -53,18 +53,20 @@ function App() {
           <Route path='/signup' element={<SignUpPage />} />
 
           {/* Lessons pages */}
-          <Route path='/lessons/listening/sentence-dictation' element={<SentenceDictation />} />
-          <Route path='/lessons/listening/QA' element={<QuestionAnswer />} />
-          <Route path='/lessons/reading/Comprehension' element={<Comprehension />} />
-          <Route path='/lessons/speaking/storytelling' element={<Storytelling />} />
-          <Route path='/lessons/PictureDescription' element={<PictureDescription />} />
-
+          <Route path='/lessons/listening/sentence-dictation/:lessonNumber' element={<SentenceDictation />} />
+          <Route path='/lessons/listening/QA/:lessonNumber' element={<QuestionAnswer />} />
+          <Route path='/lessons/reading/Comprehension/:lessonNumber' element={<Comprehension />} />
+          <Route path='/lessons/speaking/storytelling/:lessonNumber' element={<Storytelling />} />
+          <Route path='/lessons/writing/PictureDescription/:lessonNumber' element={<PictureDescription />} />
+          
           {/* Extra features */}
           <Route path='/vocab-treasure' element={<VocabTreasure />} />
           <Route path='/daily-mission' element={<DailyMission />} />
 
           {/* Lessons table */}
           <Route path='/lessons-table/:lessonType' element={<LessonsTable />} />
+
+
         </Routes>
       </BrowserRouter>
     </div>

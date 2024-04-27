@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
 import { AiOutlineSound } from "react-icons/ai";
@@ -8,17 +8,39 @@ import './ListeningStyle.css'
 import './AudioPlayer.css'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
-import audio from '../../assets/audio/sample-6s.mp3'
 import ProgressBar from '../../components/progress-bar/ProgressBar'
-const SentenceDictation = () => {
+import { useParams } from 'react-router-dom';
+import newAudio from '../../assets/audio/chapter1.mp3'
+const SentenceDictation = (lessonType, lessonNumber) => {
   
   const [progressPercentage, setProgress] = useState(40);
-
+  lessonNumber = useParams().lessonNumber
+  const [lesson, setLesson] = useState(null);
   const [placeholder, setPlaceholder] = useState('Start Writing...');
-
+  const [a, setAudio] = useState(null)
   const handleClick = () => {
     setPlaceholder('');
   };
+  useEffect(() => {
+    const fetchLesson = async () => {
+      try {
+        const response = await fetch(`http://localhost:4000/lessons/listening/sentence-dictation/${lessonNumber}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const data = await response.json();
+
+        setLesson(data);
+        setAudio(data)
+        console.log(a)
+
+      } catch (error) {
+        console.error('Error fetching lesson:', error);
+      }
+    };
+
+    fetchLesson();
+  }, []);
 
   return (
     <div>
@@ -38,7 +60,9 @@ const SentenceDictation = () => {
                   <div className="sd-middle">
                     <AiOutlineSound size={28} color='blue'/>
                     <AudioPlayer
-                      src={audio}
+                      
+                      src={a}
+                      
                       onPlay={e => console.log("onPlay")}
                     />
                     
@@ -52,6 +76,7 @@ const SentenceDictation = () => {
               
             </div>
           </div>
+          
           
 
         </div>

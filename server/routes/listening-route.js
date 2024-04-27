@@ -3,11 +3,14 @@ const router = express.Router()
 const ListeningSentenceDictation = require('../controllers/listening/sentenceDictation-controller')
 const listeningQA = require('../controllers/listening/qa-controller'); 
 
+const upload = require('../middleware/multer')
+
+
 
 //Sentence Dictation lesson route
-router.post('/sentence-dictation', ListeningSentenceDictation.createLesson);
+router.post('/sentence-dictation', upload.single('file'), ListeningSentenceDictation.createLesson);
 router.get('/sentence-dictation', ListeningSentenceDictation.getLessons);
-router.get('/sentence-dictation/:lessonNumber', ListeningSentenceDictation.getLessonByNumber);
+router.get('/sentence-dictation/:lessonNumber',  ListeningSentenceDictation.getLessonByNumber);
 
 //Sentence Dictation lesson answers route
 router.post('/sentence-dictation/answer', ListeningSentenceDictation.createAnswers);

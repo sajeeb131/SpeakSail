@@ -1,17 +1,30 @@
 const {ListeningSenDict, ListeningSenDict_Answers} = require('../../models/listening/sentenceDictation-model')
+const cloudinary = require('../../utils/cloudinary')
 
 const name = "Sentence Dictation"
-const createLesson = async(req,res) =>{
-    try{
-        const newLesson = new ListeningSenDict(req.body);
-        await newLesson.save();
-        res.status(201).json(newLesson)
-    }catch(err){
-        console.error(err);
-        res.status(400).json({message: "Error creating lesson"})
+const createLesson = async (req, res) => {
+    try {
+      const { filename } = req.file;
+  
+      // Upload audio to Cloudinary
+      const uploadResponse = await cloudinary.uploader.upload(
+        req.file.path,
+        { resource_type: 'auto' } 
+      );
+      
+      const newLesson = new ListeningSenDict({
+        lessonNumber: req.body.lessonNumber,
+        lessonName: req.body.lessonName,
+        audioFilePath: uploadResponse.secure_url, 
+      });
+  
+      await newLesson.save();
+      res.status(201).json(newLesson);
+    } catch (err) {
+      console.error(err);
+      res.status(400).json({ message: "Error creating lesson", });
     }
-};
-
+  };
 const getLessons = async(req, res) =>{
     try{
         const lessons = await ListeningSenDict.find();
@@ -29,7 +42,7 @@ const getLessonByNumber = async (req,res) =>{
         if(!lesson){
             return res.status(404).json({message: 'Lesson not found'});
         }
-        res.json(`sentence dictation lesson: ${lesson}`);
+        res.json(lesson.audioFilePath);
     }catch(err){
         console.error(err);
         res.status(400).json({message: 'Error retrieving lesson'});
