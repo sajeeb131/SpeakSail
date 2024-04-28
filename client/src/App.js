@@ -9,7 +9,6 @@ import WritingMain from './pages/lessons/WritingMain';
 import ReadingMain from './pages/lessons/ReadingMain';
 import SpeakingMain from './pages/lessons/speakingMain'
 import Status503 from './pages/Status/Status503';
-import Dashboard from './pages/teachers/dashboard/Dashboard';
 import ProfilePage from './pages/profile/ProfilePage';
 import LoginPage from './pages/login/LoginPage';
 import SignUpPage from './pages/signup/SignUpPage';
@@ -21,6 +20,16 @@ import VocabTreasure from './pages/vocab-treasure/VocabTreasure';
 import DailyMission from './pages/daily-mission/DailyMission';
 import PictureDescription from './pages/writing/PictureDescription';
 import LessonsTable from './pages/lessons-table/LessonsTable';
+
+//Dashboard Components
+import Dashboard from './pages/teachers/dashboard/Dashboard';
+import UploadMain from './pages/teachers/upload/UploadMain';
+import UploadSD from './pages/teachers/upload/Forms/UploadSD';
+import UploadQA from './pages/teachers/upload/Forms/UploadQA';
+import UploadST from './pages/teachers/upload/Forms/UploadST';
+import UploadPD from './pages/teachers/upload/Forms/UploadPD';
+import UploadC from './pages/teachers/upload/Forms/UploadC';
+import UploadDS from './pages/teachers/upload/Forms/UploadDS';
 
 function App() {
   return (
@@ -47,6 +56,14 @@ function App() {
 
           {/* Teachers route */}
           <Route path='/teachers/dashboard' element={<Dashboard />} />
+          <Route path='/teachers/upload' element={<UploadMain />} />
+          <Route path='/teachers/upload/uploadSD' element={<UploadSD />} />
+          <Route path='/teachers/upload/uploadQA' element={<UploadQA />} />
+          <Route path='/teachers/upload/uploadST' element={<UploadST />} />
+          <Route path='/teachers/upload/uploadPD' element={<UploadPD />} />
+          <Route path='/teachers/upload/uploadC' element={<UploadC />} />
+          <Route path='/teachers/upload/uploadDS' element={<UploadDS />} />
+          
 
           {/* Authentication routes */}
           <Route path='/login' element={<LoginPage />} />
