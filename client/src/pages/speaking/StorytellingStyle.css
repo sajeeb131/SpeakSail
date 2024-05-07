@@ -2,22 +2,20 @@
   .container-st{
     display: flex;
     flex-direction: column;
-    
     align-items: center;
     margin-top: 40px;
+    
   }
   .st-main{
-    
     display: flex;
     flex-direction: column;
-    
-   
+    height: 520px;
   }
   .st-top {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 30px 110px 50px;
+    margin: 20px 110px 50px;
     row-gap: 20px;
   }
   
@@ -31,6 +29,7 @@
   .st-para {
      width: 800px; 
      max-width: 70%; 
+     font-size: 20px;
   }
     .st-top p {
         width: 100%;

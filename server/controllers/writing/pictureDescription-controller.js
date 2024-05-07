@@ -1,9 +1,25 @@
 const {WritingPictureDescription, WritingPictureDescription_answers} = require('../../models/writing/pictureDescription-model')
+const cloudinary = require('../../utils/cloudinary')
+
+
 
 const name = "Picture Description"
 const createLesson = async(req,res) =>{
     try{
-        const newLesson = new WritingPictureDescription(req.body);
+        const { filename } = req.file;
+  
+        // Upload audio to Cloudinary
+        const uploadResponse = await cloudinary.uploader.upload(
+          req.file.path,
+          { resource_type: 'auto' } 
+        );
+        // create a new lesson
+        const newLesson = new WritingPictureDescription({
+        lessonNumber: req.body.lessonNumber,
+        lessonName: req.body.lessonName,
+        imagePath: uploadResponse.secure_url, 
+        });
+
         await newLesson.save();
         res.status(201).json(newLesson)
     }catch(err){
@@ -30,7 +46,7 @@ const getLessonByNumber = async (req,res) =>{
         if(!lesson){
             return res.status(404).json({message: 'Lesson not found'});
         }
-        res.json(`sentence dictation lesson: ${lesson}`);
+        res.json(lesson);
     }catch(err){
         console.error(err);
         res.status(400).json({message: 'Error retrieving lesson'});

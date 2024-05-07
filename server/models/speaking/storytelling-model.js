@@ -9,17 +9,25 @@ const speakingStorytellingSchema = new mongoose.Schema({
     story: {
         type: String,
         required: true,
+    },
+    completedBy: {
+        type: String,
+        required: false
     }
 });
 
 const speakingStorytellingAnswerSchema = new mongoose.Schema({
     lessonType:{
         type: String,
-        required: true,
+        required: false,
     },
     lessonNumber:{
         type: String,
         required: true,
+    },
+    story: {
+        type: String, 
+        required: true
     },
     studentID: {
         type: String,
@@ -30,7 +38,8 @@ const speakingStorytellingAnswerSchema = new mongoose.Schema({
         required: true,
     },
     feedback: {
-        type: Boolean
+        type: Boolean,
+        required: false
     }
 });
 

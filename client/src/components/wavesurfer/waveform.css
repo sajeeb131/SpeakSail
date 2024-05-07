@@ -1,0 +1,79 @@
+.audio-player {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  height: 60px;
+  margin-top: 20px;
+}
+
+#waveform {
+  background-color: #FABC2A;
+  border-radius: 50px;
+  padding: 10px;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  transition: height 0.3s ease; /* Transition for height changes */
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease; /* Transition for color and transform */
+  background-color: transparent;
+  size: 40px;
+}
+
+.audio-player button:hover {
+  color: #FABC2A;
+  transform: scale(1.1); /* Scale up on hover */
+}
+@keyframes waveform-appear {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: 100px; /* Adjust the final height */
+    opacity: 1;
+  }
+}
+
+#waveform {
+  background-color: #fff;
+  border-radius: 50px;
+  padding: 10px 25px;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  animation: waveform-appear 0.5s ease; /* Apply animation */
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.audio-player button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease; /* Transition for color and transform */
+  background-color: transparent;
+  size: 40px;
+  animation: pulse 1.5s infinite; /* Apply pulsating animation */
+}
+
+.audio-player button:hover {
+  color: #FABC2A;
+  transform: scale(1.1); /* Scale up on hover */
+}

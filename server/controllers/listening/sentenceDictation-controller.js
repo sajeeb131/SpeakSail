@@ -11,20 +11,21 @@ const createLesson = async (req, res) => {
         req.file.path,
         { resource_type: 'auto' } 
       );
-      
+      // create a new lesson
       const newLesson = new ListeningSenDict({
         lessonNumber: req.body.lessonNumber,
         lessonName: req.body.lessonName,
         audioFilePath: uploadResponse.secure_url, 
       });
-  
+      
+      // save the lesson to mongoDB
       await newLesson.save();
       res.status(201).json(newLesson);
     } catch (err) {
       console.error(err);
       res.status(400).json({ message: "Error creating lesson", });
     }
-  };
+};
 const getLessons = async(req, res) =>{
     try{
         const lessons = await ListeningSenDict.find();

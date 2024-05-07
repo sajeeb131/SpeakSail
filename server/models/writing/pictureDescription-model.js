@@ -6,16 +6,28 @@ const writingPictureDescriptionSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    lessonName: {
+        type: String,
+        required: true
+    },
     imagePath: {
         type: String,
         required: true,
     },
+    completedBy:{
+        type: [String],
+        required: false
+    }
 });
 
 const writingPictureDescriptionAnswerSchema = new mongoose.Schema({
     lessonType:{
         type: String,
         required: true,
+    },
+    lessonName:{
+        type: String,
+        required: true
     },
     lessonNumber:{
         type: String,

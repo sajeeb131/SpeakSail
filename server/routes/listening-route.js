@@ -18,7 +18,7 @@ router.get('/sentence-dictation/:lessonNumber/answers', ListeningSentenceDictati
 router.get('/sentence-dictation/:studentID/answers', ListeningSentenceDictation.getAnswersByLesson);
 
 // QuestionAnswer Lesson routes
-router.post('/qa', listeningQA.createLesson);
+router.post('/qa',upload.single('file'), listeningQA.createLesson);
 router.get('/qa', listeningQA.getLessons);
 router.get('/qa/:lessonNumber', listeningQA.getLessonByNumber);
 

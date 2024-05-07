@@ -3,14 +3,15 @@ import { useState, useEffect } from 'react'
 import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
 import { AiOutlineSound } from "react-icons/ai";
-
 import './ListeningStyle.css'
 import './AudioPlayer.css'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import ProgressBar from '../../components/progress-bar/ProgressBar'
 import { useParams } from 'react-router-dom';
-import newAudio from '../../assets/audio/chapter1.mp3'
+
+
+
 const SentenceDictation = (lessonType, lessonNumber) => {
   
   const [progressPercentage, setProgress] = useState(40);

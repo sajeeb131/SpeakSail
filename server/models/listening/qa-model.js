@@ -6,6 +6,10 @@ const listeningQASchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  lessonName:{
+    type: String,
+    required: true
+  },
   audioFilePath: {
     type: String,
     required: true,
@@ -14,6 +18,10 @@ const listeningQASchema = new mongoose.Schema({
     type: [String],
     required: true,
   },
+  completedBy:{
+    type: [String],
+    required: false
+  }
 });
 
 const listeningQAAnswerSchema = new mongoose.Schema({

@@ -1,4 +1,5 @@
 const {SpeakingStorytelling, SpeakingStorytelling_Answers} = require('../../models/speaking/storytelling-model')
+const cloudinary = require('../../utils/cloudinary')
 
 const name = "Storytelling";
 const createLesson = async(req,res) =>{
@@ -29,7 +30,7 @@ const getLessonByNumber = async (req,res) =>{
         if(!lesson){
             return res.status(404).json({message: 'Lesson not found'});
         }
-        res.json(`sentence dictation lesson: ${lesson}`);
+        res.json(lesson);
     }catch(err){
         console.error(err);
         res.status(400).json({message: 'Error retrieving lesson'});
@@ -38,8 +39,21 @@ const getLessonByNumber = async (req,res) =>{
 
 const createAnswers = async(req,res) =>{
     try{
+        const { filename } = req.file;
+  
+        // Upload audio to Cloudinary
+        const uploadResponse = await cloudinary.uploader.upload(
+            req.file.path,
+            { resource_type: 'auto' } 
+        );
+        // create a new answer script
         const newAnswer = new SpeakingStorytelling_Answers({
-            ...req.body,
+            lessonNumber: req.body.lessonNumber,
+            audioFilePath: uploadResponse.secure_url, 
+            lessonType: name,
+            story: req.body.story,
+            studentID: req.body.studentID,
+
         });
         await newAnswer.save();
         res.status(201).json(newAnswer);

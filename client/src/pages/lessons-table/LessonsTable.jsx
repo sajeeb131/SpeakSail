@@ -13,6 +13,7 @@ const LessonsTable = () => {
  
 
   useEffect(() => {
+
     const fetchData = async () => {
       try {
         let apiUrl = '';

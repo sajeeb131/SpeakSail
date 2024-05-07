@@ -35,7 +35,7 @@ const Table = ({ student_id, data, lesson_type}) => {
     if(lesson_type=="Question/Answer"){
       url = `/lessons/listening/QA/${lessonNumber}`;
     }
-    if(lesson_type=="picturedescription"){
+    if(lesson_type=="Picture Description"){
       url = `/lessons/writing/PictureDescription/${lessonNumber}`;
     }
 
@@ -83,8 +83,6 @@ const Table = ({ student_id, data, lesson_type}) => {
               {lesson_type == 'Comprehension' && (
                 <td className='table-mid'>
                   {item.passage.substring(0, 50)}
-                  
-                  {/* Add ellipsis (...) if the passage is truncated */}
                   {item.passage.length > 50 && '...'}
                 </td>
               )}
@@ -94,13 +92,17 @@ const Table = ({ student_id, data, lesson_type}) => {
                 </td>
               )}
               {lesson_type == 'Question/Answer' && (
-                <td className='table-mid'>{item.lessonNumber}</td>
+                <td className='table-mid'>{item.lessonName}</td>
               )}
               {lesson_type == 'Picture Description' && (
-                <td className='table-mid'>{item.lessonNumber}</td>
+                <td className='table-mid'>{item.lessonName}</td>
               )}
               {lesson_type == 'Storytelling' && (
-                <td className='table-mid'>{item.lessonNumber}</td>
+                <td className='table-mid'>{item.story.substring(0,50)}
+                {item.story.length > 50 && '...'}</td>
+              )}
+              {lesson_type == 'Storyboarding' && (
+                <td className='table-mid'>{item.lessonName}</td>
               )}
               <td className='table-rside'>
                 {item.status ? <CheckedIcon /> : <UncheckedIcon />}
@@ -110,7 +112,6 @@ const Table = ({ student_id, data, lesson_type}) => {
         </tbody>
 
       </table>
-
       </div>
       
       <div className="pagination">

@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const WritingPictureDescription = require('../controllers/writing/pictureDescription-controller');
+const upload = require('../middleware/multer')
 
 //Storytelling lesson route
-router.post('/picturedescription',WritingPictureDescription.createLesson);
+router.post('/picturedescription', upload.single('file'), WritingPictureDescription.createLesson);
 router.get('/picturedescription', WritingPictureDescription.getLessons);
 router.get('/picturedescription/:lessonNumber', WritingPictureDescription.getLessonByNumber);
 
