@@ -7,6 +7,8 @@ import 'react-h5-audio-player/lib/styles.css';
 import { AiOutlineSound } from "react-icons/ai";
 import './ListeningStyle.css';
 import Footer from '../../components/Footer';
+import SubmissionPopup from '../../components/pop-up/submissionPopup';
+
 
 const QuestionAnswer = () => {
     const { lessonNumber } = useParams();
@@ -14,7 +16,7 @@ const QuestionAnswer = () => {
     const [lesson, setLesson] = useState({ audioFilePath: '', questions: ['', '', ''] });
     const [answers, setAnswers] = useState(['', '', '']);
     const studentID = localStorage.getItem('user')
-
+    const [popUp, setPopup] = useState(false);
 
     // Fetching lesson data
     useEffect(() => {
@@ -56,6 +58,7 @@ const QuestionAnswer = () => {
           if (!response.ok) {
               throw new Error('Failed to submit answers');
           }
+          setPopup(true);
   
 
           console.log('Answers submitted successfully');
@@ -111,6 +114,7 @@ const QuestionAnswer = () => {
                     <button className='sd-button2' onClick={handleSubmit}>Submit</button>
                 </div>
             </div>
+            <SubmissionPopup showPopup={popUp} onClose = {()=>setPopup(false)}/>
             <Footer/>
         </div>
     );

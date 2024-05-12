@@ -8,6 +8,8 @@ import Footer from '../../components/Footer'
 import { useParams } from 'react-router-dom'
 import SubmissionPopup from '../../components/pop-up/submissionPopup'
 
+
+
 const PictureDescription = (progress) => {
 
   const {lessonNumber} = useParams();
@@ -15,6 +17,9 @@ const PictureDescription = (progress) => {
   const [lesson, setLesson] = useState(null);
   const [answers, setAnswer] = useState(null);
   const studentID = localStorage.getItem('user')
+  const [popUp, setPopup] = useState(false);
+
+
 
   useEffect(() => {
     const fetchLesson = async () => {
@@ -56,6 +61,9 @@ const PictureDescription = (progress) => {
       if (!response.ok) {
         throw new Error('Failed to submit');
       }
+      setPopup(true);
+
+      
     }catch(error){
       console.log('Error creating data: ', error)
     }
@@ -90,6 +98,7 @@ const PictureDescription = (progress) => {
             </div>
           
             </form>
+            <SubmissionPopup showPopup={popUp} onClose = {()=>setPopup(false)}/>
         <Footer/>
         </div>
     

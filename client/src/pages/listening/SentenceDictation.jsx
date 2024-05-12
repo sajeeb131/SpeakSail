@@ -9,6 +9,7 @@ import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import ProgressBar from '../../components/progress-bar/ProgressBar'
 import { useParams } from 'react-router-dom';
+import SubmissionPopup from '../../components/pop-up/submissionPopup';
 
 
 
@@ -21,6 +22,8 @@ const SentenceDictation = (lessonType, lessonNumber) => {
   const [a, setAudio] = useState(null)
   const studentID = localStorage.getItem('user');
   const [answers, setAnswer] = useState(null)
+  const [popUp, setPopup] = useState(false);
+
 
   const handleClick = () => {
     setPlaceholder('');
@@ -66,6 +69,7 @@ const SentenceDictation = (lessonType, lessonNumber) => {
       if (!response.ok) {
         throw new Error('Failed to submit answers');
       }  
+      setPopup(true);
       
       console.log('Answers submitted successfully');
 
@@ -120,6 +124,7 @@ const SentenceDictation = (lessonType, lessonNumber) => {
           
         </div>
       </div>
+      <SubmissionPopup showPopup={popUp} onClose = {()=>setPopup(false)}/>
       <Footer/>
     </div>
   )

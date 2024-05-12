@@ -7,12 +7,15 @@ import ProgressBar from '../../components/progress-bar/ProgressBar'
 import { FaMicrophoneAlt } from "react-icons/fa";
 import "./StorytellingStyle.css"
 import Recorder from '../../components/recorder/Recorder'
+import SubmissionPopup from '../../components/pop-up/submissionPopup';
 
 
 const Storytelling = (progress) => {
     const {lessonNumber} = useParams()
     const [progressPercentage, setProgress] = useState(40); 
     const [lesson, setLesson] = useState(null)
+    const [popUp, setPopup] = useState(false);
+
 
     //fetch code
     useEffect(() => {
@@ -60,6 +63,8 @@ const Storytelling = (progress) => {
                   throw new Error('Failed to submit audio');
               }
 
+              setPopup(true);
+
               // Handle success response
               console.log('Audio submitted successfully');
           } catch (error) {
@@ -106,6 +111,7 @@ const Storytelling = (progress) => {
                 
             </div>
         </div>
+        <SubmissionPopup showPopup={popUp} onClose = {()=>setPopup(false)}/>
         <Footer/>
         </div>
         

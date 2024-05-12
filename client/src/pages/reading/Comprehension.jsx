@@ -14,7 +14,7 @@ const Comprehension = (lessonType, lessonNumber) => {
     const studentID = localStorage.getItem('user')
     const [answers, setAnswer] = useState(null)
     const [options, setOptions] = useState(null)
-    const [popUp, setPopup] = useState(true);
+    const [popUp, setPopup] = useState(false);
 
     const handleCheckboxChange = (selectedOption) => {
         const updatedAnswers = lesson.options.map(option => option === selectedOption ? option : null);
