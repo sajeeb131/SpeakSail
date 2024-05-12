@@ -6,14 +6,15 @@ import './PictureDescription.css'
 import image from "../../assets/images/PD-Family_stress.png"
 import Footer from '../../components/Footer'
 import { useParams } from 'react-router-dom'
-
+import SubmissionPopup from '../../components/pop-up/submissionPopup'
 
 const PictureDescription = (progress) => {
 
   const {lessonNumber} = useParams();
   const [progressPercentage, setProgress] = useState(40); 
   const [lesson, setLesson] = useState(null);
-
+  const [answers, setAnswer] = useState(null);
+  const studentID = localStorage.getItem('user')
 
   useEffect(() => {
     const fetchLesson = async () => {
@@ -33,6 +34,32 @@ const PictureDescription = (progress) => {
 
     fetchLesson();
   }, [lessonNumber]);
+
+  const handleTextAreaChange = (e) => {
+    setAnswer(e.target.value)
+    console.log(answers)
+  } 
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try{
+      if(!answers){
+        throw new Error('Answer script is empty!')
+      }
+      const response = await fetch(`http://localhost:4000/lessons/writing/picturedescription/answer`,{
+          method: 'POST',
+          headers:{
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({lessonNumber, studentID, answers})
+      })
+      if (!response.ok) {
+        throw new Error('Failed to submit');
+      }
+    }catch(error){
+      console.log('Error creating data: ', error)
+    }
+  }
 
   // Conditional rendering to handle case when lesson is still null
   if (!lesson || !lesson.imagePath ) {
@@ -54,9 +81,9 @@ const PictureDescription = (progress) => {
 
                 </div>
                 <div className="pd-middle">
-                    <textarea name="" id="" cols="30" rows="8" maxLength="400" placeholder='Start Writing...'></textarea>
+                    <textarea name="" id="" cols="30" rows="8" maxLength="400" placeholder='Start Writing...' onChange={handleTextAreaChange}></textarea>
                     <div className="middle-submit">    
-                    <button className='btn-submit' type="submit">Submit</button>
+                    <button className='btn-submit' type="submit" onClick={handleSubmit}>Submit</button>
                     </div>
                 </div>
             

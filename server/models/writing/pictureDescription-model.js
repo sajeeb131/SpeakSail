@@ -21,14 +21,6 @@ const writingPictureDescriptionSchema = new mongoose.Schema({
 });
 
 const writingPictureDescriptionAnswerSchema = new mongoose.Schema({
-    lessonType:{
-        type: String,
-        required: true,
-    },
-    lessonName:{
-        type: String,
-        required: true
-    },
     lessonNumber:{
         type: String,
         required: true,

@@ -51,9 +51,13 @@ const getLessonByNumber = async (req,res) =>{
 };
 
 const createAnswers = async(req,res) =>{
+    const { lessonNumber, studentID, answers} = req.body
     try{
+
         const newAnswer = new ListeningSenDict_Answers({
-            ...req.body,
+            lessonNumber,
+            studentID,
+            answers,
         });
         await newAnswer.save();
         res.status(201).json(newAnswer);

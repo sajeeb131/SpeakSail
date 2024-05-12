@@ -29,10 +29,6 @@ const readingComprehensionSchema = new mongoose.Schema({
 });
 
 const readingComprehensionAnswerSchema = new mongoose.Schema({
-    lessonType:{
-        type: String,
-        required: true,
-    },
     lessonNumber:{
         type: String,
         required: true,

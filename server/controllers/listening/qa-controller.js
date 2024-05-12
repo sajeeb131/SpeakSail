@@ -63,9 +63,15 @@ const getLessonByNumber = async (req, res) => {
 
 const createAnswers = async (req, res) => {
   try {
+    const { lessonNumber, studentID, answers } = req.body;
+
+    // Create a new answer script
     const newAnswer = new ListeningQA_Answers({
-      ...req.body,
+      lessonNumber,
+      studentID,
+      answers
     });
+
     await newAnswer.save();
     res.status(201).json(newAnswer);
   } catch (err) {
@@ -73,6 +79,7 @@ const createAnswers = async (req, res) => {
     res.status(500).json({ message: 'Error creating answers' });
   }
 };
+
 
 const getAnswersByLesson = async (req, res) => {
   try {

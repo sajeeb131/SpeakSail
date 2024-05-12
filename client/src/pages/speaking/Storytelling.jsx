@@ -50,7 +50,7 @@ const Storytelling = (progress) => {
               formData.append('lessonNumber', lessonNumber);
               formData.append('story', lesson.story);
               formData.append('studentID', localStorage.getItem('user'));
-
+              console.log(formData)
               const response = await fetch('http://localhost:4000/lessons/speaking/storytelling/answer', {
                   method: 'POST',
                   body: formData,

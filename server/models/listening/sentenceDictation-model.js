@@ -20,7 +20,7 @@ const listeningSenDictSchema = new mongoose.Schema({
 const listeningSenDictAnswerSchema = new mongoose.Schema({
     lessonType:{
         type: String,
-        required: true,
+        required: false,
     },
     lessonNumber:{
         type: String,

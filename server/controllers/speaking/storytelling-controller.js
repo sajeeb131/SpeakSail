@@ -39,7 +39,6 @@ const getLessonByNumber = async (req,res) =>{
 
 const createAnswers = async(req,res) =>{
     try{
-        const { filename } = req.file;
   
         // Upload audio to Cloudinary
         const uploadResponse = await cloudinary.uploader.upload(

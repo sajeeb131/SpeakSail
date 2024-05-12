@@ -19,9 +19,14 @@ const SentenceDictation = (lessonType, lessonNumber) => {
   const [lesson, setLesson] = useState(null);
   const [placeholder, setPlaceholder] = useState('Start Writing...');
   const [a, setAudio] = useState(null)
+  const studentID = localStorage.getItem('user');
+  const [answers, setAnswer] = useState(null)
+
   const handleClick = () => {
     setPlaceholder('');
+
   };
+  
   useEffect(() => {
     const fetchLesson = async () => {
       try {
@@ -43,10 +48,36 @@ const SentenceDictation = (lessonType, lessonNumber) => {
     fetchLesson();
   }, []);
 
+
+  //submit code
+  const handleSubmit = async() => {
+    try{
+      console.log(lessonNumber, studentID, answers)
+      const response = await fetch('http://localhost:4000/lessons/listening/sentence-dictation/answer',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({lessonNumber, studentID, answers})
+      })
+
+
+      
+      if (!response.ok) {
+        throw new Error('Failed to submit answers');
+      }  
+      
+      console.log('Answers submitted successfully');
+
+    }catch(error){
+      console.error('Error submitting answer: ', error)
+    }
+  }
+
   return (
     <div>
       <Navbar/>
-      <form className="container-main-sd">
+      <div className="container-main-sd">
         <div className='container-sd'>
           
           <div className='container-pb-full'>
@@ -70,7 +101,7 @@ const SentenceDictation = (lessonType, lessonNumber) => {
                   </div>
                   <div className='sd-bottom'>
                       
-                      <textarea name="" id="" cols="50" rows="6" maxLength={400} placeholder={placeholder} onClick={handleClick}></textarea>
+                      <textarea name="" id="" cols="50" rows="6" maxLength={400} placeholder={placeholder} onClick={handleClick} onChange={(e=> {setAnswer(e.target.value); console.log(answers)})}></textarea>
                   </div>
               </div>
               </div>
@@ -85,10 +116,10 @@ const SentenceDictation = (lessonType, lessonNumber) => {
         <div className='container-sd-button'>
           
           <button className='sd-button1'>Can't listen now</button>
-          <button className='sd-button2'>Submit</button>
+          <button className='sd-button2' onClick={handleSubmit}>Submit</button>
           
         </div>
-      </form>
+      </div>
       <Footer/>
     </div>
   )
