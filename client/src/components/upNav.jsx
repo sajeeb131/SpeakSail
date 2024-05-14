@@ -15,7 +15,7 @@ const Navbar = ({ handleNavClick }) => {
         <li className='UpLi'><Link to="/teachers/upload/uploadST" className='linkss' onClick={() => handleClick('uploadST')}>Storytelling</Link></li>
         <li className='UpLi'><Link to="/teachers/upload/uploadPD" className='linkss' onClick={() => handleClick('uploadPD')}>Picture Description</Link></li>
         <li className='UpLi'><Link to="/teachers/upload/uploadC"  className='linkss' onClick={() => handleClick('uploadC')}>Comprehension</Link></li>
-        <li className='UpLi'><Link to="/teachers/upload/uploadDS" className='linkss' onClick={() => handleClick('uploadDS')}>Digital-Storyboarding</Link></li>
+        
       </ul>
     </nav>
   );

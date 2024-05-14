@@ -11,12 +11,18 @@ import UploadPD from './Forms/UploadPD';
 import UploadC from './Forms/UploadC';
 import UploadDS from './Forms/UploadDS';
 
+
+import './UploadMain.css'
+
 const UploadMain = () => {
+    const [initial , setInitial] = useState(true)
     const [activeForm, setActiveForm] = useState(); // useState for activeForm
 
-    const handleNavClick = (formName) => {
+    const handleNavClick =  (formName) => {
+      setInitial(false)
       setActiveForm(formName);
     };
+
 
     const renderForm = () => {
         switch (activeForm) {
@@ -30,25 +36,20 @@ const UploadMain = () => {
             return <UploadPD />;
           case 'uploadC':
             return <UploadC />;
-          case 'uploadDS':
-            return <UploadDS />;
           default:
             return null;
         }
       };
+
+      
   return (
     <div className='page-container'>
-        <div className="navbar-container">
-            <Navbar/>
-        </div>
-        <div className='content-beside-navbar'>
+        
+        <div className='content-beside-navbar2'>
             <div className='upperN'>
-                <UploadNavbar handleNavClick={handleNavClick}/>
+                {initial && <UploadSD />}
             </div>
-            <div className='lowerN'>
-                {/* Render the form based on activeForm */}
-                {renderForm()}
-            </div>
+            
         </div>
     </div>
   )

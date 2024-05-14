@@ -1,6 +1,6 @@
 import React from 'react'
 import 'boxicons'
-import LogoWhite from '../assets/images/LogoWhite.png'
+import LogoWhite from '../assets/images/speaksailLogo.png'
 import './teacherNav.css'
 import { Link, useNavigate } from 'react-router-dom';
 

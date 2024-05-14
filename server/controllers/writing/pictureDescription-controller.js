@@ -1,8 +1,6 @@
 const {WritingPictureDescription, WritingPictureDescription_answers} = require('../../models/writing/pictureDescription-model')
 const cloudinary = require('../../utils/cloudinary')
 
-
-
 const name = "Picture Description"
 const createLesson = async(req,res) =>{
     try{

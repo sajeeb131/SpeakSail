@@ -16,7 +16,7 @@ const readingComprehensionSchema = new mongoose.Schema({
     },
     answer:{
         type: String,
-        required: true,
+        required: false,
     },
     options:{
         type: [String],

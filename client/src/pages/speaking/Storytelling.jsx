@@ -47,6 +47,7 @@ const Storytelling = (progress) => {
       console.log(audioBlob)
       if (true) {
           try {
+                console.log(audioBlob)
               const formData = new FormData();
               formData.append('file', audioBlob);
               formData.append('lessonType', 'Storytelling');

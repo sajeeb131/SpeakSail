@@ -21,13 +21,11 @@ const Dashboard = () => {
   const [deadlines, setDeadlines] = useState(DUMMY_POST2);
   return (
     <div className='page-container'>
-      <div className="navbar-container">
+      
         <Navbar/>
-      </div>
+      
       <div className="content-beside-navbar">
-        <div className='top'>
-          <input type="text" className="search-field" placeholder="Search..." />
-        </div>
+        
         <div className='middle'>
           <div className='middle-left'>
             <div className='upper'>
