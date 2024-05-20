@@ -104,8 +104,7 @@ const SentenceDictation = (lessonType, lessonNumber) => {
                     
                   </div>
                   <div className='sd-bottom'>
-                      
-                      <textarea name="" id="" cols="50" rows="6" maxLength={400} placeholder={placeholder} onClick={handleClick} onChange={(e=> {setAnswer(e.target.value); console.log(answers)})}></textarea>
+                      <textarea className='area' name="" id="" cols="50" rows="6" maxLength={400} placeholder={placeholder} onClick={handleClick} onChange={(e=> {setAnswer(e.target.value); console.log(answers)})}></textarea>
                   </div>
               </div>
               </div>

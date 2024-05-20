@@ -10,54 +10,137 @@ import DailyMission from '../../assets/images/DM-CARD.png'
 const HomePage = () => {
     const userID = localStorage.getItem('user');
     const [user, setUser] = useState([]);
-    const [overallProgress, setOverallProgress] = useState(80);
+
+    const [overallProgress, setOverallProgress] = useState('');
     const progressStyle = {
         width: `${overallProgress}%`
     };
-    const [listeningProgress, setListeningProgress] = useState(60);
-    const [speakingProgress, setSpeakingProgress] = useState(45);
-    const [readingProgress, setReadingProgress] = useState(28);
-    const [writingProgress, setWritingProgress] = useState(10);
+
+    const [listeningProgress, setListeningProgress] = useState(null);
+    const [speakingProgress, setSpeakingProgress] = useState(null);
+    const [readingProgress, setReadingProgress] = useState(null);
+    const [writingProgress, setWritingProgress] = useState(null);
+
+    const [listeningTotalLessons, setListeningTotalLessons] = useState('')
+    const [speakingTotalLessons, setSpeakingTotalLessons] = useState('')
+    const [readingTotalLessons, setReadingTotalLessons] = useState('')
+    const [writingTotalLessons, setWritingTotalLessons] = useState('')
+
     const progressStyles = {
         listening: {
-            width: `${listeningProgress}%`
+            width: `${(listeningProgress/listeningTotalLessons)*100}%`
         },
         speaking: {
-            width: `${speakingProgress}%`
+            width: `${(speakingProgress/speakingTotalLessons)*100}%`
         },
         reading: {
-            width: `${readingProgress}%`
+            width: `${(readingProgress/readingTotalLessons)*100}%`
         },
         writing: {
-            width: `${writingProgress}%`
+            width: `${(writingProgress/writingTotalLessons)*100}%`
         }
     };
+
+
     const navigate = useNavigate();
     const clickLessonLink = (lesson)=>{
         navigate(`/lessons/${lesson}`)
     }
+
+    const fetchLessonData = async (url) => {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch data from ${url}`);
+        }
+        return response.json();
+    };
     
-    useEffect(()=>{
-        const fetchData = async()=>{
-            try{
-                const response = await fetch(`http://localhost:4000/home/${userID}`);
-                if(!response.ok){
-                    throw new Error('Failed to fetch data')
+    const calculateTotalLessons = async (urls) => {
+        const lessonPromises = urls.map((url) => fetchLessonData(url));
+        const lessonsArray = await Promise.all(lessonPromises);
+        return lessonsArray.reduce((total, lessonData) => total + lessonData.lessons.length, 0);
+    };
+    const calcOverall = async () =>{
+        const x = Number(listeningProgress) + Number(speakingProgress) + Number(readingProgress) + Number(writingProgress)
+        const y = Number(listeningTotalLessons) + Number(speakingTotalLessons) + Number(writingTotalLessons) + Number(readingTotalLessons)
+        const result = (x/y)*100
+        setOverallProgress(result)
+        console.log(x,y, result)
+    }
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const userResponse = await fetch(`http://localhost:4000/home/${userID}`);
+                if (!userResponse.ok) {
+                    throw new Error('Failed to fetch user data');
                 }
-                const data = await response.json();
-                setUser(data);
-                setListeningProgress(data.listening);
-                setReadingProgress(data.reading);
-                setWritingProgress(data.writing);
-                setSpeakingProgress(data.speaking);
-                console.log(data);
+                const userData = await userResponse.json();
+                setUser(userData);
+                setListeningProgress(userData.listening);
+                console.log(listeningProgress)
+                setReadingProgress(userData.reading);
+                setWritingProgress(userData.writing);
+                setSpeakingProgress(userData.speaking);
+
+                const listeningLessonsUrls = [
+                    'http://localhost:4000/lessons/listening/sentence-dictation',
+                    'http://localhost:4000/lessons/listening/qa',
+                ];
+                const speakingLessonsUrls = [
+                    'http://localhost:4000/lessons/speaking/storytelling'
+                ];
+                const readingLessonsUrls = [
+                    'http://localhost:4000/lessons/reading/comprehension'
+                ];
+                const writingLessonsUrls = [
+                    'http://localhost:4000/lessons/writing/picturedescription'
+                ];
+
+                setListeningTotalLessons(await calculateTotalLessons(listeningLessonsUrls));
+                setSpeakingTotalLessons(await calculateTotalLessons(speakingLessonsUrls));
+                setReadingTotalLessons(await calculateTotalLessons(readingLessonsUrls));
+                setWritingTotalLessons(await calculateTotalLessons(writingLessonsUrls));
+
+                
+
+                await calcOverall()
+   
+                } catch (error) {
+                console.error('Error fetching data:', error);
             }
-            catch(error){
-                console.error('Error fetching data: ', error)
-            }
-        };
-        fetchData();
+    };
+
+    fetchData();
     }, [userID]);
+
+    useEffect(() => {
+        if (
+            listeningProgress !== null &&
+            speakingProgress !== null &&
+            readingProgress !== null &&
+            writingProgress !== null &&
+            listeningTotalLessons &&
+            speakingTotalLessons &&
+            readingTotalLessons &&
+            writingTotalLessons
+        ) {
+            const totalProgress = Number(listeningProgress) + Number(speakingProgress) + Number(readingProgress) + Number(writingProgress);
+            const totalLessons = Number(listeningTotalLessons) + Number(speakingTotalLessons) + Number(readingTotalLessons) + Number(writingTotalLessons);
+            const overall = (totalProgress / totalLessons) * 100;
+            setOverallProgress(overall);
+        }
+    }, [
+        listeningProgress,
+        speakingProgress,
+        readingProgress,
+        writingProgress,
+        listeningTotalLessons,
+        speakingTotalLessons,
+        readingTotalLessons,
+        writingTotalLessons
+    ]);
+    
+    {!overallProgress && <div>...Loading</div>}
 
   return (
     <div className='container-homepage'>
@@ -101,12 +184,16 @@ const HomePage = () => {
                     <div className='container-homepage-progress-bar-line'>
                         <div className="progress-bar listening" style={{ ...progressStyles.listening, backgroundColor: '#FABC2A;' }} ></div>
                     </div>
+                    <span>{Math.floor((listeningProgress/listeningTotalLessons) * 100)}%</span>
+
                 </div>
                 <div className='container-homepage-lessons-indv' id='speaking' onClick={()=>clickLessonLink('speaking')}>
                     <h2>Speaking</h2>
                     <div className='container-homepage-progress-bar-line'>
-                    <div className="progress-bar" style={{ ...progressStyles.speaking, backgroundColor: '#52D1DC' }}></div>
+                        <div className="progress-bar" style={{ ...progressStyles.speaking, backgroundColor: '#52D1DC' }}></div>
                     </div>
+                    <span>{Math.floor((speakingProgress/speakingTotalLessons) * 100)}%</span>
+
                 </div>
             </div>
             <div className='container-homepage-lessons-half'>
@@ -115,12 +202,15 @@ const HomePage = () => {
                     <div className='container-homepage-progress-bar-line'>
                     <div className="progress-bar" style={{ ...progressStyles.reading, backgroundColor: '#FF5E5B' }}></div>
                     </div>
+                    <span>{Math.floor((readingProgress/readingTotalLessons) * 100)}%</span>
+
                 </div>
                 <div className='container-homepage-lessons-indv' id='writing' onClick={()=>clickLessonLink('writing')}>
                     <h2>Writing</h2>
                     <div className='container-homepage-progress-bar-line'>
                     <div className="progress-bar" style={{ ...progressStyles.writing, backgroundColor: '#93FF96' }}></div>
                     </div>
+                    <span>{Math.floor((writingProgress/writingTotalLessons) * 100)}%</span>
                     
                 </div>
             </div>

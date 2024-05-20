@@ -13,6 +13,14 @@ const speakingStorytellingSchema = new mongoose.Schema({
     completedBy: {
         type: String,
         required: false
+    },
+    completedBy:{
+        type: [String],
+        required: false
+    },
+    submittedBy:{
+        type: [String],
+        required: false
     }
 });
 

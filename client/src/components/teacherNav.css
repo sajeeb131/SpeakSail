@@ -43,7 +43,10 @@
     border-radius: 10px;
     background: var(--Purples-Purple, #D67BE0);
     transition: 0.5 ease-in;
-    color: #002E88;
+    
+  }
+  .links ul span:hover{
+    color: aliceblue;
   }
   .logout {
     width: 142px;

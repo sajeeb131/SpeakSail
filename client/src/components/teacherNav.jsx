@@ -12,34 +12,28 @@ const teacherNav = () => {
     </div>
     <div className="links">
       <ul>
-        <li>
+        <li className=''>
             <Link to='/teachers/dashboard'>
             <box-icon type='solid' name='dashboard'></box-icon>
-            Dashboard
+            <span>Dashboard</span>
             </Link>
         </li>
         <li>
             <Link to='/teachers/classes'>
             <box-icon name='desktop' ></box-icon>
-            Classes
-            </Link>
-        </li>
-        <li>
-            <Link to='/teachers/students'>
-            <box-icon name='child' ></box-icon>
-            Classes
+            <span>Classes</span>
             </Link>
         </li>
         <li>
             <Link to='/teachers/resources'>
             <box-icon name='coin-stack' type='solid' ></box-icon>
-            Resources
+            <span>Resources</span>
             </Link>
         </li>
         <li>
             <Link to='/teachers/upload'>
             <box-icon name='upload' ></box-icon>
-            Upload
+            <span>Upload</span>
             </Link>
         </li>
       </ul>

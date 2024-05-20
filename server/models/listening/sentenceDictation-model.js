@@ -14,6 +14,14 @@ const listeningSenDictSchema = new mongoose.Schema({
       type: String,
       required: true
     },
+    completedBy:{
+        type: [String],
+        required: false
+    },
+    submittedBy:{
+        type: [String],
+        required: false
+    }
   });
   
 

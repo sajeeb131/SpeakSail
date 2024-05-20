@@ -26,6 +26,11 @@ const readingComprehensionSchema = new mongoose.Schema({
         type: [String],
         required: false
     }
+    ,
+    submittedBy:{
+        type: [String],
+        required: false
+    }
 });
 
 const readingComprehensionAnswerSchema = new mongoose.Schema({

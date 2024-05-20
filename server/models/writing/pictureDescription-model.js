@@ -17,6 +17,10 @@ const writingPictureDescriptionSchema = new mongoose.Schema({
     completedBy:{
         type: [String],
         required: false
+      },
+    submittedBy:{
+        type: [String],
+        required: false
     }
 });
 

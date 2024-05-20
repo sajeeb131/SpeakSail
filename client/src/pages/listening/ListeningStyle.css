@@ -21,7 +21,6 @@
     display: flex;
     flex-direction: row;
     
-    
 }
 .container-main-sd a{
     
@@ -54,7 +53,7 @@
     margin-top: 40px;
     margin-left: 40px;
 }
-.sd-bottom textarea{
+.sd-bottom textarea {
     display: flex;
     
     padding: 10px 10px 10px 10px;
@@ -67,6 +66,11 @@
     height: 100px;
     resize: none;
     font-size: 20px;
+
+    display: block;
+    appearance: none;
+    background-color: transparent;
+    transition: box-shadow 0.3s ease;
 }
 .sd-bottom textarea:focus{
     border: none;
