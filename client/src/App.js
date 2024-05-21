@@ -31,6 +31,9 @@ import UploadPD from './pages/teachers/upload/Forms/UploadPD';
 import UploadC from './pages/teachers/upload/Forms/UploadC';
 import UploadDS from './pages/teachers/upload/Forms/UploadDS';
 
+import Materials from './pages/materials-download/Materials'
+
+
 function App() {
   return (
     <div className="App">
@@ -45,14 +48,23 @@ function App() {
           {/* Home page route */}
           <Route path='/home' element={<HomePage />} />
 
+          {/* Profile page route */}
+          <Route path='/profile' element={<ProfilePage />} />
+
+          {/* Authentication routes */}
+          <Route path='/login' element={<LoginPage />} />
+          {/* <Route path='/signup' element={<SignUpPage />} /> */}
+          
+          {/* Materials download route */}
+          <Route path='/materials' element={<Materials/>} />
+
           {/* Lessons main routes */}
           <Route path='/lessons/listening' element={<ListeningMain />} />
           <Route path='/lessons/writing' element={<WritingMain />} />
           <Route path='/lessons/reading' element={<ReadingMain />} />
           <Route path='/lessons/speaking' element={<SpeakingMain />} />
           
-          {/* Profile page route */}
-          <Route path='/profile' element={<ProfilePage />} />
+          
 
           {/* Teachers route */}
           <Route path='/teachers/dashboard' element={<Dashboard />} />
@@ -65,9 +77,7 @@ function App() {
           <Route path='/teachers/upload/uploadDS' element={<UploadDS />} />
           
 
-          {/* Authentication routes */}
-          <Route path='/login' element={<LoginPage />} />
-          <Route path='/signup' element={<SignUpPage />} />
+          
 
           {/* Lessons pages */}
           <Route path='/lessons/listening/sentence-dictation/:lessonNumber' element={<SentenceDictation />} />
@@ -83,6 +93,7 @@ function App() {
           {/* Lessons table */}
           <Route path='/lessons-table/:lessonType' element={<LessonsTable />} />
 
+          
 
         </Routes>
       </BrowserRouter>

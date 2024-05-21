@@ -12,18 +12,18 @@
     height: 190px;
 
   }
-  
-  .footer-content {
+  .logo-container{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
   }
-  
-  .logo {
-    margin-left: 140px;
-    width: 340px;
-    height: 125px;
+  .logo{
+    width: fit-content;
   }
+  
+ 
+  
+  
   
   .tagline {
     text-align: center;
