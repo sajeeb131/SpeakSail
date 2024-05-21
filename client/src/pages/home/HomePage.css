@@ -196,10 +196,16 @@
     text-decoration: none;
     outline: none;
     color: #93FF96;
-    padding: 8px;
+    padding: 10px 8px;
     background-color: #FFFFFF;
     border-radius: 3px;
+    font-weight: 500;
+    transition: transform 0.3s ease, font-weight 0.3s ease;
     
+}
+.homepage-materials-indv a:hover{
+    transform: scale(1.1);
+    font-weight: 600;
 }
 .homepage-materials-icon{
     background-color: #FFFFFF;

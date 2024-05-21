@@ -1,10 +1,11 @@
 .container-materials{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     color: #002E88;
     margin-top: 24px;
+    min-height: 608px;
+
 
 }
 .container-materials h1{
@@ -35,9 +36,12 @@
 /*Listening materials */
 
 .material-box-container{
+    display: flex;
+    flex-direction: column;
     margin-top: 40px;
     margin-bottom: 20px;
-    min-height: 368px;
+    
+    row-gap: 20px;
 }
 .material-box{
     list-style: none;
@@ -45,13 +49,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 .material-listItem{
     width: 1300px;
     height: 40px;
     border: 1px solid #002E88;
     border-radius: 16px;
-    margin-bottom: 26px;
+    
 
     display: flex;
     flex-direction: row;
@@ -89,7 +94,7 @@
     line-height: 37.5px;
     text-align: left;
     border: 2px solid #002E88;
-    transition: background-color 0.4s ease-in, color 0.4s ease-in;
+    transition: background-color 0.3s ease-in, color 0.3s ease-in;
 }
 .material-change-button button:hover{
     background-color: #002E88;
@@ -97,7 +102,7 @@
 }
 .materials-drop{
     width: 95%;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 .material{
     display: flex;
@@ -110,10 +115,13 @@
     line-height: 36px;
     text-align: left;
     gap: 18px;
-    padding: 0px 35px 5px 35px;
-    
-    
-   
-
-
+    padding: 12px 35px 5px 35px;
+}
+.material span{
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.material span:hover{
+    cursor: pointer;
+    color: #52D1DC;
+    transform: scale(1.05);
 }

@@ -31,7 +31,7 @@ import UploadPD from './pages/teachers/upload/Forms/UploadPD';
 import UploadC from './pages/teachers/upload/Forms/UploadC';
 import UploadDS from './pages/teachers/upload/Forms/UploadDS';
 
-import Materials from './pages/materials-download/Materials'
+import ListeningMaterials from './pages/materials-download/Materials'
 
 
 function App() {
@@ -56,7 +56,10 @@ function App() {
           {/* <Route path='/signup' element={<SignUpPage />} /> */}
           
           {/* Materials download route */}
-          <Route path='/materials' element={<Materials/>} />
+          <Route path='/materials/:material_type' element={<ListeningMaterials/>} />
+          {/* <Route path='/materials/listening' element={<Materials/>} />
+          <Route path='/materials/listening' element={<Materials/>} />
+          <Route path='/materials/listening' element={<Materials/>} /> */}
 
           {/* Lessons main routes */}
           <Route path='/lessons/listening' element={<ListeningMain />} />

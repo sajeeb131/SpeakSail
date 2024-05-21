@@ -100,19 +100,47 @@ const uploadWritingActivity = async(req, res) => {
 }
 
 const getListeningActivities = async(req, res) =>{
-
+    try{
+        const materials = await DownloadListeningMaterials.find();
+        res.json(materials)
+    }
+    catch(err){
+        console.log(err)
+        res.status.json({message: 'Error fetching listening materials!'})
+    }
 }
 
 const getSpeakingActivities = async(req, res) => {
-    
+    try{
+        const materials = await DownloadSpeakingMaterials.find();
+        res.json(materials)
+    }
+    catch(err){
+        console.log(err)
+        res.status.json({message: 'Error fetching Speaking materials!'})
+    }
 }
 
 const getReadingActivities = async(req, res) => {
-    
+    try{
+        const materials = await DownloadReadingMaterials.find();
+        res.json(materials)
+    }
+    catch(err){
+        console.log(err)
+        res.status.json({message: 'Error fetching Reading materials!'})
+    }
 }
 
 const getWritingActivities = async(req, res) => {
-    
+    try{
+        const materials = await DownloadWritingMaterials.find();
+        res.json(materials)
+    }
+    catch(err){
+        console.log(err)
+        res.status.json({message: 'Error fetching Writing materials!'})
+    }
 }
 
 

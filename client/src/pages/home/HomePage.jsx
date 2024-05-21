@@ -242,7 +242,7 @@ const HomePage = () => {
                     </div>
                     
                     <p>Lorem ipsum dolor sit</p>
-                    <Link to="/explore" style={{color:"#52D1DC"}}>Explore</Link>
+                    <Link to="/materials/Listening" style={{color:"#52D1DC"}}>Explore</Link>
                 </div>
                 <div className="homepage-materials-indv" style={{backgroundColor:"#FABC2A"}}>
                     <div className='homepage-materials-icon'>
@@ -263,7 +263,7 @@ const HomePage = () => {
                     </div>
                     
                     <p>Lorem ipsum dolor sit</p>
-                    <Link to="/explore" style={{color:"#FABC2A"}}>Explore</Link>
+                    <Link to="/materials/Speaking" style={{color:"#FABC2A"}}>Explore</Link>
                 </div>
                 <div className="homepage-materials-indv" style={{backgroundColor:"#93FF96"}}>
                     <div className='homepage-materials-icon'>
@@ -284,7 +284,7 @@ const HomePage = () => {
                     </div>
                     
                     <p>Lorem ipsum dolor sit</p>
-                    <Link to="/explore" style={{color:"#93FF96"}}>Explore</Link>
+                    <Link to="/materials/Reading" style={{color:"#93FF96"}}>Explore</Link>
                 </div>
                 <div className="homepage-materials-indv" style={{backgroundColor:"#FF5E5B"}}>
                     <div className="homepage-materials-icon">
@@ -297,7 +297,7 @@ const HomePage = () => {
                     </div>
                     
                     <p>Lorem ipsum dolor sit</p>
-                    <Link to="/explore" style={{color:"#FF5E5B"}}>Explore</Link>
+                    <Link to="/materials/Writing" style={{color:"#FF5E5B"}}>Explore</Link>
                 </div>
             </div>
         </div>
