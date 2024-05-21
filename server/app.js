@@ -12,7 +12,7 @@ const listeningPagesRoute = require('./routes/listening-route')
 const speakingPagesRoute = require('./routes/speaking-route')
 const readingPagesRoute = require('./routes/reading-route')
 const writingPagesRoute = require('./routes/writing-route')
-
+const materialRoute = require('./routes/material-route')
 
 //middleware
 app.use(express.json())
@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 app.use('/student', studentRoute); 
 //app.use('/teacher', teacherRoute);
 app.use('/home', homeRoute);
+app.use('/materials', materialRoute)
 
 app.use('/lessons/listening',listeningPagesRoute);
 app.use('/lessons/speaking',speakingPagesRoute);
