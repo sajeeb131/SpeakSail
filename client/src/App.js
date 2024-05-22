@@ -23,15 +23,8 @@ import LessonsTable from './pages/lessons-table/LessonsTable';
 
 //Dashboard Components
 import TeachersMainPage from './pages/teachers/Teachers-main'
-import UploadMain from './pages/teachers/upload/UploadMain';
-import UploadSD from './pages/teachers/upload/Forms/UploadSD';
-import UploadQA from './pages/teachers/upload/Forms/UploadQA';
-import UploadST from './pages/teachers/upload/Forms/UploadST';
-import UploadPD from './pages/teachers/upload/Forms/UploadPD';
-import UploadC from './pages/teachers/upload/Forms/UploadC';
-import UploadDS from './pages/teachers/upload/Forms/UploadDS';
 
-import ListeningMaterials from './pages/materials-download/Materials'
+import Materials from './pages/materials-download/Materials'
 
 
 function App() {
@@ -52,11 +45,11 @@ function App() {
           <Route path='/profile' element={<ProfilePage />} />
 
           {/* Authentication routes */}
-          <Route path='/login' element={<LoginPage />} />
+          <Route path='/login/:user_type' element={<LoginPage />} />
           {/* <Route path='/signup' element={<SignUpPage />} /> */}
           
           {/* Materials download route */}
-          <Route path='/materials/:material_type' element={<ListeningMaterials/>} />
+          <Route path='/materials/:material_type' element={<Materials/>} />
 
 
           {/* Lessons main routes */}

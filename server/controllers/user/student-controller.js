@@ -69,6 +69,26 @@ const signupUser = async (req, res) => {
   }
 };
 
+const getUser = async (req, res)=>{
+  const userID = req.params.id;
+    try{
+        const user = await User.findOne({userID})
+        res.status(200).json(user);
+    }catch(error){
+        console.error(err);
+        res.status(400).json({message: "Error creating lesson"})
+    }
+}
+
+const getAllUsers = async (req, res)=>{
+    try{
+        const users = await User.find()
+        res.status(200).json(users);
+    }catch(error){
+        console.error(err);
+        res.status(400).json({message: "Error creating lesson"})
+    }
+}
 
 
-module.exports = { signupUser, loginUser };
+module.exports = { signupUser, loginUser, getUser, getAllUsers };

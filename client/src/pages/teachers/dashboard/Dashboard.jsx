@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import avatar1 from '../../../assets/images/PFP.png'
 import avatar2 from '../../../assets/images/teacherAvatar.png'
@@ -17,13 +17,41 @@ const Dashboard = () => {
   const [topStudents, setTopStudents] = useState(DUMMY_POST);
   const [recents, setRecents] = useState(DUMMY_POST1);
   const [deadlines, setDeadlines] = useState(DUMMY_POST2);
+
+  const [teacher, setTeacher] = useState()
+  const [students, setStudents] = useState([])
+  const userID = localStorage.getItem('user')
+
+  useEffect(()=>{
+    const fetchData = async() =>{
+      try{
+        const response = await fetch(`http://localhost:4000/teacher/${userID}`)
+        const response2 = await fetch(`http://localhost:4000/student/`)
+        if(!response.ok && !response2.ok){
+          throw new Error('Data can not be fetched!')
+        }
+        const userData = await response.json();
+        const userData2 = await response2.json();
+        setTeacher(userData)
+        setStudents(userData2)
+        console.log(userData)
+
+      }catch(error){
+        console.log( error.message)
+      }
+    }
+    fetchData();
+  },[userID])
+  {!teacher && !students && <div>...Loading</div>}
+
+
   return (
         <div className='middle'>
           <div className='middle-left'>
             <div className='upper'>
               <div className='stats-banner' id='ban1'>
                 <h2>Total Students</h2>
-                <h1>{totalStudents}</h1>
+                <h1>{students.length}</h1>
               </div>
 
               <div className='stats-banner' id='ban2'>
@@ -76,22 +104,24 @@ const Dashboard = () => {
             </div>
             </div>
             
-
+          
           <div className='middle-right'>
-                <div className='profile-box'>
-                    <img src={teachertImg} alt='Teacher Avatar'></img>
-                    <h2>{teacherName}</h2>
-                    <h3>Profile ID: {teacherId}</h3>
-                    
-                    <div className='total-classes-taught'>
-                      <h3>10 </h3>
-                      <span>Total Classes Taught</span>
-                    </div>
-                    <div className='profile-box-profile-button'>
-                      <Link>Edit Profile</Link>
-                    </div>
-                    
-                </div>
+                  {teacher && 
+                    <div className='profile-box'>
+                      <img src={teachertImg} alt='Teacher Avatar'></img>
+                      <h2>{teacher.fullName}</h2>
+                      <h3>{teacher.userID}</h3>
+                      
+                      <div className='total-classes-taught'>
+                        <h3>{teacher.takenClasses} </h3>
+                        <span>Total Classes Taught</span>
+                      </div>
+                      <div className='profile-box-profile-button'>
+                        <Link>Edit Profile</Link>
+                      </div>
+                  </div>
+                  }
+                
                 <div className='deadline-box'>
                     <h1>Upcoming Deadlines</h1>
                     {deadlines.slice(0,3).map((item, key)=>{

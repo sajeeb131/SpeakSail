@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Navbar from '../../../../components/teacherNav'
-import UploadNavbar from '../../../../components/upNav'
 import './UploadD.css'
 
 const UploadPD = () => {

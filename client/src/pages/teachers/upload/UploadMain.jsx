@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '../../../components/teacherNav'
 import UploadNavbar from '../../../components/upNav'
 import { Link, useNavigate } from 'react-router-dom'
 

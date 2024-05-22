@@ -2,9 +2,15 @@ import React from 'react'
 import 'boxicons'
 import LogoWhite from '../assets/images/speaksailLogo.png'
 import './teacherNav.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link,Navigate, useNavigate } from 'react-router-dom';
 
-const teacherNav = () => {
+const TeacherNav = () => {
+  const navigate = useNavigate();
+  const handleLogout = (event) =>{
+    localStorage.removeItem('user')
+    localStorage.removeItem('user_type')
+    navigate('/');
+  }
   return (
     <div className="teacherNavbar">
     <div className="logo">
@@ -45,7 +51,7 @@ const teacherNav = () => {
       </ul>
     </div>
     <div className="logout">
-      <button>
+      <button onClick= {handleLogout}>
         <box-icon name='upload' ></box-icon>
         Logout
       </button>
@@ -54,4 +60,4 @@ const teacherNav = () => {
   )
 }
 
-export default teacherNav
+export default TeacherNav

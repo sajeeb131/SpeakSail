@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/student', studentRoute); 
-//app.use('/teacher', teacherRoute);
+app.use('/teacher', teacherRoute);
 app.use('/home', homeRoute);
 app.use('/materials', materialRoute)
 

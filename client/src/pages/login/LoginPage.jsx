@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import './LoginPage.css';
 // import axios from 'axios'
 import Logo from '../../assets/images/LogoWhite.png';
@@ -7,6 +7,8 @@ import LoginImage from '../../assets/images/login.png';
 import GoogleIcon from '../../assets/images/GoogleIcon.svg';
 
 const LoginPage = () => {
+    const {user_type} =useParams()
+    console.log(user_type)
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [userID, setUserID] = useState('');
@@ -29,7 +31,7 @@ const LoginPage = () => {
         try {
           setIsLoading(true); // Set a loading state (optional)
             const user = {email,password, userID, name}
-            const response = await fetch('http://localhost:4000/student/login', {
+            const response = await fetch(`http://localhost:4000/${user_type}/login`, {
             method:'POST',
             body: JSON.stringify(user),
             headers:{
@@ -40,7 +42,13 @@ const LoginPage = () => {
             const data = await response.json();
             console.log('Login successful:', data);
             localStorage.setItem('user', data.userID);
-            navigate('/home');
+            localStorage.setItem('user_type', user_type);
+            if(user_type=='student'){
+                navigate('/home');
+            }else{
+                navigate('/teachers/dashboard');
+            }
+            
           } else {
             const errorData = await response.json();
             console.error('Login failed:', errorData.error);
@@ -104,16 +112,6 @@ const LoginPage = () => {
                             <div className="login">Login</div>
                         </button>
                     </div>
-
-                    <div className="dont-have-an-container">
-                        <span className="dont-have-an-account">
-                            <span className="dont-have-an">Don’t have an account?</span>
-                            <span className="span">{` `}</span>
-                        </span>
-                        <span className="signup">
-                            <Link to="/signup">Signup</Link>
-                        </span>
-                    </div>
                     
                 </div>
             </form>

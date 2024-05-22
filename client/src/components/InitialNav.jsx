@@ -8,12 +8,12 @@ const InitialNav = () => {
     const onClick = () =>{
         navigate('/')
     }
-    const handleClickLogin = () => {
-        navigate('/login');
+    const handleClickLoginStudent = () => {
+        navigate('/login/student');
     };
 
-    const handleClickSignup = () => {
-        navigate('/signup');
+    const handleClickLoginTeacher = () => {
+        navigate('/login/teacher');
     };
 
   return (
@@ -30,8 +30,10 @@ const InitialNav = () => {
                 <li><Link to="/about-us">About us</Link></li>
             </ul>
             <div className='buttons'>
-                <button className='btn login-btn' onClick={handleClickLogin}>Login</button>
+                <button className='btn login-btn' onClick={handleClickLoginStudent}>Student</button>
+                <button className='btn login-btn' onClick={handleClickLoginTeacher}>Teacher</button>
             </div>
+            
         </div>
     </>
   )
