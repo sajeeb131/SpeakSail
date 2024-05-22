@@ -31,7 +31,6 @@ const InitialNav = () => {
             </ul>
             <div className='buttons'>
                 <button className='btn login-btn' onClick={handleClickLogin}>Login</button>
-                <button className='btn signup-btn' onClick={handleClickSignup}>Signup</button>
             </div>
         </div>
     </>

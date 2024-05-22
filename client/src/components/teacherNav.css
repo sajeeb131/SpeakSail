@@ -1,35 +1,25 @@
 .teacherNavbar {
-    position: absolute;
-    left: -20px;
-    top: -20px;
-    width: 280px;
-    height: 100%;
+    width: 300px;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
-    margin: 20px 0;
-    background-color: hsla(0, 0%, 95%, .8);
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
   }
   
-  .logo {
-    width: 140px;
-    height: 90px;
-    margin: 0;
-    
-  }
   
-  .links {
-    margin-bottom: 400px;
+  
+   .teacherNavbar .links {
+    margin-top: 40px;
+    margin-bottom: 280px;
     text-decoration: none;
   }
   
-  .links ul {
+  .teacherNavbar .links ul {
     list-style-type: none;
     padding: 0;
-  }
-  
-  .links ul li {
-    color: #002E88;
-    padding: 20px 20px;
   }
   
   .links ul li{
@@ -38,16 +28,9 @@
     font-style: normal;
     font-weight: 600;
     text-decoration: none;
-  }
-  .links ul li:hover{
-    border-radius: 10px;
-    background: var(--Purples-Purple, #D67BE0);
-    transition: 0.5 ease-in;
     
   }
-  .links ul span:hover{
-    color: aliceblue;
-  }
+  
   .logout {
     width: 142px;
     height: 50px;
@@ -55,17 +38,19 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-bottom: 120px;
-    margin-right: 26px;
+
+    margin-right: 60px;
   }
   
   .logout button {
+    
+    gap: 20px;
     width: 100%;
     font-size: 25px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    background-color: rgb(248, 245, 242);
+    background-color: white;
     color: #002E88;
     border: none;
     padding: 10px 20px;
@@ -77,4 +62,24 @@
     color: white;
     background-color: #3976ee;
 }
+.dashboard-links{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 40px 10px 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+}
+.dashboard-links:hover{
+  border-radius: 10px;
+  background: var(--Purples-Purple, #D67BE0);
+  
+  color: white;
+  
+}
+    
   

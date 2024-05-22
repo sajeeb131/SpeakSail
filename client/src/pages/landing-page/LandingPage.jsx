@@ -14,6 +14,7 @@ import icon4 from "../../assets/icons/objective4.png"
 import image2 from '../../assets/images/Settings-bro 1.png'
 import icon5 from "../../assets/icons/mdi_tick-circle.png"
 const LandingPage = () => {
+  
   return (
     <div>
       <InitialNav />
@@ -27,7 +28,7 @@ const LandingPage = () => {
           </div>
           <div className='container-getStarted-half-des'><p>Lorem Ipsum is simply 
             dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing</p></div>
-          <div className='container-getStarted-half-button'><Link>Get Started</Link></div>
+          <div className='container-getStarted-half-button'><Link to='/login'>Get Started</Link></div>
         </div>
         <div className='container-getStarted-half'>
           <img src={image} alt='' width={600} height={400}/>

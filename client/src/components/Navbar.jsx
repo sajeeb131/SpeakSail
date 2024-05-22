@@ -7,15 +7,15 @@ import image from "../assets/images/student.jpg"
 
 const InitialNav = () => {
     const navigate = useNavigate();
-    // const onClick = () =>{
-    //     navigate('/')
-    // }
+    const handleLogoClick = () =>{
+        navigate('/')
+    }
     const [profilePic, setProfilePic] = useState(image);
 
   return (
     <>
         <div className='navbar'>
-            <div className='logo'>
+            <div className='logo' onClick={handleLogoClick}>
                 <img src={Logo} alt='Logo'/>
             </div>
             <ul className='nav-link'>
@@ -39,7 +39,7 @@ const InitialNav = () => {
                         </defs>
                     </svg>
                 </Link>
-                <Link to="/profile/ProfilePage" className='navbar-avatar'>
+                <Link to="/profile" className='navbar-avatar'>
                     <img src={profilePic} alt=""/>
                 </Link>
             </div>

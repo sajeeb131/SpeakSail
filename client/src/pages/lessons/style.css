@@ -48,6 +48,10 @@ a{
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.listeningMain-section-half:hover{
+    background-color: rgb(232, 233, 233);
 }
 .listeningMain-section-half-right{
     width: fit-content;

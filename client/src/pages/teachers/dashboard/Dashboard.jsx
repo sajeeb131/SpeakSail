@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import Navbar from '../../../components/teacherNav'
-import './Dashboard.css'
 import { Link, useNavigate } from 'react-router-dom'
 import avatar1 from '../../../assets/images/PFP.png'
 import avatar2 from '../../../assets/images/teacherAvatar.png'
@@ -20,12 +18,6 @@ const Dashboard = () => {
   const [recents, setRecents] = useState(DUMMY_POST1);
   const [deadlines, setDeadlines] = useState(DUMMY_POST2);
   return (
-    <div className='page-container'>
-      
-        <Navbar/>
-      
-      <div className="content-beside-navbar">
-        
         <div className='middle'>
           <div className='middle-left'>
             <div className='upper'>
@@ -44,7 +36,8 @@ const Dashboard = () => {
                 <h1>{totalStudents}</h1>
               </div>
             </div>
-            <h2 id='headers2'>Top performing students</h2>
+            <div className='top-students'>
+            <h2 id='headers2'>Top Performing Students</h2>
             <div className='mid'>
               {topStudents.slice(0,4).map((Item, key)=>{
                 return(
@@ -53,15 +46,21 @@ const Dashboard = () => {
                         <img src={studentImg}></img>
                       </div>
                       <div className='info-block'>
-                        <h2>Name: {Item.name}</h2>
-                        <h3>Class: {Item.class}</h3>
+                        <div className='info-block-sub'>
+                          <h2>{Item.name}</h2>
+                          <h3>Class: {Item.class}</h3>
+                        </div>
                         <h3>{Item.completed}%</h3>
                       </div>
                   </div>
                 )
               })}
-              <Link to='/teachers/students-list'>See more</Link>
+              
             </div>
+
+            <Link to='/teachers/students-list'>See more</Link>
+            </div>
+            <div className='accessed-class'>
             <h2 id='headers2'>Recently accessed classes</h2>
             <div className='bot'>
                 {recents.slice(0,2).map((item, key)=>{
@@ -69,28 +68,40 @@ const Dashboard = () => {
                     <div className='class-info'>
                         <div className='class-box'><h1>Class: {item.class}</h1></div>
                         <div className='class-box'><h3>Total Students: {item.topStudents}</h3></div>
-                        <div className='class-box'><h3>Last Upload: {item.lastUpload}</h3></div>
+                        <div className='class-box'><h3>Last assigned task: {item.lastUpload}</h3></div>
                     </div>
                   )
-                })}
+                  })}
+              </div>
             </div>
-          </div>
+            </div>
+            
 
           <div className='middle-right'>
                 <div className='profile-box'>
                     <img src={teachertImg} alt='Teacher Avatar'></img>
                     <h2>{teacherName}</h2>
                     <h3>Profile ID: {teacherId}</h3>
-                    <Link>Edit Profile</Link>
+                    
+                    <div className='total-classes-taught'>
+                      <h3>10 </h3>
+                      <span>Total Classes Taught</span>
+                    </div>
+                    <div className='profile-box-profile-button'>
+                      <Link>Edit Profile</Link>
+                    </div>
+                    
                 </div>
                 <div className='deadline-box'>
                     <h1>Upcoming Deadlines</h1>
                     {deadlines.slice(0,3).map((item, key)=>{
                       return(
                         <div className='deadline-info'>
+                          <div className='deadline-info-sub'>
                             <h2>{item.lessonName}</h2>
                             <h3>Assigned to class: {item.class}</h3>
                             <p>Deadline: {item.deadline}</p>
+                          </div>
                             <button>Remind Class</button>
                         </div>
                       )
@@ -98,8 +109,7 @@ const Dashboard = () => {
                 </div>
           </div>
         </div>
-      </div>
-    </div>
+      
   )
 }
 

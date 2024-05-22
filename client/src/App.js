@@ -22,7 +22,7 @@ import PictureDescription from './pages/writing/PictureDescription';
 import LessonsTable from './pages/lessons-table/LessonsTable';
 
 //Dashboard Components
-import Dashboard from './pages/teachers/dashboard/Dashboard';
+import TeachersMainPage from './pages/teachers/Teachers-main'
 import UploadMain from './pages/teachers/upload/UploadMain';
 import UploadSD from './pages/teachers/upload/Forms/UploadSD';
 import UploadQA from './pages/teachers/upload/Forms/UploadQA';
@@ -57,9 +57,7 @@ function App() {
           
           {/* Materials download route */}
           <Route path='/materials/:material_type' element={<ListeningMaterials/>} />
-          {/* <Route path='/materials/listening' element={<Materials/>} />
-          <Route path='/materials/listening' element={<Materials/>} />
-          <Route path='/materials/listening' element={<Materials/>} /> */}
+
 
           {/* Lessons main routes */}
           <Route path='/lessons/listening' element={<ListeningMain />} />
@@ -70,14 +68,14 @@ function App() {
           
 
           {/* Teachers route */}
-          <Route path='/teachers/dashboard' element={<Dashboard />} />
-          <Route path='/teachers/upload' element={<UploadMain />} />
-          <Route path='/teachers/upload/uploadSD' element={<UploadSD />} />
+          <Route path='/teachers/:type' element={<TeachersMainPage />} />
+          
+          {/* <Route path='/teachers/upload/uploadSD' element={<UploadSD />} />
           <Route path='/teachers/upload/uploadQA' element={<UploadQA />} />
           <Route path='/teachers/upload/uploadST' element={<UploadST />} />
           <Route path='/teachers/upload/uploadPD' element={<UploadPD />} />
           <Route path='/teachers/upload/uploadC' element={<UploadC />} />
-          <Route path='/teachers/upload/uploadDS' element={<UploadDS />} />
+          <Route path='/teachers/upload/uploadDS' element={<UploadDS />} /> */}
           
 
           

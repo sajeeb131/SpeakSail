@@ -115,13 +115,9 @@ const UploadQA = () => {
 
   return (
     <div className='upload-container'>
-      <div className='sideBar'>
-        <Navbar />
-      </div>
+      
       <div className='content-right'>
-        <div className='upp'>
-          <UploadNavbar />
-        </div>
+        
         <div className='down'>
           <h2>Question and Answers</h2>
           <form onSubmit={handleSubmit}>

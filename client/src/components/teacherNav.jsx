@@ -13,25 +13,31 @@ const teacherNav = () => {
     <div className="links">
       <ul>
         <li className=''>
-            <Link to='/teachers/dashboard'>
+            <Link to='/teachers/dashboard' className='dashboard-links'>
             <box-icon type='solid' name='dashboard'></box-icon>
             <span>Dashboard</span>
             </Link>
         </li>
-        <li>
-            <Link to='/teachers/classes'>
+        <li  >
+            <Link to='/teachers/classes' className='dashboard-links'>
             <box-icon name='desktop' ></box-icon>
             <span>Classes</span>
             </Link>
         </li>
-        <li>
-            <Link to='/teachers/resources'>
+        <li >
+            <Link to='/teachers/resources' className='dashboard-links'>
             <box-icon name='coin-stack' type='solid' ></box-icon>
             <span>Resources</span>
             </Link>
         </li>
-        <li>
-            <Link to='/teachers/upload'>
+        <li >
+            <Link to='/teachers/resources' className='dashboard-links'>
+            <box-icon name='list-check'></box-icon>
+            <span>Evaluation</span>
+            </Link>
+        </li>
+        <li >
+            <Link to='/teachers/upload' className='dashboard-links'>
             <box-icon name='upload' ></box-icon>
             <span>Upload</span>
             </Link>

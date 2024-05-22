@@ -1,6 +1,5 @@
 .upload-container {
     display: flex;
-    height: 100vh;
     position: relative;
     
   }
@@ -14,7 +13,7 @@
     flex: 1; /* This will make the content take up remaining space */
     display: flex;
     flex-direction: column;
-    margin-left: 300px;
+    
     
 
   }
@@ -48,7 +47,6 @@
     font-style: normal;
     text-transform: uppercase;
     color: #002E88;
-    background-color: #FFFFFF;
     border-radius: 1.25rem;
     -webkit-border-radius: 1.25rem;
     -moz-border-radius: 1.25rem;
@@ -74,7 +72,7 @@
     border: none;
     border-bottom: 2px solid;
     border-radius: 4px 4px 0 0;
-    background: rgb(253, 253, 253);
+    background-color: #EDEDED;
     height: 56px;
   }
   

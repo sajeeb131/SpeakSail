@@ -8,6 +8,7 @@ import VocabMission from '../../assets/images/VT-Card.png'
 import DailyMission from '../../assets/images/DM-CARD.png'
 
 const HomePage = () => {
+    const navigate = useNavigate();
     const userID = localStorage.getItem('user');
     const [user, setUser] = useState([]);
 
@@ -41,8 +42,13 @@ const HomePage = () => {
         }
     };
 
-
-    const navigate = useNavigate();
+    const handleDailyMissionClick = (event) =>{
+        navigate('/daily-mission')
+    }
+    const handleVocabTreasureClick = (event) =>{
+        navigate('/vocab-treasure')
+    }
+    
     const clickLessonLink = (lesson)=>{
         navigate(`/lessons/${lesson}`)
     }
@@ -164,11 +170,11 @@ const HomePage = () => {
         <div className='container-vb-tr'>
             <div className='halff'>
                 <h2>Vocab Treasure</h2>
-                <img src={VocabMission}></img>
+                <img src={VocabMission} onClick={handleVocabTreasureClick}></img>
             </div>
             <div className='halff'>
                 <h2>Daily Mission</h2>
-                <img src={DailyMission}></img>
+                <img src={DailyMission} onClick={handleDailyMissionClick}></img>
             </div>
         </div>
         
