@@ -10,7 +10,12 @@ router.get('/picturedescription/:lessonNumber', WritingPictureDescription.getLes
 
 //Storytelling lesson answer route
 router.post('/picturedescription/answer', WritingPictureDescription.createAnswers);
+router.get('/picturedescription/answer/all', WritingPictureDescription.getAllAnswers);
 router.get('/picturedescription/:lessonNumber/answers', WritingPictureDescription.getAnswersByLesson);
 router.get('/picturedescription/:studentID/answers', WritingPictureDescription.getAnswersByStudentID);
+
+
+router.patch('/picturedescription/:id', WritingPictureDescription.updateFeedback)
+
 
 module.exports = router; 

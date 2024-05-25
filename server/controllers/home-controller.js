@@ -6,7 +6,7 @@ const getUser = async(req, res) =>{
         const user = await User.findOne({userID})
         res.status(200).json(user);
     }catch(error){
-        console.error(err);
+        console.error(error);
         res.status(400).json({message: "Error creating lesson"})
     }
 }

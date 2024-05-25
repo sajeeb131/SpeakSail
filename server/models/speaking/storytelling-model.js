@@ -33,6 +33,10 @@ const speakingStorytellingAnswerSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    studentName: {
+        type: String,
+        required: false,
+      },
     story: {
         type: String, 
         required: true

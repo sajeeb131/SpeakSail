@@ -3,8 +3,7 @@ const router = express.Router()
 const ListeningSentenceDictation = require('../controllers/listening/sentenceDictation-controller')
 const listeningQA = require('../controllers/listening/qa-controller'); 
 
-const upload = require('../middleware/multer')
-
+const upload = require('../middleware/multer');
 
 
 //Sentence Dictation lesson route
@@ -14,6 +13,7 @@ router.get('/sentence-dictation/:lessonNumber',  ListeningSentenceDictation.getL
 
 //Sentence Dictation lesson answers route
 router.post('/sentence-dictation/answer', ListeningSentenceDictation.createAnswers);
+router.get('/sentence-dictation/answer/all', ListeningSentenceDictation.getAllAnswers);
 router.get('/sentence-dictation/:lessonNumber/answers', ListeningSentenceDictation.getAnswersByLesson);
 router.get('/sentence-dictation/:studentID/answers', ListeningSentenceDictation.getAnswersByLesson);
 
@@ -24,8 +24,12 @@ router.get('/qa/:lessonNumber', listeningQA.getLessonByNumber);
 
 // QuestionAnswer Answer routes
 router.post('/qa/answer', listeningQA.createAnswers);
+router.get('/qa/answer/all', listeningQA.getAllAnswers);
 router.get('/qa/:lessonNumber/answers', listeningQA.getAnswersByLesson);
 router.get('/qa/:studentID/answers', listeningQA.getAnswersByLesson);
+
+router.patch('/sentence-dictation/:id', ListeningSentenceDictation.updateFeedback)
+router.patch('/qa/:id', listeningQA.updateFeedback)
 
 module.exports = router;
 

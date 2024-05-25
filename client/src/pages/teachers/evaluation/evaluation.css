@@ -1,0 +1,236 @@
+.container-evaluation{
+    display: flex;
+    flex-direction: row;
+    margin-top: 110px;
+    gap: 100px;
+}
+.evaluation-lesson{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.evaluation-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 750px;
+    height: 65vh;
+    padding: 20px;
+    border-radius: 20px;
+    gap: 20px;
+}
+.evaluation-lesson-top{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px;
+    align-items: center;
+}
+.evaluation-lesson-top h1{
+    font-family: Urbanist;
+    font-size: 30px;
+    font-weight: 600;
+    
+    margin-bottom: 0;
+    color: #002E88 ;
+    
+}
+.evaluation-lesson-top h2{
+    font-family: Urbanist;
+    font-weight: 500;
+
+    text-align: center;
+    color: #002E88 ;
+    margin-top: 0;
+
+}
+
+.evaluation-lesson-top h3,h5{
+    margin-bottom: 0;
+    text-align: center;
+}
+.evaluation-lesson-top-header{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px 10px 10px;
+    width: 100%;
+    border-bottom: 1px solid #002E88;
+    margin-bottom: 10px;
+}
+.evaluation-lesson-mid-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.evaluation-lesson-mid{
+    border: 1px solid #002E88;
+    border-radius: 10px;
+
+    width: 657px;
+    height: 114px;
+    top: 453px;
+    left: 463px;
+    padding: 1px 13px 0px 9px;
+    
+    font-family: Urbanist;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 31.25px;
+    text-align: left;
+
+
+}
+.evaluation-lesson-mid-audio{
+    width: 657px;
+}
+.evaluation-lesson-mid p{
+    font-weight: 800;
+}
+.evaluation-lesson-mid span{
+    font-weight: 400;
+    color: #767676;
+
+}
+.evaluation-hidden-status{
+    margin-top: 100px;
+}
+.evaluation-lesson-bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 520px;
+    margin-top: 20px;
+    
+}
+.evaluation-lesson-bottom button{
+    font-family: Urbanist;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28.8px;
+    text-align: left;
+    border-radius: 5px;
+    color: #002E88;
+    border: 2px solid #EDEDED;
+    transition: all 0.3s ease;
+}
+.evaluation-lesson-bottom button:hover{
+    border: 2px solid #002E88;
+    background-color: white !important; 
+
+}
+
+
+/* submission */
+.evaluation-submissions{
+    background-color: white;
+    padding: 20px;
+    height: fit-content;
+    border-radius: 12px;
+}
+.evaluation-submissions-top{
+    margin-bottom: 30px;
+}
+.evaluation-submissions h1{
+    font-family: Urbanist;
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 30px;
+    color: #002E88;
+
+}
+.evaluation-submissions h3{
+    font-family: Urbanist;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    color: #000000;
+
+}
+.evaluation-submissions-bottom{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.submissions-section-indv{
+    display: flex;
+    flex-direction: column;
+
+    
+
+    
+}
+.submissions-section-indv-top{
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 150px;
+    border: 2px solid #002E88;
+    padding: 8px 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.submissions-section-indv-top:hover{
+    background-color: #002E88;
+    color: white;
+    >.letterbox h3{
+        color: white;
+    }
+    transform: scale(1.04);
+}
+.letterbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    
+}
+.letterbox span{
+
+    padding: 4px 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 800;
+}
+.submissions-section-indv-drop{
+    width: 90%;
+    align-self: center;
+    
+}
+.submissions-section-indv-drop-indv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    color: #002E88;
+    font-weight: 700;
+    
+    cursor: pointer;
+    margin: 4px;
+    transition: all 0.2s ease;
+
+
+}
+.submissions-section-indv-drop-indv:hover{
+    background-color: #E2A2E9;
+    transform: scale(1.02);
+}
+
+
+.evaluation-no-selected{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 750px;
+    height: 65vh;
+    padding: 20px;
+    border-radius: 20px;
+    gap: 20px;
+}
+.evaluation-no-selected h1{
+    color: #002E88;
+}

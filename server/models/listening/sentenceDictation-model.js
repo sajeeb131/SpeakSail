@@ -34,6 +34,10 @@ const listeningSenDictAnswerSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    studentName: {
+        type: String,
+        required: false,
+      },
     studentID: {
         type: String,
         required: true,

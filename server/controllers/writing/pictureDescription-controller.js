@@ -1,5 +1,7 @@
 const {WritingPictureDescription, WritingPictureDescription_answers} = require('../../models/writing/pictureDescription-model')
 const cloudinary = require('../../utils/cloudinary')
+const Student = require('../../models/user/student-model')
+
 
 const name = "Picture Description"
 const createLesson = async(req,res) =>{
@@ -87,4 +89,48 @@ const getAnswersByStudentID = async(req, res) =>{
     }
 };
 
-module.exports = {getAnswersByLesson, createAnswers, getLessonByNumber, getLessons, createLesson, getAnswersByStudentID}
+const getAllAnswers = async(req, res) =>{
+    try{ 
+        const answers = await WritingPictureDescription_answers.find();
+        res.json(answers);
+    }catch(err){
+        console.error(err);
+        res.status(400).json({message: 'Error retrieving answers'});
+    }
+};
+
+const updateFeedback = async(req, res) =>{
+    try {
+        const id = req.params.id
+        const { feedback, lessonNumber, studentID, value1, value2} = req.body;
+        const userID = studentID;
+
+        const updatedLesson = await WritingPictureDescription_answers.findByIdAndUpdate(
+            id,
+            { feedback: feedback }
+        );
+        if (!updatedLesson) { 
+            return res.status(404).send('Lesson answer feedback not updated!');
+        }
+        if(feedback == 'true'){
+            const lesson = await WritingPictureDescription.findOne({lessonNumber})
+            if(!lesson){
+                throw new Error('Completed by not updated!')
+            }
+            lesson.completedBy.push(studentID);
+            await lesson.save();
+        }
+        const student = await Student.findOneAndUpdate(
+            {userID},
+            {writing: value1, picture_description: value2 }
+        )
+        await student.save()
+        
+
+        res.status(200).json(updatedLesson);
+      } catch (error) {
+        res.status(500).send(error.message);
+      }
+}
+
+module.exports = {updateFeedback, getAllAnswers, getAnswersByLesson, createAnswers, getLessonByNumber, getLessons, createLesson, getAnswersByStudentID}
