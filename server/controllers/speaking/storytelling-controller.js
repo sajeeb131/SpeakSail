@@ -1,5 +1,8 @@
 const {SpeakingStorytelling, SpeakingStorytelling_Answers} = require('../../models/speaking/storytelling-model')
 const cloudinary = require('../../utils/cloudinary')
+const Student = require('../../models/user/student-model')
+
+
 
 const name = "Storytelling";
 const createLesson = async(req,res) =>{
@@ -52,6 +55,7 @@ const createAnswers = async(req,res) =>{
             lessonType: name,
             story: req.body.story,
             studentID: req.body.studentID,
+            studentName: req.body.studentName
 
         });
         await newAnswer.save();
@@ -84,5 +88,47 @@ const getAnswersByStudentID = async(req, res) =>{
         res.status(400).json({message: 'Error retrieving answers'});
     }
 };
+const getAllAnswers = async(req, res) =>{
+    try{ 
+        const answers = await SpeakingStorytelling_Answers.find();
+        res.json(answers);
+    }catch(err){
+        console.error(err);
+        res.status(400).json({message: 'Error retrieving answers'});
+    }
+};
 
-module.exports = {getAnswersByLesson, createAnswers, getLessonByNumber, getLessons, createLesson, getAnswersByStudentID}
+const updateFeedback = async(req, res) =>{
+    try {
+        const id = req.params.id
+        const { feedback, lessonNumber, studentID, value1, value2} = req.body;
+        const userID = studentID;
+        const updatedLesson = await SpeakingStorytelling_Answers.findByIdAndUpdate(
+            id,
+            { feedback: feedback }
+        );
+        if (!updatedLesson) { 
+            return res.status(404).send('Lesson answer feedback not updated!');
+        }
+        if(feedback == 'true'){
+            const lesson = await SpeakingStorytelling.findOne({lessonNumber})
+            if(!lesson){
+                throw new Error('Completed by not updated!')
+            }
+            lesson.completedBy.push(studentID);
+            await lesson.save();
+        }
+        const student = await Student.findOneAndUpdate(
+            {userID},
+            {speaking: value1, storytelling: value2 }
+        )
+        await student.save()
+        
+
+        res.status(200).json(updatedLesson);
+      } catch (error) {
+        res.status(500).send(error.message);
+      }
+}
+
+module.exports = {updateFeedback, getAllAnswers, getAnswersByLesson, createAnswers, getLessonByNumber, getLessons, createLesson, getAnswersByStudentID}

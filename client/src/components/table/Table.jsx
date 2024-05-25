@@ -7,7 +7,7 @@ const Table = ({ student_id, data, lesson_type}) => {
     
   //checkbox logic
   const [checkedItems, setCheckedItems] = useState([]);
-  
+  const userID = localStorage.getItem('user')
   
   
   //pagination logic
@@ -71,46 +71,50 @@ const Table = ({ student_id, data, lesson_type}) => {
         </thead>
         <tbody>
         {console.log(displayedData)}
-          {displayedData.map((item, index) => (
-            
+        {displayedData.map((item, index) => {
+          const isClickable = !item.completedBy.includes(userID);
+          const rowClassName = `table-row ${isClickable ? 'clickable' : 'unclickable'}`;
+          
+          return (
             <tr
               key={index}
-              onClick={() => handleClick(item)}
-              className={`table-row ${checkedItems.includes(item.id) ? 'clicked' : ''}`}
-              style={{ cursor: 'pointer' }}
+              onClick={isClickable ? () => handleClick(item) : undefined}
+              className={rowClassName}
             >
               <td className='table-lside'>{index + 1 + (currentPage - 1) * pageSize}</td>
-              {lesson_type == 'Comprehension' && (
+              {lesson_type === 'Comprehension' && (
                 <td className='table-mid'>
                   {item.passage.substring(0, 50)}
                   {item.passage.length > 50 && '...'}
                 </td>
               )}
-              {lesson_type == 'Sentence Dictation' && (
+              {lesson_type === 'Sentence Dictation' && (
                 <td className='table-mid'>
                   {item.lessonName}
                 </td>
               )}
-              {lesson_type == 'Question/Answer' && (
+              {lesson_type === 'Question/Answer' && (
                 <td className='table-mid'>{item.lessonName}</td>
               )}
-              {lesson_type == 'Picture Description' && (
+              {lesson_type === 'Picture Description' && (
                 <td className='table-mid'>{item.lessonName}</td>
               )}
-              {lesson_type == 'Storytelling' && (
-                <td className='table-mid'>{item.story.substring(0,50)}
-                {item.story.length > 50 && '...'}</td>
+              {lesson_type === 'Storytelling' && (
+                <td className='table-mid'>
+                  {item.story.substring(0, 50)}
+                  {item.story.length > 50 && '...'}
+                </td>
               )}
-              {lesson_type == 'Storyboarding' && (
+              {lesson_type === 'Storyboarding' && (
                 <td className='table-mid'>{item.lessonName}</td>
               )}
               <td className='table-rside'>
-                {item.status ? <CheckedIcon /> : <UncheckedIcon />}
+                {item.completedBy.includes(userID) ? <CheckedIcon /> : <UncheckedIcon />}
               </td>
             </tr>
-          ))}
-        </tbody>
-
+          );
+        })}
+      </tbody>
       </table>
       </div>
       

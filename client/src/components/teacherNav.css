@@ -30,6 +30,10 @@
     text-decoration: none;
     
   }
+  .links ul li a{
+    text-decoration: none;
+    color: #002E88;
+  }
   
   .logout {
     width: 142px;

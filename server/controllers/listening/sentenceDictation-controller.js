@@ -1,5 +1,8 @@
 const {ListeningSenDict, ListeningSenDict_Answers} = require('../../models/listening/sentenceDictation-model')
 const cloudinary = require('../../utils/cloudinary')
+const Student = require('../../models/user/student-model')
+
+
 
 const name = "Sentence Dictation"
 const createLesson = async (req, res) => {
@@ -51,12 +54,13 @@ const getLessonByNumber = async (req,res) =>{
 };
 
 const createAnswers = async(req,res) =>{
-    const { lessonNumber, studentID, answers} = req.body
+    const { lessonNumber, studentID,studentName, answers} = req.body
     try{
 
         const newAnswer = new ListeningSenDict_Answers({
             lessonNumber,
             studentID,
+            studentName,
             answers,
         });
         await newAnswer.save();
@@ -77,6 +81,15 @@ const getAnswersByLesson = async(req, res) =>{
         res.status(400).json({message: 'Error retrieving answers'});
     }
 };
+const getAllAnswers = async(req, res) =>{
+    try{ 
+        const answers = await ListeningSenDict_Answers.find();
+        res.json(answers);
+    }catch(err){
+        console.error(err);
+        res.status(400).json({message: 'Error retrieving answers'});
+    }
+};
 
 const getAnswersByStudentID = async(req, res) =>{
     try{
@@ -90,4 +103,46 @@ const getAnswersByStudentID = async(req, res) =>{
     }
 };
 
-module.exports = {getAnswersByLesson, createAnswers, getLessonByNumber, getLessons, createLesson, getAnswersByStudentID}
+const updateFeedback = async(req, res) =>{
+    try {
+        const id = req.params.id
+        
+        const { feedback, lessonNumber, studentID, value1, value2} = req.body;
+        const userID = studentID;
+        const updatedLesson = await ListeningSenDict_Answers.findByIdAndUpdate(
+            id,
+            { feedback: feedback }
+        );
+        if (!updatedLesson) { 
+            return res.status(404).send('Lesson answer feedback not updated!');
+        }
+        
+        if(feedback == "true"){
+            console.log('yoo')
+            const lesson = await ListeningSenDict.findOne({lessonNumber})
+            if(!lesson){
+                throw new Error('Completed by not updated!')
+            }
+            console.log(studentID)
+            lesson.completedBy.push(studentID);
+            await lesson.save();
+            console.log(lesson)
+
+        }
+        
+        const student = await Student.findOneAndUpdate(
+            {userID},
+            {listening: value1, sentence_dictation: value2 }
+        )
+        await student.save()
+        
+
+        res.status(200).json(updatedLesson);
+      } catch (error) {
+        res.status(500).send(error.message);
+      }
+}
+
+
+
+module.exports = {updateFeedback, getAnswersByLesson, createAnswers, getLessonByNumber, getLessons, createLesson,getAllAnswers, getAnswersByStudentID}

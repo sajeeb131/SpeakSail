@@ -58,6 +58,8 @@ const HomePage = () => {
         if (!response.ok) {
             throw new Error(`Failed to fetch data from ${url}`);
         }
+        const userData = await response.json();
+        console.log(userData)
         return response.json();
     };
     
@@ -71,7 +73,7 @@ const HomePage = () => {
         const y = Number(listeningTotalLessons) + Number(speakingTotalLessons) + Number(writingTotalLessons) + Number(readingTotalLessons)
         const result = (x/y)*100
         setOverallProgress(result)
-        console.log(x,y, result)
+        // console.log(x,y, result)
     }
     useEffect(() => {
         const fetchData = async () => {
@@ -82,11 +84,12 @@ const HomePage = () => {
                 }
                 const userData = await userResponse.json();
                 setUser(userData);
+                localStorage.setItem('name', userData.fullName)
                 setListeningProgress(userData.listening);
-                console.log(listeningProgress)
                 setReadingProgress(userData.reading);
                 setWritingProgress(userData.writing);
                 setSpeakingProgress(userData.speaking);
+                console.log(listeningProgress, readingProgress, speakingProgress, writingProgress)
 
                 const listeningLessonsUrls = [
                     'http://localhost:4000/lessons/listening/sentence-dictation',
@@ -102,11 +105,32 @@ const HomePage = () => {
                     'http://localhost:4000/lessons/writing/picturedescription'
                 ];
 
-                setListeningTotalLessons(await calculateTotalLessons(listeningLessonsUrls));
-                setSpeakingTotalLessons(await calculateTotalLessons(speakingLessonsUrls));
-                setReadingTotalLessons(await calculateTotalLessons(readingLessonsUrls));
-                setWritingTotalLessons(await calculateTotalLessons(writingLessonsUrls));
+                const userResponse2 = await fetch('http://localhost:4000/lessons/listening/sentence-dictation');
+                const sd = await userResponse2.json()
+                const userResponse3 = await fetch('http://localhost:4000/lessons/listening/qa');
+                const qa = await userResponse3.json()
+                setListeningTotalLessons(sd.lessons.length+ qa.lessons.length)
 
+                const userResponse4 = await fetch('http://localhost:4000/lessons/reading/comprehension');
+                const c = await userResponse4.json()
+        
+                setReadingTotalLessons(c.lessons.length)
+                
+
+                const userResponse5 = await fetch('http://localhost:4000/lessons/speaking/storytelling');
+                const st = await userResponse5.json()
+                setSpeakingTotalLessons(st.lessons.length)
+
+                const userResponse6 = await fetch('http://localhost:4000/lessons/writing/picturedescription');
+                const pd = await userResponse6.json()
+                setWritingTotalLessons(pd.lessons.length)
+                
+                
+                // setListeningTotalLessons(await calculateTotalLessons(listeningLessonsUrls));
+                // setSpeakingTotalLessons(await calculateTotalLessons(speakingLessonsUrls));
+                // setReadingTotalLessons(await calculateTotalLessons(readingLessonsUrls));
+                // setWritingTotalLessons(await calculateTotalLessons(writingLessonsUrls));
+                
                 
 
                 await calcOverall()

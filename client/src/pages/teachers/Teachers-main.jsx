@@ -4,6 +4,8 @@ import './teachersMain.css'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import Dashboard from './dashboard/Dashboard'
 import UploadMain from './upload/UploadMain'
+import Evaluation from './evaluation/Evaluation'
+
 
 const MainPage = () => {
   const {type} = useParams()
@@ -16,6 +18,7 @@ const MainPage = () => {
         
         {type == 'dashboard' && <Dashboard />}
         {type == 'upload' && <UploadMain submitType = {'uploadSD'}/>}
+        {type == 'evaluation' && <Evaluation />}
       </div>
     </div>
   )

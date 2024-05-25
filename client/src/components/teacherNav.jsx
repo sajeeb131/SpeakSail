@@ -37,7 +37,7 @@ const TeacherNav = () => {
             </Link>
         </li>
         <li >
-            <Link to='/teachers/resources' className='dashboard-links'>
+            <Link to='/teachers/evaluation' className='dashboard-links'>
             <box-icon name='list-check'></box-icon>
             <span>Evaluation</span>
             </Link>

@@ -100,8 +100,25 @@
   }
   
 
-  /* Style table body rows on hover */
-.table-row:hover {
+.table-row{
+  transition: all 0.3s ease;
+}
+.table-mid{
+  transition: all 0.3s ease;
+}
+.table-row.clickable:hover {
   color: var(--Text-Colours-Primary-Text-color, #002E88);
-  cursor: pointer; /* Already set here */
+  cursor: pointer; 
+  >.table-mid:hover{
+    font-size: 31px;
+  }
+}
+.table-row.unclickable {
+  cursor: default; 
+}
+
+.table-row.unclickable:hover {
+  color: initial; 
+  cursor: default;
+  
 }

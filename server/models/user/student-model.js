@@ -46,20 +46,40 @@ const userSchema = new Schema({
     trim: true,
   },
   listening: {
-    type: String,
+    type: Number,
     default: "0", 
   },
   speaking: {
-    type: String,
+    type: Number,
     default: "0",
   },
   writing: {
-    type: String,
+    type: Number,
     default: "0",
   },
   reading: {
-    type: String,
+    type: Number,
     default: "0",
+  },
+  conprehension:{
+    type: Number,
+    default: 0
+  },
+  storytelling:{
+    type: Number,
+    default: 0
+  },
+  picture_description:{
+    type: Number,
+    default: 0
+  },
+  question_answer:{
+    type: Number,
+    default: 0
+  },
+  sentence_dictation:{
+    type: Number,
+    default: 0
   },
 });
 

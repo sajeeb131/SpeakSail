@@ -16,6 +16,7 @@ const QuestionAnswer = () => {
     const [lesson, setLesson] = useState({ audioFilePath: '', questions: ['', '', ''] });
     const [answers, setAnswers] = useState(['', '', '']);
     const studentID = localStorage.getItem('user')
+    const studentName = localStorage.getItem('name')
     const [popUp, setPopup] = useState(false);
 
     // Fetching lesson data
@@ -52,7 +53,7 @@ const QuestionAnswer = () => {
               headers: {
                 'Content-Type': 'application/json'
               },
-              body: JSON.stringify({lessonNumber, studentID, answers}),
+              body: JSON.stringify({lessonNumber, studentID, studentName, answers}),
           });
   
           if (!response.ok) {

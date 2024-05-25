@@ -21,6 +21,7 @@ const SentenceDictation = (lessonType, lessonNumber) => {
   const [placeholder, setPlaceholder] = useState('Start Writing...');
   const [a, setAudio] = useState(null)
   const studentID = localStorage.getItem('user');
+  const studentName = localStorage.getItem('name');
   const [answers, setAnswer] = useState(null)
   const [popUp, setPopup] = useState(false);
 
@@ -61,7 +62,7 @@ const SentenceDictation = (lessonType, lessonNumber) => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({lessonNumber, studentID, answers})
+        body: JSON.stringify({lessonNumber, studentID, studentName, answers})
       })
 
 

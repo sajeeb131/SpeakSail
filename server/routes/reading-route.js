@@ -17,15 +17,16 @@ router.get('/storyboarding/:studentID/answers', ReadingStoryboarding.getAnswersB
 router.post('/comprehension',ReadingComprehension.createLesson);
 router.get('/comprehension', ReadingComprehension.getLessons);
 router.get('/comprehension/:lessonNumber', ReadingComprehension.getLessonByNumber);
-router.put('/comprehension/:lessonNumber/completedBy', ReadingComprehension.updateCompletedBy);
 
 
 //Comprehension lesson answer route
 router.post('/comprehension/answer', ReadingComprehension.createAnswers);
+router.get('/comprehension/answer/all', ReadingComprehension.getAllAnswers);
 router.get('/comprehension/:lessonNumber/answers', ReadingComprehension.getAnswersByLesson);
 router.get('/comprehension/:studentID/answers', ReadingComprehension.getAnswersByStudentID);
 
 
+router.patch('/comprehension/:id', ReadingComprehension.updateFeedback)
 
 
 module.exports = router; 

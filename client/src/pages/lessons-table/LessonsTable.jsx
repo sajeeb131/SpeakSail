@@ -52,7 +52,7 @@ const LessonsTable = () => {
   return (
     <div>
       <Navbar />
-      <Table data={lessonData} lesson_type={name} />
+        <Table data={lessonData} lesson_type={name} />
       <Footer />
     </div>
   );
