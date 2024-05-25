@@ -23,6 +23,7 @@ body {
     padding: 0 20px 9px;
     box-sizing: border-box;
     max-width: 100%;
+    min-height: 610px;
   }
 
   .vocab-treasure {
@@ -202,6 +203,7 @@ body {
     position: relative;
     line-height: 125%;
     color: 000;
+    width: 100%;
   }
   .meaning {
     align-self: stretch;
@@ -211,8 +213,9 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 20px 157px 20px 29px;
+    padding: 20px 30px 20px 29px;
     gap: 10px;
+
   }
 
   .box-containers,
@@ -226,7 +229,7 @@ body {
 .meaning {
   border-radius: 10px;
   border: 1px solid #d67be0;
-  padding: 20px 408px 20px 29px;
+  padding: 20px 30px 20px 29px;
   gap: 10px;
 }
 .box-containers {

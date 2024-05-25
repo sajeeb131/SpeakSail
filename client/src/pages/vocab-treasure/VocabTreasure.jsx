@@ -1,123 +1,107 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import './VocabTreasure.css'
+import './VocabTreasure.css';
+import Volume from '../../assets/images/volume.svg';
 
-import Volume from '../../assets/images/volume.svg'
+const getRandomWordIndex = (length) => {
+  return Math.floor(Math.random() * length);
+};
 
 const VocabTreasure = () => {
-    return (
-      <div className="vocab-treasure">
-        <Navbar />
-        <section className="vocab-treasure-inner">
-            <div className="whole-container">
+  const [words, setWords] = useState([]);
+  const [dailyWords, setDailyWords] = useState([]);
 
-                {/* Vocab-Treasure Heading */}
-                <div className="lesson-heading">
-                    <div className="heading">
-                        <div className="vocab-heading">
-                            <h2 className="vocab">Vocab</h2>
-                        </div>
-
-                        <div className="treasure-heading">
-                            <div className="treasure">Treasure</div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Vocab-boxes */}
-                <div className="box-containers">
-
-                    {/* box 1 */}
-                    <div className="meaning">
-                        <div className="word-meaning">
-                            <div className="word">
-                                <div className="parts-of-speech">
-                                    <span className="word-name">{`accident `}</span>
-                                    <i className="noun">(noun)</i>
-                                </div>
-                            </div>
-
-                            <div className="speaker">
-                                <img
-                                className="speaker-icon"
-                                loading="lazy"
-                                alt=""
-                                src={Volume}
-                                />
-                            </div>
-                        </div>
-
-                        <div className="meaning-of-the-word">
-                            <ol className="meaning-of-the-word-order">
-                                <li className="meaning-of-the-word-list">
-                                    <span>
-                                        <span>an event occurring by chance or from unknown causes</span>
-                                    </span>
-                                </li>
-                            </ol>
-                            <p className="example-container">
-                                <span>
-                                    <span>{`       `}</span>
-                                    <span className="example">{`“We met by `}</span>
-                                </span>
-                                <span className="main-word">
-                                    <i className="accident">accident.”</i>
-                                </span>
-                            </p>
-                            
-                        </div>
-                    </div>
-
-                    {/* box 2 */}
-                    <div className="meaning">
-                        <div className="word-meaning">
-                            <div className="word">
-                                <div className="parts-of-speech">
-                                    <span className="word-name">{`altas `}</span>
-                                    <i className="noun">(noun)</i>
-                                </div>
-                            </div>
-
-                            <div className="speaker">
-                                <img
-                                className="speaker-icon"
-                                loading="lazy"
-                                alt=""
-                                src={Volume}
-                                />
-                            </div>
-                        </div>
-
-                        <div className="meaning-of-the-word">
-                            <ol className="meaning-of-the-word-order">
-                                <li className="meaning-of-the-word-list">
-                                    <span>
-                                        <span>a book of maps</span>
-                                    </span>
-                                </li>
-                            </ol>
-                            <p className="example-container">
-                                <span>
-                                    <span>{`       `}</span>
-                                    <span className="example">{`“The class tried to find Bangladesh in the `}</span>
-                                </span>
-                                <span className="main-word">
-                                    <i className="accident">atlas.”</i>
-                                </span>
-                            </p>
-                            
-                        </div>
-                    </div>
-                   
-                </div>
-            </div>
-        </section>
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:4000/extras/vocab-treasure');
+        if (!response.ok) {
+          throw new Error('Cannot get the words');
+        }
+        const data = await response.json();
+        setWords(data);
         
-        <Footer/>
-      </div>
-    );
-  };
-  
-  export default VocabTreasure;
+        // Set initial daily words after fetching the data
+        const firstWordIndex = getRandomWordIndex(data.length);
+        let secondWordIndex = getRandomWordIndex(data.length);
+        while (secondWordIndex === firstWordIndex) {
+          secondWordIndex = getRandomWordIndex(data.length);
+        }
+        setDailyWords([data[firstWordIndex], data[secondWordIndex]]);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    if (words.length === 0) return; // Wait until words are fetched
+
+    const timer = setInterval(() => {
+      const firstWordIndex = getRandomWordIndex(words.length);
+      let secondWordIndex = getRandomWordIndex(words.length);
+      while (secondWordIndex === firstWordIndex) {
+        secondWordIndex = getRandomWordIndex(words.length);
+      }
+      setDailyWords([words[firstWordIndex], words[secondWordIndex]]);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [words]);
+
+  return (
+    <div className="vocab-treasure">
+      <Navbar />
+      <section className="vocab-treasure-inner">
+        <div className="whole-container">
+          {/* Vocab-Treasure Heading */}
+          <div className="lesson-heading">
+            <div className="heading">
+              <div className="vocab-heading">
+                <h2 className="vocab">Vocab</h2>
+              </div>
+              <div className="treasure-heading">
+                <div className="treasure">Treasure</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Vocab-boxes */}
+          <div className="box-containers">
+            {dailyWords.map((word, index) => (
+              <div className="meaning" key={index}>
+                <div className="word-meaning">
+                  <div className="word">
+                    <div className="parts-of-speech">
+                      <span className="word-name">{word.word}</span>
+                      <i className="noun">({word.partOfSpeech})</i>
+                    </div>
+                  </div>
+                  <div className="speaker">
+                    <img className="speaker-icon" loading="lazy" alt="" src={Volume} />
+                  </div>
+                </div>
+
+                <div className="meaning-of-the-word">
+                  <ol className="meaning-of-the-word-order">
+                    <li className="meaning-of-the-word-list">
+                      <span>{word.meaning}</span>
+                    </li>
+                  </ol>
+                  <p className="example-container">
+                    <span className="example">“{word.example}”</span>
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <Footer />
+    </div>
+  );
+};
+
+export default VocabTreasure;
