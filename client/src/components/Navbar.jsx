@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../assets/images/LogoWhite.png'
 import './navbar.css'
 import image from "../assets/images/student.jpg"
-
+import Notifications from './notification/Notifications';
 
 const InitialNav = () => {
     const navigate = useNavigate();
@@ -12,6 +12,10 @@ const InitialNav = () => {
     }
     const [profilePic, setProfilePic] = useState(image);
 
+    const [showDropdown, setShowDropdown] = useState(false);
+    const toggleDropdown = () => {
+        setShowDropdown(!showDropdown);
+    };
   return (
     <>
         <div className='navbar'>
@@ -20,13 +24,11 @@ const InitialNav = () => {
             </div>
             <ul className='nav-link'>
                 <li><Link to='/home'>Home</Link></li>
-                <li><Link to="/classroom">Classroom</Link></li>
-                <li><Link to="/club">Club</Link></li>
-                <li><Link to="/practice">Practice</Link></li>
+                <li><Link to="/completions">Completions</Link></li>
                 <li><Link to="/guide">Guide</Link></li>
             </ul>
             <div className='buttons'>
-                <Link>
+                <Link className='notfications-icon' onClick={toggleDropdown}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
                         <g clip-path="url(#clip0_22_43)">
                             <path d="M14.3326 32.5542C14.132 32.4227 13.9404 32.2793 13.7589 32.125H21.2411C21.0596 32.2793 20.868 32.4227 20.6674 32.5542C19.7262 33.1712 18.6254 33.4999 17.5 33.4999C16.3746 33.4999 15.2738 33.1712 14.3326 32.5542Z" fill="#002E88" stroke="#002E88" stroke-width="3"/>
@@ -39,6 +41,8 @@ const InitialNav = () => {
                         </defs>
                     </svg>
                 </Link>
+                {/* Render the dropdown if showDropdown is true */}
+                {showDropdown && <Notifications />}
                 <Link to="/profile" className='navbar-avatar'>
                     <img src={profilePic} alt=""/>
                 </Link>

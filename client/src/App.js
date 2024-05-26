@@ -25,7 +25,7 @@ import LessonsTable from './pages/lessons-table/LessonsTable';
 import TeachersMainPage from './pages/teachers/Teachers-main'
 
 import Materials from './pages/materials-download/Materials'
-
+import Notifications from './components/notification/Notifications';
 
 function App() {
   return (
@@ -79,8 +79,9 @@ function App() {
           {/* Lessons table */}
           <Route path='/lessons-table/:lessonType' element={<LessonsTable />} />
 
-          
 
+          
+          <Route path='/notifications' element={<Notifications />} />
         </Routes>
       </BrowserRouter>
     </div>

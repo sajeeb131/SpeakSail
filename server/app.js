@@ -15,6 +15,8 @@ const readingPagesRoute = require('./routes/reading-route')
 const writingPagesRoute = require('./routes/writing-route')
 const materialRoute = require('./routes/material-route')
 const extraExercises = require('./routes/extras-route')
+const notifications = require('./routes/notification-route')
+
 //middleware
 app.use(express.json())
 app.use(cors()) 
@@ -29,10 +31,12 @@ app.use('/home', homeRoute);
 app.use('/profile',profileRoute);
 app.use('/materials', materialRoute)
 app.use('/extras',extraExercises)
+app.use('/notifications', notifications)
 app.use('/lessons/listening',listeningPagesRoute);
 app.use('/lessons/speaking',speakingPagesRoute);
 app.use('/lessons/reading',readingPagesRoute);
 app.use('/lessons/writing',writingPagesRoute);
+
 
 
 

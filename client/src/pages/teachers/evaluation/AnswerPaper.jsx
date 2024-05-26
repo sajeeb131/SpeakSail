@@ -10,7 +10,7 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
   const [student, setStudent] = useState(null);
   const [audioUrl, setAudioUrl] = useState(null);
   const [feedback, setFeedback] = useState(null)
-
+  const [message, setMessage] = useState('')
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -50,8 +50,11 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
         const { _id, studentID, lessonNumber } = currentLesson;
         const feedback = action === 'approve' ? "true" : "false";
         if(feedback === 'true'){
+          setMessage('has been approved.')
           value1++;
           value2++;
+        }else{
+          setMessage('has been declined')
         }
         console.log('Submitting feedback:', feedback, lessonNumber, studentID, value1, value2);
 
@@ -62,7 +65,7 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
             'Content-Type': 'application/json',
           },
         });
-
+        
         if (response.status === 200) {
           const data = await response.json();
           setStatus(feedback ? 'true' : 'false');
@@ -70,6 +73,21 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
         } else {
           throw new Error('Feedback submission failed!');
         }
+
+        //sending notification
+        console.log({ studentID, type, lessonNumber, message })
+        const response2 = await fetch(`http://localhost:4000/notifications`, {
+          method: 'POST',
+          body: JSON.stringify({ studentID, type, lessonNumber, message }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        if(!response2.status){
+          throw new Error('Can not save notification data!')
+        }
+
+
       } catch (error) {
         console.log('Error:', error.message);
       } finally {

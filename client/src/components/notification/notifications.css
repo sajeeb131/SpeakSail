@@ -1,0 +1,77 @@
+.notifications-container {
+    position: fixed;
+    width: 200px;
+    max-height: 320px; 
+    overflow-y: scroll; 
+    background-color: #002E88;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px 60px;
+    z-index: 999; 
+    border-radius: 14px;
+    transition: max-height 0.3s, opacity 0.3s, transform 0.3s; 
+    animation: slideIn 0.3s ease-in-out forwards; 
+    >h1{
+       margin-bottom: 5px; 
+       border-bottom: 5px solid #93FF96;
+    }
+}
+/* Style the scrollbar */
+.notifications-container::-webkit-scrollbar {
+    width: 8px; 
+}
+
+/* Track styles (background of the scrollbar) */
+.notifications-container::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+/* Thumb styles (scrollbar handle) */
+.notifications-container::-webkit-scrollbar-thumb {
+    background-color: white; 
+    border-radius: 5px; 
+}
+
+
+@keyframes slideIn {
+    0% {
+        
+        opacity: 0; 
+        
+    }
+    100% {
+        
+        opacity: 1; 
+        transform: translateX(-50%);
+    }
+}
+
+
+/* Style for the notification title */
+.notifications-container .notification-item h2 {
+    font-size: 1.2em;
+    margin: 0 0 5px;
+}
+
+/* Style for the notification message */
+.notifications-container .notification-item p {
+    margin: 0;
+   
+}
+
+/* Style for the notification time */
+.notifications-container .notification-item .notification-time {
+    font-size: 0.8em;
+    color: #666;
+}
+.notifications-list{
+    list-style: none;
+    width: 100%s;
+}
+.notification-item{
+    margin: 4px 0px;
+    border-bottom: 2px solid white;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
