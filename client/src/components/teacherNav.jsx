@@ -24,18 +24,7 @@ const TeacherNav = () => {
             <span>Dashboard</span>
             </Link>
         </li>
-        <li  >
-            <Link to='/teachers/classes' className='dashboard-links'>
-            <box-icon name='desktop' ></box-icon>
-            <span>Classes</span>
-            </Link>
-        </li>
-        <li >
-            <Link to='/teachers/resources' className='dashboard-links'>
-            <box-icon name='coin-stack' type='solid' ></box-icon>
-            <span>Resources</span>
-            </Link>
-        </li>
+        
         <li >
             <Link to='/teachers/evaluation' className='dashboard-links'>
             <box-icon name='list-check'></box-icon>

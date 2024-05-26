@@ -4,12 +4,7 @@ import Footer from '../../components/Footer';
 import './VocabTreasure.css';
 import Volume from '../../assets/images/volume.svg';
 
-const getRandomWordIndex = (length) => {
-  return Math.floor(Math.random() * length);
-};
-
 const VocabTreasure = () => {
-  const [words, setWords] = useState([]);
   const [dailyWords, setDailyWords] = useState([]);
 
   useEffect(() => {
@@ -20,36 +15,14 @@ const VocabTreasure = () => {
           throw new Error('Cannot get the words');
         }
         const data = await response.json();
-        setWords(data);
-        
-        // Set initial daily words after fetching the data
-        const firstWordIndex = getRandomWordIndex(data.length);
-        let secondWordIndex = getRandomWordIndex(data.length);
-        while (secondWordIndex === firstWordIndex) {
-          secondWordIndex = getRandomWordIndex(data.length);
-        }
-        setDailyWords([data[firstWordIndex], data[secondWordIndex]]);
+        // Take only the first two words from the fetched data
+        setDailyWords(data.slice(0, 2));
       } catch (error) {
         console.log(error.message);
       }
     };
     fetchData();
   }, []);
-
-  useEffect(() => {
-    if (words.length === 0) return; // Wait until words are fetched
-
-    const timer = setInterval(() => {
-      const firstWordIndex = getRandomWordIndex(words.length);
-      let secondWordIndex = getRandomWordIndex(words.length);
-      while (secondWordIndex === firstWordIndex) {
-        secondWordIndex = getRandomWordIndex(words.length);
-      }
-      setDailyWords([words[firstWordIndex], words[secondWordIndex]]);
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, [words]);
 
   return (
     <div className="vocab-treasure">

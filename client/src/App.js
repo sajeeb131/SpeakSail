@@ -62,16 +62,8 @@ function App() {
 
           {/* Teachers route */}
           <Route path='/teachers/:type' element={<TeachersMainPage />} />
-          
-          {/* <Route path='/teachers/upload/uploadSD' element={<UploadSD />} />
-          <Route path='/teachers/upload/uploadQA' element={<UploadQA />} />
-          <Route path='/teachers/upload/uploadST' element={<UploadST />} />
-          <Route path='/teachers/upload/uploadPD' element={<UploadPD />} />
-          <Route path='/teachers/upload/uploadC' element={<UploadC />} />
-          <Route path='/teachers/upload/uploadDS' element={<UploadDS />} /> */}
-          
+        
 
-          
 
           {/* Lessons pages */}
           <Route path='/lessons/listening/sentence-dictation/:lessonNumber' element={<SentenceDictation />} />

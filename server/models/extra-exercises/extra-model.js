@@ -18,7 +18,23 @@ const vocabTreasureSchema = new mongoose.Schema({
         required: true
     } 
 })
+const DailyMissionSchema = new mongoose.Schema({
+    question:{
+        type: [String],
+        required: true
+    },
+    answer:{
+        type: [String],
+        required: true,
+    },
+    options:{
+        type: [String],
+        required: true
+    }
+})
+
 
 module.exports = {
     VocabTreasureWords: mongoose.model('VocabTreasureWords', vocabTreasureSchema),
+    DailyMissionQuestions: mongoose.model('DailyMissionQuestions', DailyMissionSchema)
 }

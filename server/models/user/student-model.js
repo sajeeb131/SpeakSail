@@ -61,7 +61,7 @@ const userSchema = new Schema({
     type: Number,
     default: "0",
   },
-  conprehension:{
+  comprehension:{
     type: Number,
     default: 0
   },
@@ -81,6 +81,10 @@ const userSchema = new Schema({
     type: Number,
     default: 0
   },
+  daily_mission:{
+    type: Number,
+    default: 0
+  }
 });
 
 

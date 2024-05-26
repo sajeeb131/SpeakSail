@@ -16,7 +16,7 @@ body {
   background-color: #fff;
   border: 1px solid #000;
   /* align-items: flex-start; */
-  gap: 57px;
+  gap: 20px;
   letter-spacing: normal;
 }
 
@@ -107,7 +107,9 @@ body {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  gap: 56px;
+  gap: 36px;
+  height: 338px;
+  
 }
 
 .task-instruction {
@@ -158,16 +160,28 @@ body {
 }
 
 .questions input {
+  font-family: Urbanist;
   border: none;
   border-bottom: 2px dotted #002E88;
+  width: 149px;
+  font-size: 30px;
+  color: #002E88;
+  font-weight: 600;
+  padding: 0px 20px;
+}
+.questions input:hover{
+  outline: none;
+}
+.questions input:focus{
+  outline: none;
 }
 
 .submission-buttons {
   display: flex;
-  padding: 54px 241px 53px 351px;
-  justify-content: flex-end;
+  justify-content: center;
+  padding: 70px 0px 40px 0px;
   align-items: flex-start;
-  gap: 824px;
+  gap: 504px;
   flex-shrink: 0;
 }
 
@@ -197,3 +211,18 @@ body {
 
 
 
+.submit-button:disabled {
+  background-color: rgb(230, 230, 230);
+  cursor: not-allowed;
+}
+
+.congrats-message{
+  margin-top: 150px;
+  
+  text-align: center;
+  font-size: 30px;
+  >h2{
+    color: #002E88;
+  }
+  
+}

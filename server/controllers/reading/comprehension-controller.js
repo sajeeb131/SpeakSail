@@ -109,7 +109,7 @@ const updateFeedback = async(req, res) =>{
         }
         const student = await Student.findOneAndUpdate(
             {userID},
-            {reading: value1, conprehension: value2 }
+            {reading: value1, comprehension: value2 }
         )
         await student.save()
         
