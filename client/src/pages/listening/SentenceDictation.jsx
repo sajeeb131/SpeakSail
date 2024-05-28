@@ -97,9 +97,8 @@ const SentenceDictation = (lessonType, lessonNumber) => {
                   <div className="sd-middle">
                     <AiOutlineSound size={28} color='blue'/>
                     <AudioPlayer
-                      
                       src={a}
-                      
+                      autoPlay={false}
                       onPlay={e => console.log("onPlay")}
                     />
                     

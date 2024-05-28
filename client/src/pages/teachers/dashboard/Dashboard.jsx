@@ -42,6 +42,8 @@ const Dashboard = () => {
     }
     fetchData();
   },[userID])
+
+  
   {!teacher && !students && <div>...Loading</div>}
 
 

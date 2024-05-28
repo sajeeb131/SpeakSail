@@ -49,6 +49,14 @@ const listeningQAAnswerSchema = new mongoose.Schema({
     type: Boolean,
     required: false,
   },
+  audioFilePath: {
+    type: String,
+    required: false,
+  },
+  questions: {
+    type: [String],
+    required: false,
+  },
 });
 
 module.exports = {

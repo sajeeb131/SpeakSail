@@ -15,6 +15,7 @@
     >h1{
        margin-bottom: 5px; 
        border-bottom: 5px solid #93FF96;
+       text-align: center;
     }
 }
 /* Style the scrollbar */

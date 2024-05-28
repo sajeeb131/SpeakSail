@@ -26,7 +26,7 @@ import TeachersMainPage from './pages/teachers/Teachers-main'
 
 import Materials from './pages/materials-download/Materials'
 import Notifications from './components/notification/Notifications';
-
+import Completions from './pages/completions/Completions'
 function App() {
   return (
     <div className="App">
@@ -76,11 +76,12 @@ function App() {
           <Route path='/vocab-treasure' element={<VocabTreasure />} />
           <Route path='/daily-mission' element={<DailyMission />} />
 
+          {/* Completions route*/}
+          <Route path='/completions' element={<Completions />} />
           {/* Lessons table */}
           <Route path='/lessons-table/:lessonType' element={<LessonsTable />} />
-
-
           
+          {/*Notifications route*/}
           <Route path='/notifications' element={<Notifications />} />
         </Routes>
       </BrowserRouter>

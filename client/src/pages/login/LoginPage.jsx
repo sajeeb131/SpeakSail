@@ -69,16 +69,7 @@ const LoginPage = () => {
             <form className="login-container" onSubmit={handleSubmit}>
                 <img className="speaksail-logo" loading="eager" alt="" src={Logo} />
 
-                <button className="frame-email-pass-wrapper">
-                    <div className="frame-email-pass">
-                        <div className="frame-device-google">
-                            <img className="googleIcon" alt="" src={GoogleIcon} />
-                        </div>
-                        <div className="frame-login-with-google">
-                            <div className="login-with-google">Login with Google</div>
-                        </div>
-                    </div>
-                </button>
+                
 
                 <div className="o-r-frame">
                     <div className="or-">-OR-</div>
