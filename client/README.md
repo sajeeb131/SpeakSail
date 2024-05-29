@@ -25,6 +25,8 @@ npm i wavesurfer.js
 npm i wavesurfer-react
 npm install styled-components
 
+npm install react-scroll
+
 
 
 

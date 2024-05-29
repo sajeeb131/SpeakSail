@@ -41,7 +41,6 @@ const UploadPD = () => {
   }
 
   const handleSubmit = async (e) =>{
-    e.preventDefault()
 
     if (!lessonName.trim()) {
       setLessonNameError('Lesson Name cannot be empty');

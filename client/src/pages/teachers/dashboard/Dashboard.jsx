@@ -14,27 +14,32 @@ const Dashboard = () => {
   const [teachertImg, setTeacherImg] = useState(avatar2);
   const [teacherName, setTeacherName] = useState('Jane Doe');
   const [teacherId, setTeacherId] = useState('0432');
-  const [topStudents, setTopStudents] = useState(DUMMY_POST);
   const [recents, setRecents] = useState(DUMMY_POST1);
   const [deadlines, setDeadlines] = useState(DUMMY_POST2);
-
+  
   const [teacher, setTeacher] = useState()
   const [students, setStudents] = useState([])
   const userID = localStorage.getItem('user')
-
+  const [totalLessons, setTotalLessons] = useState()
   useEffect(()=>{
     const fetchData = async() =>{
       try{
         const response = await fetch(`http://localhost:4000/teacher/${userID}`)
         const response2 = await fetch(`http://localhost:4000/student/`)
-        if(!response.ok && !response2.ok){
+        const response3 = await fetch(`http://localhost:4000/home/`)
+
+        if(!response.ok && !response2.ok && !response3.ok){
           throw new Error('Data can not be fetched!')
         }
         const userData = await response.json();
         const userData2 = await response2.json();
+        const userData3 = await response3.json();
+
         setTeacher(userData)
         setStudents(userData2)
-        console.log(userData)
+        console.log(students)
+        setTotalLessons(userData3.listeningSEN + userData3.listeningQA + userData3.speaking + userData3.reading + userData3.writing)
+
 
       }catch(error){
         console.log( error.message)
@@ -43,8 +48,23 @@ const Dashboard = () => {
     fetchData();
   },[userID])
 
+ // Calculate total lessons completed for each student
+ const calculateTotalLessons = (student) => {
+    return (
+      student.listening +
+      student.speaking +
+      student.writing +
+      student.reading 
+    );
+  };
   
-  {!teacher && !students && <div>...Loading</div>}
+  // Sort students by total lessons completed
+  const sortedStudents = [...students].sort(
+    (a, b) => calculateTotalLessons(b) - calculateTotalLessons(a)
+  );
+  const topStudents = sortedStudents.slice(0, 4);
+
+  {!teacher && !students && !topStudents && <div>...Loading</div>}
 
 
   return (
@@ -62,14 +82,14 @@ const Dashboard = () => {
               </div>
 
               <div className='stats-banner' id='ban3'>
-                <h2>Total Students</h2>
-                <h1>{totalStudents}</h1>
+                <h2>Total Lessons</h2>
+                <h1>{totalLessons}</h1>
               </div>
             </div>
             <div className='top-students'>
             <h2 id='headers2'>Top Performing Students</h2>
             <div className='mid'>
-              {topStudents.slice(0,4).map((Item, key)=>{
+              {topStudents.slice(0,4).map((student, key)=>{
                 return(
                   <div className='student-info'>
                       <div className='img-block'>
@@ -77,10 +97,10 @@ const Dashboard = () => {
                       </div>
                       <div className='info-block'>
                         <div className='info-block-sub'>
-                          <h2>{Item.name}</h2>
-                          <h3>Class: {Item.class}</h3>
+                          <h2>{student.fullName}</h2>
+                          <h3>Class: {student.class}</h3>
                         </div>
-                        <h3>{Item.completed}%</h3>
+                        <h3>{Math.ceil((calculateTotalLessons(student) / totalLessons) * 100)}%</h3>
                       </div>
                   </div>
                 )
@@ -88,7 +108,6 @@ const Dashboard = () => {
               
             </div>
 
-            <Link to='/teachers/students-list'>See more</Link>
             </div>
             <div className='accessed-class'>
             <h2 id='headers2'>Recently accessed classes</h2>
@@ -124,7 +143,7 @@ const Dashboard = () => {
                   </div>
                   }
                 
-                <div className='deadline-box'>
+                {/* <div className='deadline-box'>
                     <h1>Upcoming Deadlines</h1>
                     {deadlines.slice(0,3).map((item, key)=>{
                       return(
@@ -138,7 +157,7 @@ const Dashboard = () => {
                         </div>
                       )
                     })}
-                </div>
+                </div> */}
           </div>
         </div>
       

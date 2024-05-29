@@ -49,7 +49,6 @@ const UploadQA = () => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
     
     // Validate Lesson Name
     if (!lessonName.trim()) {

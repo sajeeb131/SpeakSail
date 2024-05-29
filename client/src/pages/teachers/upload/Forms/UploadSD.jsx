@@ -44,7 +44,7 @@ const UploadSD = () => {
   //submit 
   const handleSubmit = async (event) => {
     
-    event.preventDefault()
+    
 
     if (!lessonName.trim()) {
       setLessonNameError('Lesson Name cannot be empty');

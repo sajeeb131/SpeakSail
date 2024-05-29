@@ -50,7 +50,7 @@ const UploadC = () => {
 
 
   const handleSubmit = async(e) =>{
-    e.preventDefault();
+
     if (!question.trim()) {
       setClassError('Question cannot be empty');
       return;

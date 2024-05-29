@@ -36,7 +36,6 @@ const UploadST = () => {
 
 
   const handleSubmit = async (e) =>{
-    e.preventDefault()
     console.log(lessonNumber)
      // Validate Class Number
      if (!classNumber.trim()) {

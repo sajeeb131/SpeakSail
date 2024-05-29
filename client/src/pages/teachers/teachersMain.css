@@ -139,7 +139,7 @@
     line-height: normal;
 }
 .mid {
-    margin: 10px 40px;
+    margin: 20px 40px 30px 40px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px; 
@@ -154,6 +154,7 @@
     display: flex;
     align-items: center;
     border-radius: 10px;
+    
 }
 .student-info .img-block{
     flex: 0 0 auto;
@@ -164,6 +165,9 @@
   }
   .info-block-sub{
     width: 180px;
+    h2{
+        font-size: 20px;
+    }
   }
 .info-block {
     display: flex;
