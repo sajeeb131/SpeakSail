@@ -27,6 +27,11 @@ import TeachersMainPage from './pages/teachers/Teachers-main'
 import Materials from './pages/materials-download/Materials'
 import Notifications from './components/notification/Notifications';
 import Completions from './pages/completions/Completions'
+import Guide from './pages/guide/Guide';
+import SpecialActivity from './pages/guide/SpecialActivity';
+import DownloadableMaterial from './pages/guide/DownloadableMaterial';
+import LessonsMain from './pages/guide/LessonsMain';
+
 function App() {
   return (
     <div className="App">
@@ -78,6 +83,13 @@ function App() {
 
           {/* Completions route*/}
           <Route path='/completions' element={<Completions />} />
+          
+          {/* Guide route */}
+          <Route path='/guide' element={<Guide/>} />
+          <Route path='/guide/SpecialActivity' element={<SpecialActivity/>} />
+          <Route path='/guide.LessonsMain' element={<LessonsMain/>}/>
+          <Route path='/guide/DownloadableMaterial' element={<DownloadableMaterial/>} />
+
           {/* Lessons table */}
           <Route path='/lessons-table/:lessonType' element={<LessonsTable />} />
           
