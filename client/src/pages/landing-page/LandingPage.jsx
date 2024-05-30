@@ -33,7 +33,7 @@ const LandingPage = () => {
             </div>
             <div className='container-getStarted-half-des'><p>Lorem Ipsum is simply 
               dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing</p></div>
-            <div className='container-getStarted-half-button'><Link to='/login'>Get Started</Link></div>
+            <div className='container-getStarted-half-button'><Link to='/login/student'>Get Started</Link></div>
           </div>
           <div className='container-getStarted-half'>
             <img src={image} alt='' width={600} height={400}/>
@@ -116,7 +116,7 @@ const LandingPage = () => {
                         <img src={icon5} alt='' width={30} height={30}/>
                         <div>
                           <p style={{fontWeight:'600'}}>Vocab Treasure </p>
-                          <p>Lorem ipsum dolor sit.</p>
+                          <p>New words daily to maintain their rich vocabulary.</p>
                         </div>
                       </div>
                     </div>

@@ -271,7 +271,7 @@ const HomePage = () => {
                     <h2>Materials</h2>
                     </div>
                     
-                    <p>Lorem ipsum dolor sit</p>
+                    <p></p>
                     <Link to="/materials/Listening" style={{color:"#52D1DC"}}>Explore</Link>
                 </div>
                 <div className="homepage-materials-indv" style={{backgroundColor:"#FABC2A"}}>
@@ -292,7 +292,7 @@ const HomePage = () => {
                     <h2>Materials</h2>
                     </div>
                     
-                    <p>Lorem ipsum dolor sit</p>
+                    <p></p>
                     <Link to="/materials/Speaking" style={{color:"#FABC2A"}}>Explore</Link>
                 </div>
                 <div className="homepage-materials-indv" style={{backgroundColor:"#93FF96"}}>
@@ -313,7 +313,7 @@ const HomePage = () => {
                     <h2>Materials</h2>
                     </div>
                     
-                    <p>Lorem ipsum dolor sit</p>
+                    <p></p>
                     <Link to="/materials/Reading" style={{color:"#93FF96"}}>Explore</Link>
                 </div>
                 <div className="homepage-materials-indv" style={{backgroundColor:"#FF5E5B"}}>
@@ -326,7 +326,7 @@ const HomePage = () => {
                     <h2>Materials</h2>
                     </div>
                     
-                    <p>Lorem ipsum dolor sit</p>
+                    <p></p>
                     <Link to="/materials/Writing" style={{color:"#FF5E5B"}}>Explore</Link>
                 </div>
             </div>

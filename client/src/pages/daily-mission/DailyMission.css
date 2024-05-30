@@ -178,10 +178,12 @@ body {
 
 .submission-buttons {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  
   padding: 70px 0px 40px 0px;
-  align-items: flex-start;
-  gap: 504px;
+ justify-content: center;
+  gap: 250px;
   flex-shrink: 0;
 }
 
@@ -225,4 +227,19 @@ body {
     color: #002E88;
   }
   
+}
+.daily-mission-streak{
+  font-family: 'Urbanist';
+  font-size: 28px;
+  color: #002E88;
+  font-weight: 600;
+  span{
+    color: #FF5E5B;
+  }
+}
+.daily-mission-error{
+  font-family: 'Urbanist';
+  font-size: 28px;
+  color: #FF5E5B;
+  font-weight: 600;
 }

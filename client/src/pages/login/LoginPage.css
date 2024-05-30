@@ -69,9 +69,9 @@ flex-direction: column;
 
 .or- {
 position: relative;
-font-size: 30px;
+font-size: 20px;
 font-weight: 600;
-font-family: sans-serif;
+font-family: 'Urbanist';
 color: #d7dcdf;
 text-align: left;
 }
@@ -89,14 +89,15 @@ width: 177px;
 border: 0;
 outline: 0;
 font-weight: 500;
-font-family: sans-serif;
+font-family: 'Urbanist';
 font-size: 22px;
 background-color: transparent;
 height: 31px;
 position: relative;
-color: #b9b9b9;
+color: #002e88;
 text-align: left;
 display: inline-block;
+
 }
 
 .email-password-frame {
@@ -114,12 +115,12 @@ width: 122px;
 border: 0;
 outline: 0;
 font-weight: 500;
-font-family: sans-serif;
+font-family: 'Urbanist';
 font-size: 22px;
 background-color: transparent;
 height: 31px;
 position: relative;
-color: #b9b9b9;
+color: #002e88;
 text-align: left;
 display: inline-block;
 }
@@ -168,10 +169,10 @@ gap: 30px 0;
     position: relative;
     font-size: 26px;
     font-weight: 600;
-    font-family: sans-serif;
+    font-family: 'Urbanist';
     color: white;
     text-align: left;
-    }
+}
     
     .frame-email-address,
     .text-password,
@@ -190,6 +191,7 @@ gap: 30px 0;
         flex-direction: row;
         justify-content: center;
     }
+    
     .text-password2 {
         cursor: pointer;
         border: 0;
@@ -201,9 +203,7 @@ gap: 30px 0;
     }
    
     
-    .text-password:hover {
-    background-color: #1f9ea8;
-    }
+    
     .text-password2:hover {
         background-color: #ffb300;
     }
@@ -212,7 +212,7 @@ gap: 30px 0;
     .frame-email-address {
     flex-direction: column;
     justify-content: flex-start;
-    gap: 100px 0;
+    gap: 50px 0;
     }
     
     .dont-have-an,
@@ -303,5 +303,23 @@ gap: 30px 0;
     .email-address:after,
     .password::after{
         background-color: none;
+    }
+    .error-message{
+        color: red;
+        font-family: 'Urbanist';
+    }
+    .text-password {
+        border: 2px solid #002e88 !important ;
+        color: #002e88;
+        font-size: 28px !important;
+        font-family: 'Urbanist';
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+    }
+    .text-password:hover{
+        
+        background-color: white !important;
+        color: #002e88;
     }
     

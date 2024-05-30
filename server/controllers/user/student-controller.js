@@ -90,5 +90,31 @@ const getAllUsers = async (req, res)=>{
     }
 }
 
+const updateStreak = async(req, res) =>{
+  const { userID, streakIncrement, missionCompleted } = req.body;
 
-module.exports = { signupUser, loginUser, getUser, getAllUsers };
+    try {
+        const user = await User.findOne({ userID });
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        if (missionCompleted) {
+            user.streak += streakIncrement;
+            user.daily_mission_completed = true;
+        } else {
+            user.streak = 0;
+            user.daily_mission_completed = false;
+        }
+
+        await user.save();
+
+        res.status(200).json({ message: 'Streak updated successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error updating streak' });
+    }
+}
+
+module.exports = { signupUser, loginUser, getUser, getAllUsers, updateStreak };

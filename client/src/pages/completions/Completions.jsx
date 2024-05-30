@@ -4,10 +4,14 @@ import Footer from '../../components/Footer';
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import CompletedLesson from './CompletedLesson';
 import './completions.css';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Completions = () => {
   const studentID = localStorage.getItem('user');
+  const navigate = useNavigate()
+  {!studentID && navigate('/')}
 
+  
   const [lessons, setLessons] = useState({
     sd_lessons_ans: [],
     qa_lessons_ans: [],

@@ -52,13 +52,13 @@ const LoginPage = () => {
           } else {
             const errorData = await response.json();
             console.error('Login failed:', errorData.error);
-            setErrorMessage(errorData.error || 'Login failed'); // More specific error message
+            setErrorMessage('Incorrect email or password!'); 
           }
         } catch (error) {
           console.error('Error during login:', error);
-          setErrorMessage('An error occurred. Please try again later.'); // Generic error message for now
+          setErrorMessage('An error occurred. Please try again later.'); 
         } finally {
-          setIsLoading(false); // Clear loading state (optional)
+          setIsLoading(false); 
         }
       };
       
@@ -72,7 +72,7 @@ const LoginPage = () => {
                 
 
                 <div className="o-r-frame">
-                    <div className="or-">-OR-</div>
+                    <div className="or-">Enter your email address and password</div>
                 </div>
 
                 <div className="credentials-container">
@@ -98,10 +98,11 @@ const LoginPage = () => {
                                 />
                             </div>
                         </div>
-
+                        
                         <button className="text-password" type="submit">
-                            <div className="login">Login</div>
+                            Login
                         </button>
+                        {errorMessage && <div className='error-message'>{errorMessage}</div>}
                     </div>
                     
                 </div>

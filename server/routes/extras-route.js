@@ -5,6 +5,6 @@ const {getVocabTreasure, getDailyMission} = require('../controllers/extra-exerci
 
 // get user by id
 router.get('/vocab-treasure', getVocabTreasure);
-router.get('/daily-mission', getDailyMission);
+router.get('/daily-mission/:id', getDailyMission);
 
 module.exports = router

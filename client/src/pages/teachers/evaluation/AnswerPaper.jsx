@@ -11,20 +11,20 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
   const [audioUrl, setAudioUrl] = useState(null);
   const [feedback, setFeedback] = useState(null)
   const [message, setMessage] = useState('')
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         setStatus('pending')
         const response = await fetch(`http://localhost:4000/student/${currentLesson.studentID}`);
+        console.log(`http://localhost:4000/student/${currentLesson.studentID}`)
         if (!response.ok) {
           throw new Error('Failed to fetch student data!');
         }
         const data = await response.json();
         setStudent(data);
         console.log('Fetched student data:', data);
-        console.log(currentLesson)
-        console.log('Category:', category);
-        console.log('type_convert:', type_convert);
+
          // Fetch the audio file as a blob
          if(type == 'Storytelling' )
          setAudioUrl(currentLesson.audioFilePath)
@@ -97,6 +97,7 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
   };
 
   if (isLoading || !currentLesson || !student) {
+    console.log(isLoading, currentLesson, student)
     return <div>Loading...</div>;
   }
 

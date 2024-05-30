@@ -15,14 +15,27 @@ const VocabTreasure = () => {
           throw new Error('Cannot get the words');
         }
         const data = await response.json();
-        // Take only the first two words from the fetched data
-        setDailyWords(data.slice(0, 2));
+
+        // Shuffle the array and take only the first two words
+        const shuffledData = shuffleArray(data);
+        setDailyWords(shuffledData.slice(0, 2));
       } catch (error) {
         console.log(error.message);
       }
     };
+
     fetchData();
   }, []);
+
+  // Function to shuffle an array
+  const shuffleArray = (array) => {
+    let shuffledArray = array.slice();
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+    }
+    return shuffledArray;
+  };
 
   return (
     <div className="vocab-treasure">

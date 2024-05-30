@@ -16,7 +16,11 @@ const vocabTreasureSchema = new mongoose.Schema({
     example:{
         type: String,
         required: true
-    } 
+    },
+    time : { 
+        type : Date,
+        default: null
+    }
 })
 const DailyMissionSchema = new mongoose.Schema({
     question:{
@@ -30,8 +34,14 @@ const DailyMissionSchema = new mongoose.Schema({
     options:{
         type: [String],
         required: true
+    },
+    time : { 
+        type : Date,
+        default: null
     }
 })
+
+
 
 
 module.exports = {

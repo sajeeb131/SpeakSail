@@ -21,6 +21,10 @@ const listeningSenDictSchema = new mongoose.Schema({
     submittedBy:{
         type: [String],
         required: false
+    },
+    time : { 
+        type : Date,
+        default: Date.now
     }
   });
   
@@ -54,6 +58,10 @@ const listeningSenDictAnswerSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    time : { 
+        type : Date,
+        default: Date.now
+    }
 });
 
 module.exports = {

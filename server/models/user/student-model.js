@@ -84,6 +84,15 @@ const userSchema = new Schema({
   daily_mission:{
     type: Number,
     default: 0
+  },
+  streak:{
+    type: Number,
+    default: 0,
+    required: false
+  },
+  daily_mission_completed:{
+    type: Boolean,
+    required: false
   }
 });
 

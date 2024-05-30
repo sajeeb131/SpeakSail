@@ -213,6 +213,9 @@
     transition: transform 0.3s ease, font-weight 0.3s ease;
     
 }
+.homepage-materials-indv p{
+    width: 149.08px;
+}
 .homepage-materials-indv a:hover{
     transform: scale(1.1);
     font-weight: 600;

@@ -33,6 +33,7 @@
     display: flex;
     justify-content: end;
     
+    
 }
 .container-getStarted-half-button a{
     text-decoration: none;
@@ -42,7 +43,12 @@
     font-size: 20px;
     border-radius: 5px;
     font-weight: bold;
-    
+    border: 2px solid #FABC2A;
+    transition: all 0.3s ease;
+}
+.container-getStarted-half-button a:hover{
+    background-color: white;
+
 }
 .container-getStarted-half img{
     margin-left: 100px;

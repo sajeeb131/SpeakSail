@@ -1,19 +1,33 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useHistory } from 'react-router-dom'
 import avatar1 from '../../../assets/images/PFP.png'
 import avatar2 from '../../../assets/images/teacherAvatar.png'
 import { DUMMY_POST } from './data'
 import { DUMMY_POST1 } from './data2'
 import { DUMMY_POST2 } from './data3'
+import { FiChevronRight } from 'react-icons/fi';
+
+import { useEvaluation } from '../../../contexts/EvaluationContext'
+import { useAnswer } from '../../../contexts/AnswerContext'
 
 
 const Dashboard = () => {
-  const [totalStudents, setTotalStudents] = useState(0);
+    const navigate = useNavigate();
+    const {lesson_types, lessons, selectedLesson, handleLessonTypeClick} = useEvaluation();
+
+    const redirectToEvaluationPage = (lesson) => {
+      navigate('/teachers/evaluation', { lesson });
+    };
+
+    const {answer, loading, error} = useAnswer()
+    console.log(answer)
+ 
+
+
   const [totalClasses, setTotalClasses] = useState(5);
   const [studentImg, setStudentImg] = useState(avatar1);
   const [teachertImg, setTeacherImg] = useState(avatar2);
-  const [teacherName, setTeacherName] = useState('Jane Doe');
-  const [teacherId, setTeacherId] = useState('0432');
+ 
   const [recents, setRecents] = useState(DUMMY_POST1);
   const [deadlines, setDeadlines] = useState(DUMMY_POST2);
   
@@ -21,26 +35,24 @@ const Dashboard = () => {
   const [students, setStudents] = useState([])
   const userID = localStorage.getItem('user')
   const [totalLessons, setTotalLessons] = useState()
+
+  
   useEffect(()=>{
     const fetchData = async() =>{
       try{
         const response = await fetch(`http://localhost:4000/teacher/${userID}`)
         const response2 = await fetch(`http://localhost:4000/student/`)
         const response3 = await fetch(`http://localhost:4000/home/`)
-
+        
         if(!response.ok && !response2.ok && !response3.ok){
           throw new Error('Data can not be fetched!')
         }
         const userData = await response.json();
         const userData2 = await response2.json();
         const userData3 = await response3.json();
-
         setTeacher(userData)
         setStudents(userData2)
-        console.log(students)
         setTotalLessons(userData3.listeningSEN + userData3.listeningQA + userData3.speaking + userData3.reading + userData3.writing)
-
-
       }catch(error){
         console.log( error.message)
       }
@@ -64,11 +76,12 @@ const Dashboard = () => {
   );
   const topStudents = sortedStudents.slice(0, 4);
 
-  {!teacher && !students && !topStudents && <div>...Loading</div>}
+  {!teacher && !answer && !students && !topStudents && <div>...Loading</div>}
 
 
   return (
         <div className='middle'>
+          {console.log(answer)}
           <div className='middle-left'>
             <div className='upper'>
               <div className='stats-banner' id='ban1'>
@@ -142,7 +155,55 @@ const Dashboard = () => {
                       </div>
                   </div>
                   }
+
+
                 
+                <div className='evaluation-submissions'>
+                  <div className='evaluation-submissions-top'>
+                    <h1>Pending Evaluations</h1>
+                  </div>
+                  <div className='evaluation-submissions-bottom'>
+                    {lesson_types.map((object, index) => (
+                      <div
+                        key={index}
+                        className='submissions-section-indv'
+                        onClick={() => handleLessonTypeClick(object.lesson)}
+                      >
+                        <div className='submissions-section-indv-top'>
+                          <div className='letterbox'>
+                            <h3>{object.lesson}</h3>
+                            <span style={{ background: object.background }}>{object.type}</span>
+                          </div>
+                          <FiChevronRight size={30} />
+                        </div>
+                        {selectedLesson === object.lesson && lessons && (
+                          <div className='submissions-section-indv-drop'>
+                            {lessons.map(
+                              (object2, index) =>
+                                object2.feedback !== true && (
+                                  <div
+                                    className='submissions-section-indv-drop-indv'
+                                    onClick={() => redirectToEvaluationPage() }
+                                    key={index}
+                                  >
+                                    <span>
+                                      Lesson {object2.lessonNumber}: {object2.studentName}
+                                    </span>
+                                    <span>{object2.studentID}</span>
+                                  </div>
+                                )
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                </div>
+
+
+
                 {/* <div className='deadline-box'>
                     <h1>Upcoming Deadlines</h1>
                     {deadlines.slice(0,3).map((item, key)=>{
@@ -158,7 +219,7 @@ const Dashboard = () => {
                       )
                     })}
                 </div> */}
-          </div>
+          
         </div>
       
   )

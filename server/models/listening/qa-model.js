@@ -25,6 +25,10 @@ const listeningQASchema = new mongoose.Schema({
   submittedBy:{
     type: [String],
     required: false
+  },
+  time : { 
+    type : Date,
+    default: Date.now
   }
 });
 
@@ -57,6 +61,10 @@ const listeningQAAnswerSchema = new mongoose.Schema({
     type: [String],
     required: false,
   },
+  time : { 
+    type : Date,
+    default: Date.now
+  }
 });
 
 module.exports = {

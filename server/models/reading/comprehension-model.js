@@ -30,6 +30,10 @@ const readingComprehensionSchema = new mongoose.Schema({
     submittedBy:{
         type: [String],
         required: false
+    },
+    time : { 
+        type : Date,
+        default: Date.now
     }
 });
 
@@ -54,6 +58,10 @@ const readingComprehensionAnswerSchema = new mongoose.Schema({
         type: Boolean,
         required: false,
     },
+    time : { 
+        type : Date,
+        default: Date.now
+      }
 });
 
 module.exports = {

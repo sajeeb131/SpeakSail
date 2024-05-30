@@ -4,35 +4,37 @@ import Footer from '../../components/Footer';
 import './DailyMission.css';
 
 const DailyMission = () => {
+  const userID = localStorage.getItem('user');
   const [currentQuestionSet, setCurrentQuestionSet] = useState(null);
   const [userAnswers, setUserAnswers] = useState([]);
-  const [showCongrats, setShowCongrats] = useState(false);
   const [isSubmitEnabled, setIsSubmitEnabled] = useState(false);
+  const [student, setStudent] = useState(null)
+  const [error, setError] = useState(null)
 
-  useEffect(() => {
-    const fetchDailyQuestions = async () => {
+  const fetchDailyQuestions = async (skip = false) => {
+    if(userID){
+      console.log(userID)
       try {
-        const response = await fetch('http://localhost:4000/extras/daily-mission');
+        const response = await fetch(`http://localhost:4000/extras/daily-mission/${userID}${skip ? '?skip=true' : ''}`);
+        console.log(`http://localhost:4000/extras/daily-mission/${userID}${skip ? '?skip=true' : ''}`)
         if (!response.ok) {
           throw new Error('Failed to fetch daily questions');
         }
         const data = await response.json();
         setCurrentQuestionSet(data.currentQuestionSet);
         setUserAnswers(new Array(data.currentQuestionSet.question.length).fill(''));
-        console.log(userAnswers)
-        console.log(data.congratsShown)
-        setShowCongrats(data.congratsShown);
-        if(!showCongrats){
-          localStorage.setItem('congratsTimer','false')
-        } // Reset congrats message when new questions are fetched
-        console.log(showCongrats)
       } catch (error) {
-        console.error(error);
+        console.error(error.message);
       }
-    };
+    }
+    
+  };
 
+  useEffect(() => {
     fetchDailyQuestions();
   }, []);
+
+  
 
   useEffect(() => {
     if (userAnswers.every(answer => answer.trim() !== '')) {
@@ -51,27 +53,76 @@ const DailyMission = () => {
   const handleSubmit = async () => {
     const isCorrect = currentQuestionSet.answer.every((ans, index) => ans === userAnswers[index]);
     if (isCorrect) {
-      console.log('it is true')
-      setShowCongrats(true);
-      localStorage.setItem('congratsTimer', 'true'); // Set timer value when congratulations message is shown
+      try {
+        const response = await fetch('http://localhost:4000/student/update-streak', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ userID: userID, streakIncrement: 1, missionCompleted: true }),
+        });
+        if (!response.ok) {
+          throw new Error('Failed to update user streak');
+        }
+
+        // Update student state with the new streak value and mission completed status
+        setStudent(prevStudent => ({
+          ...prevStudent,
+          streak: prevStudent.streak + 1,
+          daily_mission_completed: true,
+        }));
+
+      } catch (error) {
+        console.error(error);
+      }
     } else {
-      alert('Some answers are incorrect. Please try again.');
+      setError('Wrong Answers!!!')
     }
   };
 
   const handleSkip = async () => {
-    const response = await fetch('http://localhost:4000/extras/daily-mission');
-    if (!response.ok) {
-      throw new Error('Failed to fetch daily questions');
+    await fetchDailyQuestions(true);
+
+    try {
+      const response = await fetch('http://localhost:4000/student/update-streak', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userID: userID, streakIncrement: 0, missionCompleted: false }),
+      });
+      console.log('inside skip');
+      if (!response.ok) {
+        throw new Error('Failed to reset user streak');
+      }
+
+      // Update student state with the new streak value
+      setStudent(prevStudent => ({
+        ...prevStudent,
+        streak: 0
+      }));
+
+    } catch (error) {
+      console.error(error);
     }
-    const data = await response.json();
-    setCurrentQuestionSet(data);
-    setUserAnswers(new Array(data.question.length).fill(''));
-    setShowCongrats(false); // Reset congrats message if skipping
-    localStorage.removeItem('congratsTimer'); // Remove timer value when skipping
   };
 
-  if (!currentQuestionSet) {
+  useEffect(()=>{
+    const fetchStudent = async()=>{
+      try{
+        const response0 = await fetch(`http://localhost:4000/student/${userID}`);
+        if(!response0.ok) { throw new Error('Can not retrieve student information!') }
+        const info = await response0.json();
+        setStudent(info)
+      
+      }catch(error){
+        console.log(error.message)
+      }
+    }
+    fetchStudent()
+  },[currentQuestionSet])
+
+  if (!currentQuestionSet || !student) {
     return <div>Loading...</div>;
   }
 
@@ -89,12 +140,11 @@ const DailyMission = () => {
         </div>
       </div>
 
-      {/* Main Section */}
       <div className="main-section">
-        {localStorage.getItem('congratsTimer') =='true' ? (
+        {student.daily_mission_completed ? (
           <div className="congrats-message">
             <h2>Congratulations!</h2>
-            <p>You have answered all questions correctly.</p>
+            <p>You have completed today's mission.</p>
           </div>
         ) : (
           <>
@@ -124,14 +174,16 @@ const DailyMission = () => {
                   </p>
                 ))}
               </div>
+              {error && <div className='daily-mission-error'>{error}</div>}
             </div>
           </>
         )}
       </div>
 
       <div className="submission-buttons">
-        {!showCongrats && <button className="skip-button" onClick={handleSkip}>Skip</button>}
-        {!showCongrats && <button className="submit-button" onClick={handleSubmit} disabled={!isSubmitEnabled}>Submit</button>}
+        {!student.daily_mission_completed && <button className="skip-button" onClick={handleSkip}>Skip</button>}
+        {!student.daily_mission_completed && <div className='daily-mission-streak'>Streak <span >{student.streak}</span></div>}
+        {!student.daily_mission_completed && <button className="submit-button" onClick={handleSubmit} disabled={!isSubmitEnabled}>Submit</button>}
       </div>
       <Footer />
     </div>

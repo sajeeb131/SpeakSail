@@ -21,7 +21,11 @@ const writingPictureDescriptionSchema = new mongoose.Schema({
     submittedBy:{
         type: [String],
         required: false
-    }
+    },
+    time : { 
+        type : Date,
+        default: Date.now
+      }
 });
 
 const writingPictureDescriptionAnswerSchema = new mongoose.Schema({
@@ -45,6 +49,10 @@ const writingPictureDescriptionAnswerSchema = new mongoose.Schema({
         type: Boolean,
         required: false,
     },
+    time : { 
+        type : Date,
+        default: Date.now
+      }
 });
 
 module.exports = {

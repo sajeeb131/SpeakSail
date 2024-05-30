@@ -21,7 +21,12 @@ const speakingStorytellingSchema = new mongoose.Schema({
     submittedBy:{
         type: [String],
         required: false
-    }
+    },
+    time : { 
+        type : Date,
+        default: Date.now
+      }
+    
 });
 
 const speakingStorytellingAnswerSchema = new mongoose.Schema({
@@ -52,7 +57,11 @@ const speakingStorytellingAnswerSchema = new mongoose.Schema({
     feedback: {
         type: Boolean,
         required: false
-    }
+    },
+    time : { 
+        type : Date,
+        default: Date.now
+      }
 });
 
 module.exports = {
