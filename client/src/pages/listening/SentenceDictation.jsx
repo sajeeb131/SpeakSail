@@ -8,13 +8,13 @@ import './AudioPlayer.css'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 import ProgressBar from '../../components/progress-bar/ProgressBar'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import SubmissionPopup from '../../components/pop-up/submissionPopup';
 
 
 
 const SentenceDictation = (lessonType, lessonNumber) => {
-  
+  const navigate = useNavigate()
   const [progressPercentage, setProgress] = useState(40);
   lessonNumber = useParams().lessonNumber
   const [lesson, setLesson] = useState(null);
@@ -71,7 +71,7 @@ const SentenceDictation = (lessonType, lessonNumber) => {
         throw new Error('Failed to submit answers');
       }  
       setPopup(true);
-      
+ 
       console.log('Answers submitted successfully');
 
     }catch(error){

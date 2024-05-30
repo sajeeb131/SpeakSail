@@ -1,26 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import './popUp.css';
 import { AiFillCheckCircle } from "react-icons/ai";
+import { useNavigate } from 'react-router-dom';
 
 const SubmissionPopup = ({ showPopup, onClose }) => {
-    useEffect(() => {
-        const closePopup = () => {
-            onClose();
-        };
+    const navigate = useNavigate();
 
-        document.addEventListener('click', closePopup);
+    const handleClose = useCallback(() => {
+        onClose();
+        navigate(-1); // Navigate to the previous page
+    }, [onClose, navigate]);
+
+    useEffect(() => {
+        if (showPopup) {
+            document.addEventListener('click', handleClose);
+        }
 
         return () => {
-            document.removeEventListener('click', closePopup);
+            document.removeEventListener('click', handleClose);
         };
-    }, [onClose]);
+    }, [showPopup, handleClose]);
 
     useEffect(() => {
         const popup = document.querySelector('.submission-popup');
         if (showPopup && popup) {
-            popup.classList.remove('inactive'); // Remove inactive class to show the popup
+            popup.classList.remove('inactive');
         } else if (!showPopup && popup) {
-            popup.classList.add('inactive'); // Add inactive class to hide the popup
+            popup.classList.add('inactive');
         }
     }, [showPopup]);
 

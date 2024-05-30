@@ -1,35 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { FiXCircle, FiCheckCircle } from 'react-icons/fi';
-import Waveform from '../../../components/wavesurfer/Waveform';
-import AudioPlayer from 'react-h5-audio-player'
-import 'react-h5-audio-player/lib/styles.css'
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 
 const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [status, setStatus] = useState('pending');
   const [student, setStudent] = useState(null);
   const [audioUrl, setAudioUrl] = useState(null);
-  const [feedback, setFeedback] = useState(null)
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setStatus('pending')
+        setStatus('pending');
         const response = await fetch(`http://localhost:4000/student/${currentLesson.studentID}`);
-        console.log(`http://localhost:4000/student/${currentLesson.studentID}`)
         if (!response.ok) {
           throw new Error('Failed to fetch student data!');
         }
         const data = await response.json();
         setStudent(data);
-        console.log('Fetched student data:', data);
 
-         // Fetch the audio file as a blob
-         if(type == 'Storytelling' )
-         setAudioUrl(currentLesson.audioFilePath)
-         
-
+        if (type === 'Storytelling') {
+          setAudioUrl(currentLesson.audioFilePath);
+        }
       } catch (error) {
         console.log('Error:', error.message);
       } finally {
@@ -38,25 +32,26 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
     };
 
     fetchData();
-  }, [currentLesson, category]);
+  }, [currentLesson, category, type]);
 
   const handleSubmit = async (action) => {
     if (student) {
       try {
         setIsLoading(true);
 
-        let value1 = student[category] ;
-        let value2 = student[type_convert]  ;
+        let value1 = student[category];
+        let value2 = student[type_convert];
         const { _id, studentID, lessonNumber } = currentLesson;
-        const feedback = action === 'approve' ? "true" : "false";
-        if(feedback === 'true'){
-          setMessage('has been approved.')
+        const feedback = action === 'approve' ? 'true' : 'false';
+        let message = '';
+
+        if (feedback === 'true') {
+          message = 'has been approved.';
           value1++;
           value2++;
-        }else{
-          setMessage('has been declined')
+        } else {
+          message = 'has been declined.';
         }
-        console.log('Submitting feedback:', feedback, lessonNumber, studentID, value1, value2);
 
         const response = await fetch(`http://localhost:4000/lessons/${category}/${typeUrl}/${_id}`, {
           method: 'PATCH',
@@ -65,7 +60,7 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
             'Content-Type': 'application/json',
           },
         });
-        
+
         if (response.status === 200) {
           const data = await response.json();
           setStatus(feedback ? 'true' : 'false');
@@ -74,20 +69,22 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
           throw new Error('Feedback submission failed!');
         }
 
-        //sending notification
-        console.log({ studentID, type, lessonNumber, message })
+        const notification = { studentID, type, lessonNumber, message };
+        console.log(notification);
+
         const response2 = await fetch(`http://localhost:4000/notifications`, {
           method: 'POST',
-          body: JSON.stringify({ studentID, type, lessonNumber, message }),
+          body: JSON.stringify(notification),
           headers: {
             'Content-Type': 'application/json',
           },
         });
-        if(!response2.status){
-          throw new Error('Can not save notification data!')
+
+        if (!response2.ok) {
+          throw new Error('Cannot save notification data!');
+        } else {
+          console.log('Notification sent successfully');
         }
-
-
       } catch (error) {
         console.log('Error:', error.message);
       } finally {
@@ -97,7 +94,6 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
   };
 
   if (isLoading || !currentLesson || !student) {
-    console.log(isLoading, currentLesson, student)
     return <div>Loading...</div>;
   }
 
@@ -117,16 +113,10 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
             <div className='evaluation-lesson-mid'>
               <p>Answer: <span>{currentLesson.answers}</span></p>
             </div>
-            
           )}
           {type === 'Storytelling' && audioUrl && (
             <div className='evaluation-lesson-mid-audio'>
-              <AudioPlayer
-                      
-                      src={audioUrl}
-                      
-                      onPlay={e => console.log("onPlay")}
-                    />
+              <AudioPlayer src={audioUrl} onPlay={() => console.log("onPlay")} />
             </div>
           )}
         </div>

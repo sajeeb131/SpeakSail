@@ -16,6 +16,10 @@ const InitialNav = () => {
     const toggleDropdown = () => {
         setShowDropdown(!showDropdown);
     };
+    const handleLogout = () =>{
+        localStorage.clear()
+        
+    }
   return (
     <>
         <div className='navbar'>
@@ -26,6 +30,7 @@ const InitialNav = () => {
                 <li><Link to='/home'>Home</Link></li>
                 <li><Link to="/completions">Completions</Link></li>
                 <li><Link to="/guide">Guide</Link></li>
+                <li><Link onClick={handleLogout} to='/'>Logout</Link></li>
             </ul>
             <div className='buttons'>
                 <Link className='notfications-icon' onClick={toggleDropdown}>

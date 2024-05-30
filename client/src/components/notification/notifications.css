@@ -51,8 +51,8 @@
 
 /* Style for the notification title */
 .notifications-container .notification-item h2 {
-    font-size: 1.2em;
-    margin: 0 0 5px;
+    font-size: 1.1em;
+
 }
 
 /* Style for the notification message */
@@ -64,15 +64,21 @@
 /* Style for the notification time */
 .notifications-container .notification-item .notification-time {
     font-size: 0.8em;
-    color: #666;
+    color: #18cbe2;
 }
 .notifications-list{
     list-style: none;
-    width: 100%s;
+    width: 100%;
 }
 .notification-item{
-    margin: 4px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    align-items: flex-start;
     border-bottom: 2px solid white;
     margin-bottom: 5px;
     padding-bottom: 5px;
+    p{
+        font-size: 0.95em;
+    }
 }

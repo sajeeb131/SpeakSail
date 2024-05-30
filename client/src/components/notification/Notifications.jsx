@@ -31,7 +31,7 @@ const Notifications = () => {
                     <li key={notification._id} className="notification-item">
                         <h2>{notification.lessonType}: {notification.lessonNumber}</h2>
                         <p>{notification.message}</p>
-                        <span className="notification-time">{new Date(notification.time).toLocaleString()}</span>
+                        
                     </li>
                 ))}
             </ul>

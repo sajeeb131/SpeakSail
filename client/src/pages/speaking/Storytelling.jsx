@@ -11,6 +11,7 @@ import SubmissionPopup from '../../components/pop-up/submissionPopup';
 
 
 const Storytelling = (progress) => {
+    const navigate = useNavigate()
     const {lessonNumber} = useParams()
     const [progressPercentage, setProgress] = useState(40); 
     const [lesson, setLesson] = useState(null)
@@ -65,7 +66,7 @@ const Storytelling = (progress) => {
               }
 
               setPopup(true);
-
+      
               // Handle success response
               console.log('Audio submitted successfully');
           } catch (error) {

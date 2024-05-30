@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import ProgressBar from '../../components/progress-bar/ProgressBar';
 import Navbar from '../../components/Navbar';
 import AudioPlayer from 'react-h5-audio-player';
@@ -11,6 +11,7 @@ import SubmissionPopup from '../../components/pop-up/submissionPopup';
 
 
 const QuestionAnswer = () => {
+    const navigate = useNavigate()
     const { lessonNumber } = useParams();
     const [progressPercentage, setProgress] = useState(40); 
     const [lesson, setLesson] = useState({ audioFilePath: '', questions: ['', '', ''] });
@@ -60,7 +61,7 @@ const QuestionAnswer = () => {
               throw new Error('Failed to submit answers');
           }
           setPopup(true);
-  
+
 
           console.log('Answers submitted successfully');
       } catch (error) {

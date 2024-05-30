@@ -4,10 +4,11 @@ import { useState, useEffect } from 'react'
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import ProgressBar from '../../components/progress-bar/ProgressBar'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import SubmissionPopup from '../../components/pop-up/submissionPopup';
 
 const Comprehension = (lessonType, lessonNumber) => {
+    const navigate = useNavigate()
     const [progressPercentage, setProgress] = useState(40); 
     lessonNumber = useParams().lessonNumber
     const [lesson, setLesson] = useState([]);   
@@ -60,6 +61,7 @@ const Comprehension = (lessonType, lessonNumber) => {
                 throw new Error('Failed to submit answers');
             }   
             setPopup(true);
+   
         
         }catch(error){
             console.error('Error submitting answer: ', error)

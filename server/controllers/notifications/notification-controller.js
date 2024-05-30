@@ -6,6 +6,7 @@ const {Notifications} = require('../../models/notifications/notification-model')
 const createNotification = async (req, res) => {
     try {
         const { studentID, type, lessonNumber, message } = req.body;
+        console.log(studentID, type, lessonNumber, message)
         
         // Create a new notification object
         const notification = new Notifications({

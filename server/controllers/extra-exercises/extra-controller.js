@@ -17,7 +17,6 @@ const updateQuestionSet = async (userID) => {
 
                 // Update the daily_mission_completed flag for the user
                 await User.updateOne({ userID: userID }, { $set: { daily_mission_completed: false } });
-                console.log('UserID inside updateQuestionSet:', userID); // Debugging statement
             }
         } catch (err) {
             console.log(err);
