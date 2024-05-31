@@ -16,7 +16,7 @@ const writingPagesRoute = require('./routes/writing-route')
 const materialRoute = require('./routes/material-route')
 const extraExercises = require('./routes/extras-route')
 const notifications = require('./routes/notification-route')
-
+const submission = require('./routes/submission-route')
 //middleware
 app.use(express.json())
 app.use(cors()) 
@@ -36,8 +36,7 @@ app.use('/lessons/listening',listeningPagesRoute);
 app.use('/lessons/speaking',speakingPagesRoute);
 app.use('/lessons/reading',readingPagesRoute);
 app.use('/lessons/writing',writingPagesRoute);
-
-
+app.use('/submission', submission)
 
 
 

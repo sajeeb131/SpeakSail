@@ -12,23 +12,21 @@ import { useAnswer } from '../../../contexts/AnswerContext'
 
 
 const Dashboard = () => {
-    const navigate = useNavigate();
-    const {lesson_types, lessons, selectedLesson, handleLessonTypeClick} = useEvaluation();
+  const navigate = useNavigate();
+  const {lesson_types, lessons, selectedLesson, handleLessonTypeClick} = useEvaluation();
 
-    const redirectToEvaluationPage = (lesson) => {
-      navigate('/teachers/evaluation', { lesson });
-    };
+  const redirectToEvaluationPage = (lesson) => {
+    navigate('/teachers/evaluation', { lesson });
+  };
 
-    const {answer, loading, error} = useAnswer()
-    console.log(answer)
- 
-
+  const {answer} = useAnswer()
+  console.log(answer)
 
   const [totalClasses, setTotalClasses] = useState(5);
   const [studentImg, setStudentImg] = useState(avatar1);
   const [teachertImg, setTeacherImg] = useState(avatar2);
  
-  const [recents, setRecents] = useState(DUMMY_POST1);
+  const [recents, setRecents] = useState([]);
   const [deadlines, setDeadlines] = useState(DUMMY_POST2);
   
   const [teacher, setTeacher] = useState()
@@ -43,16 +41,22 @@ const Dashboard = () => {
         const response = await fetch(`http://localhost:4000/teacher/${userID}`)
         const response2 = await fetch(`http://localhost:4000/student/`)
         const response3 = await fetch(`http://localhost:4000/home/`)
-        
-        if(!response.ok && !response2.ok && !response3.ok){
+        const response4 = await fetch('http://localhost:4000/submission/all')
+
+        if(!response.ok && !response2.ok && !response3.ok && !response4.ok){
           throw new Error('Data can not be fetched!')
         }
         const userData = await response.json();
         const userData2 = await response2.json();
         const userData3 = await response3.json();
+        const userData4 = await response4.json();
+        console.log(userData4)
         setTeacher(userData)
         setStudents(userData2)
         setTotalLessons(userData3.listeningSEN + userData3.listeningQA + userData3.speaking + userData3.reading + userData3.writing)
+        setRecents(userData4)
+
+
       }catch(error){
         console.log( error.message)
       }
@@ -76,7 +80,7 @@ const Dashboard = () => {
   );
   const topStudents = sortedStudents.slice(0, 4);
 
-  {!teacher && !answer && !students && !topStudents && <div>...Loading</div>}
+  {(!teacher || !answer || !students || !topStudents || !recents) && <div>...Loading</div>}
 
 
   return (
@@ -122,15 +126,16 @@ const Dashboard = () => {
             </div>
 
             </div>
+            {console.log(recents)}
             <div className='accessed-class'>
-            <h2 id='headers2'>Recently accessed classes</h2>
+            <h2 id='headers2'>Recently checked submissions</h2>
             <div className='bot'>
-                {recents.slice(0,2).map((item, key)=>{
+                {recents.map((item, key)=>{
                   return(
                     <div className='class-info'>
-                        <div className='class-box'><h1>Class: {item.class}</h1></div>
-                        <div className='class-box'><h3>Total Students: {item.topStudents}</h3></div>
-                        <div className='class-box'><h3>Last assigned task: {item.lastUpload}</h3></div>
+                        <div className='class-box'><h1>{item.lessonType}</h1></div>
+                        <div className='class-box'><h3>Lesson Number: {item.lessonNumber}</h3></div>
+                        <div className='class-box'><h3>Completed By: {item.studentName}</h3></div>
                     </div>
                   )
                   })}

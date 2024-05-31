@@ -89,6 +89,26 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
         } else {
           console.log('Notification sent successfully');
         }
+        console.log(type, lessonNumber, studentID, student.fullName)
+        //save checked submission to submission collection
+        const submission = { lessonType: type, lessonNumber, studentID, studentName: student.fullName };
+        
+        const response3 = await fetch(`http://localhost:4000/submission/`, {
+          method: 'POST',
+          body: JSON.stringify(submission),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response3.ok) {
+          throw new Error('Cannot save submission data!');
+        }
+
+        console.log('Submission saved successfully');
+
+
+
       } catch (error) {
         console.log('Error:', error.message);
       } finally {
