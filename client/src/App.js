@@ -30,7 +30,10 @@ import Completions from './pages/completions/Completions'
 import Guide from './pages/guide/Guide';
 import SpecialActivity from './pages/guide/SpecialActivity';
 import DownloadableMaterial from './pages/guide/DownloadableMaterial';
-import LessonsMain from './pages/guide/LessonsMain';
+import ListeningGuide from './pages/guide/ListeningGuide';
+import SpeakingGuide from './pages/guide/SpeakingGuide';
+import WritingGuide from './pages/guide/WritingGuide';
+import ReadingGuide from './pages/guide/ReadingGuide';
 
 import Status403 from './components/auth/Status403';
 
@@ -88,8 +91,11 @@ function App() {
           {/* Guide route */}
           <Route path='/guide' element={<PrivateRoute element={<Guide />} />} />
           <Route path='/guide/SpecialActivity' element={<PrivateRoute element={<SpecialActivity />} />} />
-          <Route path='/guide/LessonsMain' element={<PrivateRoute element={<LessonsMain />} />} />
           <Route path='/guide/DownloadableMaterial' element={<PrivateRoute element={<DownloadableMaterial />} />} />
+          <Route path='/guide/ListeningGuide' element={<PrivateRoute element={<ListeningGuide />} />} />
+          <Route path='/guide/SpeakingGuide' element={<PrivateRoute element={<SpeakingGuide />} />} />
+          <Route path='/guide/WritingGuide' element={<PrivateRoute element={<WritingGuide />} />} />
+          <Route path='/guide/ReadingGuide' element={<PrivateRoute element={<ReadingGuide />} />} />
 
           {/* Lessons table */}
           <Route path='/lessons-table/:lessonType' element={<PrivateRoute element={<LessonsTable />} />} />

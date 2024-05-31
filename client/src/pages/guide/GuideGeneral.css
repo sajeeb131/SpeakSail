@@ -62,13 +62,14 @@
   }
   
   .dropdown-item {
+    display: block;
     background-color: #ffffff;
     color: #002E88;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     text-align: left;
-    width: 100%;
+    width: auto;
     cursor: pointer;
     font-size: 20px;
     font-weight: 600;

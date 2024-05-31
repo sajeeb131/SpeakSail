@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { GoChevronDown } from "react-icons/go";
 import { GoChevronUp } from "react-icons/go";
 
-const Guide = () => {
+const WritingGuide = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
@@ -17,10 +17,10 @@ const Guide = () => {
         <Navbar></Navbar>
         <div className="header-guide">Guide</div>
         <div className="navbar-guideGeneral">
-            <button className="navbar-button active">General</button>
+            <Link to='/guide' className="navbar-button">General</Link>
             <Link to='/guide/SpecialActivity' className="navbar-button">Special Activities</Link>
             <div className="navbar-dropdown">
-                <button className="navbar-button" onClick={toggleDropdown}>
+                <button className="navbar-button active" onClick={toggleDropdown}>
                 Lessons <span className="arrow">{isDropdownOpen ? <GoChevronUp /> : <GoChevronDown/>}</ span>
                 </button>
                 {isDropdownOpen && (
@@ -40,34 +40,28 @@ const Guide = () => {
             <h1 className="guide-content-header">Welcome to SpeakSail!</h1>
             </header>
             <div className="guide-content-intro">
-                <h2 className='guide-content-title'>How to use the website:</h2>
-                <p className='guide-content-inline'>Welcome, young learners! We're excited to have you on our platform where you can have fun while learning English.
-                Let's take a tour and see how you can use everything.</p>
+                <h2 className='guide-content-title'>Writing Lesson</h2>
+                <p className='guide-content-inline'>Click on the Writing card to practise your writing skills with a fun activity:</p>
             </div>
             <div className="guide-content-navigation">
-                <h2 className='guide-content-title'>Navigating the Navbar</h2>
+                <h2 className='guide-content-title'>Picture Description</h2>
                 <ul className='guide-content-inlinetext'>
-                <li><b>Home:</b> This is where you start! You'll find the vocab treasure and daily missions here.</li>
-                <li><b>Completion:</b> Check out the progress you've made on your activities.</li>
-                <li><b>Guide:</b> If you ever need help, come here for instructions.</li>
+                    <li><strong>View the Image:</strong> You'll see a picture showing a scenario.</li>
+                    <li><strong>Describe the Scene:</strong> Write a description of what you see in the picture. Use as many details as you can to explain the scene.</li>
+                    <li><strong>Submit Your Description:</strong> After writing, submit your description to complete the activity.</li>
                 </ul>
             </div>
             <div className="guide-content-notifications">
-                <h2 className='guide-content-title'>Notification</h2>
+                <h2 className='guide-content-title'>Tips for Writing Lesson</h2>
                 <ul className='guide-content-inlinetext'>
-                <li><b>Stay Updated:</b> The notification icon at the top of the page will keep you updated with the latest news.</li>
-                <li><b>Earn Badges:</b> When you complete certain milestones, you'll earn badges. A notification will pop up to let you know when you've earned a new badge.</li>
-                <li><b>View Notifications:</b> Click on the notification icon to see a list of all your recent notifications, including new badges earned and important updates.</li>
+                    <li><strong>Be Observant:</strong> Look carefully at the picture and notice all the details.</li>
+                    <li><strong>Use Descriptive Words:</strong> Try to use a variety of words to make your description interesting.</li>
+                    <li><strong>Practice:</strong> The more you write, the better you'll get at describing scenes.</li>
                 </ul>
             </div>
-            <div className="guide-content-profile">
-                <h2 className='guide-content-title'>Profile</h2>
-                <ul className='guide-content-inlinetext'>
-                <li><b>View Profile Information:</b> In the profile section, you can see all the information you provided when you signed up.</li>
-                <li><b>Track Your Progress:</b> Check out the stats of your completed lessons to see how much you've accomplished.</li>
-                <li><b>Lessons Completed:</b> See the number of lessons you've finished in each language skill.</li>
-                </ul>
-            </div>  
+            <br />
+            <br />
+            <p className='guide-content-inline'>By practising this writing activity, you'll enhance your ability to express yourself clearly in English. Enjoy your lessons and have fun developing your creativity and skills!</p>
         </div>
         
         <Footer></Footer>
@@ -75,4 +69,4 @@ const Guide = () => {
     );
 }
 
-export default Guide;
+export default WritingGuide;

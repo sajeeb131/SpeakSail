@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { GoChevronDown } from "react-icons/go";
 import { GoChevronUp } from "react-icons/go";
 
-const Guide = () => {
+const SpeakingGuide = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
@@ -17,10 +17,10 @@ const Guide = () => {
         <Navbar></Navbar>
         <div className="header-guide">Guide</div>
         <div className="navbar-guideGeneral">
-            <button className="navbar-button active">General</button>
+            <Link to='/guide' className="navbar-button">General</Link>
             <Link to='/guide/SpecialActivity' className="navbar-button">Special Activities</Link>
             <div className="navbar-dropdown">
-                <button className="navbar-button" onClick={toggleDropdown}>
+                <button className="navbar-button active" onClick={toggleDropdown}>
                 Lessons <span className="arrow">{isDropdownOpen ? <GoChevronUp /> : <GoChevronDown/>}</ span>
                 </button>
                 {isDropdownOpen && (
@@ -40,34 +40,28 @@ const Guide = () => {
             <h1 className="guide-content-header">Welcome to SpeakSail!</h1>
             </header>
             <div className="guide-content-intro">
-                <h2 className='guide-content-title'>How to use the website:</h2>
-                <p className='guide-content-inline'>Welcome, young learners! We're excited to have you on our platform where you can have fun while learning English.
-                Let's take a tour and see how you can use everything.</p>
+                <h2 className='guide-content-title'>Speaking Lesson</h2>
+                <p className='guide-content-inline'>Click on the Speaking card to start practising your speaking skills with a fun activity:</p>
             </div>
             <div className="guide-content-navigation">
-                <h2 className='guide-content-title'>Navigating the Navbar</h2>
+                <h2 className='guide-content-title'>Storytelling</h2>
                 <ul className='guide-content-inlinetext'>
-                <li><b>Home:</b> This is where you start! You'll find the vocab treasure and daily missions here.</li>
-                <li><b>Completion:</b> Check out the progress you've made on your activities.</li>
-                <li><b>Guide:</b> If you ever need help, come here for instructions.</li>
+                <li><strong>Listen to the Audio:</strong> An audio clip will play, telling you a short story or information.</li>
+                <li><strong>Answer the Questions:</strong> After listening, you'll see questions related to what you just heard.</li>
+                <li><strong>Submit Your Answers:</strong> Type in your answers and submit them to check your understanding.</li>
                 </ul>
             </div>
             <div className="guide-content-notifications">
-                <h2 className='guide-content-title'>Notification</h2>
+                <h2 className='guide-content-title'>Tips for Speaking Lesson</h2>
                 <ul className='guide-content-inlinetext'>
-                <li><b>Stay Updated:</b> The notification icon at the top of the page will keep you updated with the latest news.</li>
-                <li><b>Earn Badges:</b> When you complete certain milestones, you'll earn badges. A notification will pop up to let you know when you've earned a new badge.</li>
-                <li><b>View Notifications:</b> Click on the notification icon to see a list of all your recent notifications, including new badges earned and important updates.</li>
-                </ul>
-            </div>
-            <div className="guide-content-profile">
-                <h2 className='guide-content-title'>Profile</h2>
-                <ul className='guide-content-inlinetext'>
-                <li><b>View Profile Information:</b> In the profile section, you can see all the information you provided when you signed up.</li>
-                <li><b>Track Your Progress:</b> Check out the stats of your completed lessons to see how much you've accomplished.</li>
-                <li><b>Lessons Completed:</b> See the number of lessons you've finished in each language skill.</li>
+                <li><strong>Be Creative:</strong> Use your imagination to make your story interesting and fun.</li>
+                <li><strong>Speak Clearly:</strong> Make sure to speak clearly so your story is easy to understand.</li>
+                <li><strong>Practice:</strong> Try recording a few times to get more comfortable before submitting.</li>
                 </ul>
             </div>  
+            <br />
+            <br />
+            <p className='guide-content-inline'>By practising this speaking activity, you'll enhance your ability to communicate effectively in English. Enjoy your lesson and have fun building your confidence and skills!</p>
         </div>
         
         <Footer></Footer>
@@ -75,4 +69,4 @@ const Guide = () => {
     );
 }
 
-export default Guide;
+export default SpeakingGuide;

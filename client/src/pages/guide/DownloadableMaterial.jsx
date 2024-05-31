@@ -25,10 +25,10 @@ const DownloadableMaterial = () => {
                 </button>
                 {isDropdownOpen && (
                 <div className="dropdown-menu">
-                    <button className="dropdown-item">Listening Lesson</button>
-                    <button className="dropdown-item">Speaking Lesson</button>
-                    <button className="dropdown-item">Reading Lesson</button>
-                    <button className="dropdown-item">Writing Lesson</button>
+                    <Link to='/guide/ListeningGuide' className="dropdown-item">Listening Lesson</Link>
+                    <Link to='/guide/SpeakingGuide' className="dropdown-item">Speaking Lesson</Link>
+                    <Link to='/guide/ReadingGuide' className="dropdown-item">Reading Lesson</Link>
+                    <Link to='/guide/WritingGuide' className="dropdown-item">Writing Lesson</Link>
                 </div>
                 )}
             </div>

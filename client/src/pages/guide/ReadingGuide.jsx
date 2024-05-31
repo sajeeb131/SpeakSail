@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { GoChevronDown } from "react-icons/go";
 import { GoChevronUp } from "react-icons/go";
 
-const Guide = () => {
+const ReadingGuide = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
@@ -17,10 +17,10 @@ const Guide = () => {
         <Navbar></Navbar>
         <div className="header-guide">Guide</div>
         <div className="navbar-guideGeneral">
-            <button className="navbar-button active">General</button>
+            <Link to='/guide' className="navbar-button">General</Link>
             <Link to='/guide/SpecialActivity' className="navbar-button">Special Activities</Link>
             <div className="navbar-dropdown">
-                <button className="navbar-button" onClick={toggleDropdown}>
+                <button className="navbar-button active" onClick={toggleDropdown}>
                 Lessons <span className="arrow">{isDropdownOpen ? <GoChevronUp /> : <GoChevronDown/>}</ span>
                 </button>
                 {isDropdownOpen && (
@@ -40,34 +40,28 @@ const Guide = () => {
             <h1 className="guide-content-header">Welcome to SpeakSail!</h1>
             </header>
             <div className="guide-content-intro">
-                <h2 className='guide-content-title'>How to use the website:</h2>
-                <p className='guide-content-inline'>Welcome, young learners! We're excited to have you on our platform where you can have fun while learning English.
-                Let's take a tour and see how you can use everything.</p>
+                <h2 className='guide-content-title'>Reading Lesson</h2>
+                <p className='guide-content-inline'>Click on the Reading card to improve your reading skills with two different types of lessons:</p>
             </div>
             <div className="guide-content-navigation">
-                <h2 className='guide-content-title'>Navigating the Navbar</h2>
+                <h2 className='guide-content-title'>Comprehension</h2>
                 <ul className='guide-content-inlinetext'>
-                <li><b>Home:</b> This is where you start! You'll find the vocab treasure and daily missions here.</li>
-                <li><b>Completion:</b> Check out the progress you've made on your activities.</li>
-                <li><b>Guide:</b> If you ever need help, come here for instructions.</li>
+                <li><strong>Read the Passage:</strong> You'll see a passage to read. Take your time to understand it well.</li>
+                <li><strong>Answer the Question:</strong> After reading, you'll find a multiple-choice question related to the passage.</li>
+                <li><strong>Select and Submit:</strong> Choose the correct answer and press submit to see if you got it right.</li>
                 </ul>
             </div>
             <div className="guide-content-notifications">
-                <h2 className='guide-content-title'>Notification</h2>
+                <h2 className='guide-content-title'>Tips for Reading Lessons</h2>
                 <ul className='guide-content-inlinetext'>
-                <li><b>Stay Updated:</b> The notification icon at the top of the page will keep you updated with the latest news.</li>
-                <li><b>Earn Badges:</b> When you complete certain milestones, you'll earn badges. A notification will pop up to let you know when you've earned a new badge.</li>
-                <li><b>View Notifications:</b> Click on the notification icon to see a list of all your recent notifications, including new badges earned and important updates.</li>
+                <li><strong>Read Carefully:</strong> Take your time to read and understand each passage and picture description.</li>
+                <li><strong>Think Before Answering:</strong> Make sure you understand the question or task before you answer.</li>
+                <li><strong>Practice Regularly:</strong> The more you read, the better you'll get at understanding and enjoying English stories.</li>
                 </ul>
             </div>
-            <div className="guide-content-profile">
-                <h2 className='guide-content-title'>Profile</h2>
-                <ul className='guide-content-inlinetext'>
-                <li><b>View Profile Information:</b> In the profile section, you can see all the information you provided when you signed up.</li>
-                <li><b>Track Your Progress:</b> Check out the stats of your completed lessons to see how much you've accomplished.</li>
-                <li><b>Lessons Completed:</b> See the number of lessons you've finished in each language skill.</li>
-                </ul>
-            </div>  
+            <br />
+            <br />
+            <p className='guide-content-inline'>By doing this reading activity you'll improve your ability to comprehend written English, which is an essential part of mastering the language. Enjoy your lessons and have fun expanding your understanding and skills!</p>
         </div>
         
         <Footer></Footer>
@@ -75,4 +69,4 @@ const Guide = () => {
     );
 }
 
-export default Guide;
+export default ReadingGuide;
