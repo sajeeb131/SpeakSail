@@ -125,7 +125,7 @@ const SentenceDictation = (lessonType, lessonNumber) => {
         <hr className="sd-horizontal-line"/>
         <div className='container-sd-button'>
           
-          <button className='sd-button1'>Can't listen now</button>
+          <button className='sd-button1' style={{ visibility: 'hidden' }}>Can't listen now</button>
           <button className='sd-button2' onClick={handleSubmit}>Submit</button>
           
         </div>

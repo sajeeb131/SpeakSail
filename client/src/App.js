@@ -21,7 +21,7 @@ import DailyMission from './pages/daily-mission/DailyMission';
 import PictureDescription from './pages/writing/PictureDescription';
 import LessonsTable from './pages/lessons-table/LessonsTable';
 
-//Dashboard Components
+// Dashboard Components
 import TeachersMainPage from './pages/teachers/Teachers-main'
 
 import Materials from './pages/materials-download/Materials'
@@ -32,6 +32,12 @@ import SpecialActivity from './pages/guide/SpecialActivity';
 import DownloadableMaterial from './pages/guide/DownloadableMaterial';
 import LessonsMain from './pages/guide/LessonsMain';
 
+import Status403 from './components/auth/Status403';
+
+import PrivateRoute from './components/auth/PrivateRoute';
+import TeacherRoute from './components/auth/TeacherRoute';
+
+
 function App() {
   return (
     <div className="App">
@@ -39,62 +45,61 @@ function App() {
         <Routes>
           {/* Error pages */}
           <Route path='/503' element={<Status503 />} />
+          <Route path='/403' element={<Status403 />} />
 
           {/* Landing page route */}
           <Route path='/' element={<LandingPage />} />
 
           {/* Home page route */}
-          <Route path='/home' element={<HomePage />} />
+          <Route path='/home' element={<PrivateRoute element={<HomePage />} />} />
 
           {/* Profile page route */}
-          <Route path='/profile' element={<ProfilePage />} />
+          <Route path='/profile' element={<PrivateRoute element={<ProfilePage />} />} />
 
           {/* Authentication routes */}
           <Route path='/login/:user_type' element={<LoginPage />} />
-          {/* <Route path='/signup' element={<SignUpPage />} /> */}
+          <Route path='/signup' element={<SignUpPage />} />
           
           {/* Materials download route */}
-          <Route path='/materials/:material_type' element={<Materials/>} />
-
+          <Route path='/materials/:material_type' element={<PrivateRoute element={<Materials />} />} />
 
           {/* Lessons main routes */}
-          <Route path='/lessons/listening' element={<ListeningMain />} />
-          <Route path='/lessons/writing' element={<WritingMain />} />
-          <Route path='/lessons/reading' element={<ReadingMain />} />
-          <Route path='/lessons/speaking' element={<SpeakingMain />} />
+          <Route path='/lessons/listening' element={<PrivateRoute element={<ListeningMain />} />} />
+          <Route path='/lessons/writing' element={<PrivateRoute element={<WritingMain />} />} />
+          <Route path='/lessons/reading' element={<PrivateRoute element={<ReadingMain />} />} />
+          <Route path='/lessons/speaking' element={<PrivateRoute element={<SpeakingMain />} />} />
           
           
-
-          {/* Teachers route */}
-          <Route path='/teachers/:type' element={<TeachersMainPage />} />
-        
-
 
           {/* Lessons pages */}
-          <Route path='/lessons/listening/sentence-dictation/:lessonNumber' element={<SentenceDictation />} />
-          <Route path='/lessons/listening/QA/:lessonNumber' element={<QuestionAnswer />} />
-          <Route path='/lessons/reading/Comprehension/:lessonNumber' element={<Comprehension />} />
-          <Route path='/lessons/speaking/storytelling/:lessonNumber' element={<Storytelling />} />
-          <Route path='/lessons/writing/PictureDescription/:lessonNumber' element={<PictureDescription />} />
+          <Route path='/lessons/listening/sentence-dictation/:lessonNumber' element={<PrivateRoute element={<SentenceDictation />} />} />
+          <Route path='/lessons/listening/QA/:lessonNumber' element={<PrivateRoute element={<QuestionAnswer />} />} />
+          <Route path='/lessons/reading/Comprehension/:lessonNumber' element={<PrivateRoute element={<Comprehension />} />} />
+          <Route path='/lessons/speaking/storytelling/:lessonNumber' element={<PrivateRoute element={<Storytelling />} />} />
+          <Route path='/lessons/writing/PictureDescription/:lessonNumber' element={<PrivateRoute element={<PictureDescription />} />} />
           
           {/* Extra features */}
-          <Route path='/vocab-treasure' element={<VocabTreasure />} />
-          <Route path='/daily-mission' element={<DailyMission />} />
+          <Route path='/vocab-treasure' element={<PrivateRoute element={<VocabTreasure />} />} />
+          <Route path='/daily-mission' element={<PrivateRoute element={<DailyMission />} />} />
 
           {/* Completions route*/}
-          <Route path='/completions' element={<Completions />} />
+          <Route path='/completions' element={<PrivateRoute element={<Completions />} />} />
           
           {/* Guide route */}
-          <Route path='/guide' element={<Guide/>} />
-          <Route path='/guide/SpecialActivity' element={<SpecialActivity/>} />
-          <Route path='/guide.LessonsMain' element={<LessonsMain/>}/>
-          <Route path='/guide/DownloadableMaterial' element={<DownloadableMaterial/>} />
+          <Route path='/guide' element={<PrivateRoute element={<Guide />} />} />
+          <Route path='/guide/SpecialActivity' element={<PrivateRoute element={<SpecialActivity />} />} />
+          <Route path='/guide/LessonsMain' element={<PrivateRoute element={<LessonsMain />} />} />
+          <Route path='/guide/DownloadableMaterial' element={<PrivateRoute element={<DownloadableMaterial />} />} />
 
           {/* Lessons table */}
-          <Route path='/lessons-table/:lessonType' element={<LessonsTable />} />
+          <Route path='/lessons-table/:lessonType' element={<PrivateRoute element={<LessonsTable />} />} />
           
-          {/*Notifications route*/}
-          <Route path='/notifications' element={<Notifications />} />
+          {/* Notifications route */}
+          <Route path='/notifications' element={<PrivateRoute element={<Notifications />} />} />
+
+          {/* Teachers route */}
+          <Route path='/teachers/:type' element={<TeacherRoute element={<TeachersMainPage />} />} />
+
         </Routes>
       </BrowserRouter>
     </div>

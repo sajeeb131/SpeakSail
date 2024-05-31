@@ -89,6 +89,6 @@ const updateQuestionSetWrapper = () => {
 setInterval(updateQuestionSetWrapper(), 30000); // 5 minutes
 
 // Update vocab words every 5 minutes
-setInterval(updateVocabWords, 20000); // 5 minutes
+setInterval(updateVocabWords, 30000); // 5 minutes
 
 module.exports = { getVocabTreasure, getDailyMission };

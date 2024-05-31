@@ -1,0 +1,24 @@
+.status-403{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+.status-403-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    .status-link{
+        padding: 5px;
+        margin-top: 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        color: black;
+    }
+}

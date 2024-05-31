@@ -9,7 +9,6 @@ const QuestionSD = ({lesson}) => {
   return (
     <div>
       <AudioPlayer className='question-player'
-        autoPlay
         src={lesson}
         onPlay={e => console.log("onPlay")}
       />
