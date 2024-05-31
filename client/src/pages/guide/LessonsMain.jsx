@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 import { GoChevronDown } from "react-icons/go";
 import { GoChevronUp } from "react-icons/go";
 
-// const LessonsMain = () => {
-//     return(
-        
-//     );
-// } 
+const LessonsMain = () => {
+    return(
+        <div></div>
+    );
+} 
 
-// export default LessonsMain;
+export default LessonsMain;

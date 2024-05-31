@@ -8,12 +8,13 @@ import { FaMicrophoneAlt } from "react-icons/fa";
 import "./StorytellingStyle.css"
 import Recorder from '../../components/recorder/Recorder'
 import SubmissionPopup from '../../components/pop-up/submissionPopup';
-
+import { calculateProgress } from '../../components/progress-bar/CalculateProgress';
 
 const Storytelling = (progress) => {
+    const userID = localStorage.getItem('user');
     const navigate = useNavigate()
     const {lessonNumber} = useParams()
-    const [progressPercentage, setProgress] = useState(40); 
+    const [progressPercentage, setProgress] = useState(null); 
     const [lesson, setLesson] = useState(null)
     const [popUp, setPopup] = useState(false);
 
@@ -30,6 +31,11 @@ const Storytelling = (progress) => {
             const data = await response.json();
             setLesson(data);
             console.log(lesson);
+
+            const progress = await calculateProgress(userID, 'speaking','storytelling', 'storytelling');
+            setProgress(progress);
+
+
           } catch (error) {
             console.error('Error fetching lesson:', error);
           }
@@ -80,7 +86,7 @@ const Storytelling = (progress) => {
 
 
     // Conditional rendering to handle case when lesson is still null
-    if (!lesson || !lesson.story ) {
+    if (!lesson || !lesson.story || progressPercentage ===null ) {
         return <div>Loading...</div>;
     }
 

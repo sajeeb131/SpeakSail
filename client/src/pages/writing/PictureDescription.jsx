@@ -7,13 +7,16 @@ import image from "../../assets/images/PD-Family_stress.png"
 import Footer from '../../components/Footer'
 import { useNavigate, useParams } from 'react-router-dom'
 import SubmissionPopup from '../../components/pop-up/submissionPopup'
+import { calculateProgress } from '../../components/progress-bar/CalculateProgress';
 
 
 
 const PictureDescription = (progress) => {
+  const userID = localStorage.getItem('user');
+
   const navigate = useNavigate()
   const {lessonNumber} = useParams();
-  const [progressPercentage, setProgress] = useState(40); 
+  const [progressPercentage, setProgress] = useState(null); 
   const [lesson, setLesson] = useState(null);
   const [answers, setAnswer] = useState(null);
   const studentID = localStorage.getItem('user')
@@ -32,6 +35,11 @@ const PictureDescription = (progress) => {
         const data = await response.json();
         setLesson(data);
         console.log(lesson)
+
+        const progress = await calculateProgress(userID, 'writing','picturedescription', 'picture_description');
+        setProgress(progress);
+
+
       } catch (error) {
         console.error('Error fetching lesson:', error);
       }
@@ -70,7 +78,7 @@ const PictureDescription = (progress) => {
   }
 
   // Conditional rendering to handle case when lesson is still null
-  if (!lesson || !lesson.imagePath ) {
+  if (!lesson || !lesson.imagePath || progressPercentage === null) {
     return <div>Loading...</div>;
   }
 

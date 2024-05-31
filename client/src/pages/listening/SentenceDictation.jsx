@@ -11,11 +11,13 @@ import ProgressBar from '../../components/progress-bar/ProgressBar'
 import { useNavigate, useParams } from 'react-router-dom';
 import SubmissionPopup from '../../components/pop-up/submissionPopup';
 
+import { calculateProgress } from '../../components/progress-bar/CalculateProgress';
 
 
 const SentenceDictation = (lessonType, lessonNumber) => {
+  const userID = localStorage.getItem('user');
   const navigate = useNavigate()
-  const [progressPercentage, setProgress] = useState(40);
+  const [progressPercentage, setProgress] = useState(null);
   lessonNumber = useParams().lessonNumber
   const [lesson, setLesson] = useState(null);
   const [placeholder, setPlaceholder] = useState('Start Writing...');
@@ -24,6 +26,7 @@ const SentenceDictation = (lessonType, lessonNumber) => {
   const studentName = localStorage.getItem('name');
   const [answers, setAnswer] = useState(null)
   const [popUp, setPopup] = useState(false);
+
 
 
   const handleClick = () => {
@@ -35,14 +38,18 @@ const SentenceDictation = (lessonType, lessonNumber) => {
     const fetchLesson = async () => {
       try {
         const response = await fetch(`http://localhost:4000/lessons/listening/sentence-dictation/${lessonNumber}`);
+        
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
         const data = await response.json();
-
+        
         setLesson(data);
         setAudio(data)
         console.log(a)
+
+        const progress = await calculateProgress(userID, 'listening','sentence-dictation', 'sentence_dictation');
+        setProgress(progress);
 
       } catch (error) {
         console.error('Error fetching lesson:', error);
@@ -78,7 +85,9 @@ const SentenceDictation = (lessonType, lessonNumber) => {
       console.error('Error submitting answer: ', error)
     }
   }
-
+  if (!lesson ||  progressPercentage === null) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       <Navbar/>
@@ -86,11 +95,10 @@ const SentenceDictation = (lessonType, lessonNumber) => {
         <div className='container-sd'>
           
           <div className='container-pb-full'>
-            <div className='container-pb'>
-              
-              
+            <div className='container-pb'>    
               <div className='container-sd-main'>
                 {/*  */}
+                {console.log(progressPercentage)}
                 <ProgressBar progress={progressPercentage}/>
                 <div className="sd-main">
                   <h1>Sentence Dictation</h1>
@@ -98,7 +106,6 @@ const SentenceDictation = (lessonType, lessonNumber) => {
                     <AiOutlineSound size={28} color='blue'/>
                     <AudioPlayer
                       src={a}
-                      autoPlay={false}
                       onPlay={e => console.log("onPlay")}
                     />
                     

@@ -6,10 +6,12 @@ import Footer from '../../components/Footer';
 import ProgressBar from '../../components/progress-bar/ProgressBar'
 import { useNavigate, useParams } from 'react-router-dom';
 import SubmissionPopup from '../../components/pop-up/submissionPopup';
+import { calculateProgress } from '../../components/progress-bar/CalculateProgress';
 
 const Comprehension = (lessonType, lessonNumber) => {
+    const userID = localStorage.getItem('user');
     const navigate = useNavigate()
-    const [progressPercentage, setProgress] = useState(40); 
+    const [progressPercentage, setProgress] = useState(null); 
     lessonNumber = useParams().lessonNumber
     const [lesson, setLesson] = useState([]);   
     const studentID = localStorage.getItem('user')
@@ -24,7 +26,6 @@ const Comprehension = (lessonType, lessonNumber) => {
         console.log(answers)
     }
 
-
     useEffect(() => {
         const fetchLesson = async () => {  
             try {
@@ -34,8 +35,11 @@ const Comprehension = (lessonType, lessonNumber) => {
                     throw new Error('Failed to fetch data');
                 }
                 const data = await response.json();
-
                 setLesson(data); 
+
+                const progress = await calculateProgress(userID, 'reading','comprehension', 'comprehension');
+                setProgress(progress);
+
             } catch (error) {
                 console.error('Error fetching lesson:', error);
             }
@@ -68,13 +72,13 @@ const Comprehension = (lessonType, lessonNumber) => {
         }
     }
 
-    if (!lesson ) {
+    if (!lesson || progressPercentage===null) {
         return <div>Loading...</div>;
     }
   return (
     <div className='main-container'>
         <Navbar/>
-        <ProgressBar progress={[progressPercentage]}/>
+        <ProgressBar progress={progressPercentage}/>
             <div className='container'>
                 <h1>Comprehension</h1>
                 <p>{lesson.passage}</p>

@@ -5,15 +5,15 @@ import 'react-h5-audio-player/lib/styles.css';
 
 const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [status, setStatus] = useState('pending');
+  const [status, setStatus] = useState(null);
   const [student, setStudent] = useState(null);
   const [audioUrl, setAudioUrl] = useState(null);
   const [message, setMessage] = useState('');
 
   useEffect(() => {
+    setStatus(null)
     const fetchData = async () => {
       try {
-        setStatus('pending');
         const response = await fetch(`http://localhost:4000/student/${currentLesson.studentID}`);
         if (!response.ok) {
           throw new Error('Failed to fetch student data!');
@@ -49,9 +49,12 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
           message = 'has been approved.';
           value1++;
           value2++;
+          setStatus(true)
         } else {
           message = 'has been declined.';
+          setStatus(false)
         }
+        console.log('feedback is:', feedback, 'Status is:', status)
 
         const response = await fetch(`http://localhost:4000/lessons/${category}/${typeUrl}/${_id}`, {
           method: 'PATCH',
@@ -63,11 +66,12 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
 
         if (response.status === 200) {
           const data = await response.json();
-          setStatus(feedback ? 'true' : 'false');
           console.log('Feedback submitted successfully:', data);
         } else {
           throw new Error('Feedback submission failed!');
         }
+        
+        
 
         const notification = { studentID, type, lessonNumber, message };
         console.log(notification);
@@ -109,7 +113,7 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
           <h5>ID: {currentLesson.studentID}</h5>
         </div>
         <div className='evaluation-lesson-mid-container'>
-          {['Sentence Dictation', 'Question Answer', 'Comprehension', 'Picture Description'].includes(type) && (
+          {['Sentence Dictation', 'Comprehension', 'Picture Description'].includes(type) && (
             <div className='evaluation-lesson-mid'>
               <p>Answer: <span>{currentLesson.answers}</span></p>
             </div>
@@ -119,13 +123,21 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
               <AudioPlayer src={audioUrl} onPlay={() => console.log("onPlay")} />
             </div>
           )}
+          {type === 'Question Answer' && (
+            <div className='evaluation-lesson-mid'>
+              <p>Answer 1: <span>{currentLesson.answers[0]}</span></p>
+              <p>Answer 2: <span>{currentLesson.answers[1]}</span></p>
+              <p>Answer 3: <span>{currentLesson.answers[2]}</span></p>
+            </div>
+          )}
         </div>
         <div className='evaluation-hidden-status'>
-          {status === 'true' && <div><FiCheckCircle size={100} color='#93FF96' /></div>}
-          {status === 'false' && <div><FiXCircle size={100} color='#FF5E5B' /></div>}
+          {console.log('status inside:', status)}
+          {status === true && <div><FiCheckCircle size={100} color='#93FF96' /></div>}
+          {status === false && <div><FiXCircle size={100} color='#FF5E5B' /></div>}
         </div>
       </div>
-      {status === 'pending' && (
+      {status === null && (
         <div className='evaluation-lesson-bottom'>
           <button className='evaluation-btn-approve' style={{ backgroundColor: '#93FF96' }} onClick={() => handleSubmit('approve')}>
             Approve

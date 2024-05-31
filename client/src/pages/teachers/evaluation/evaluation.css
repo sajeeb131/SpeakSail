@@ -68,7 +68,7 @@
     border-radius: 10px;
 
     width: 657px;
-    height: 114px;
+    min-height: 114px;
     top: 453px;
     left: 463px;
     padding: 1px 13px 0px 9px;

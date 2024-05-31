@@ -51,6 +51,7 @@ const Evaluation = () => {
               className='submissions-section-indv'
               onClick={() => handleLessonTypeClick(object.lesson)}
             >
+              {console.log('handleLessonTypeClick returns: ', selectedLesson )}
               <div className='submissions-section-indv-top'>
                 <div className='letterbox'>
                   <h3>{object.lesson}</h3>
@@ -62,7 +63,7 @@ const Evaluation = () => {
                 <div className='submissions-section-indv-drop'>
                   {lessons.map(
                     (object2, index) =>
-                      object2.feedback !== true && (
+                      (object2.feedback !== true && object2.feedback !== false) && (
                         <div
                           className='submissions-section-indv-drop-indv'
                           onClick={() =>
@@ -77,7 +78,9 @@ const Evaluation = () => {
                           key={index}
                         >
                           <span>
-                            Lesson {object2.lessonNumber}: {object2.studentName}
+                            {console.log(object2)}
+                            Lesson {object2.lessonNumber}: {object2.fullName}
+                            {console.log(object2)}
                           </span>
                           <span>{object2.studentID}</span>
                         </div>
