@@ -18,26 +18,28 @@ const ListeningMain = () => {
       <div className='container-listeningMain'>
         <div className='listeningMain-header'> <h1>Writing Lessons</h1></div>
         <div className="listeningMain-section"> 
-            <div className='listeningMain-section-half' to="/503">
-                <div className="listeningMain-section-half-left">
-                    <h2>Chain Story</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
-                </div>
-                <div className="listeningMain-section-half-right">
-                    <img src={image1} alt="" width="120px"/>
-                </div>
-                
-            </div>
+            
             
             <div className='listeningMain-section-half' onClick={()=>handleLinkClick('picturedescription')}>
                 <div className="listeningMain-section-half-left">
                     <h2>Picture Description</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                    <p>An image will be given and you will have to write a short 
+description of the picture.</p>
                 </div>
                 <div className="listeningMain-section-half-right">
                     <img src={image2} alt="" width="120px"/>
                 </div>
                     
+            </div>
+            <div className='listeningMain-section-half  lesson-unavailable' to="/503">
+                <div className="listeningMain-section-half-left">
+                    <h2>Creative Writing</h2>
+                    <p>Not available yet. Coming soon!</p>
+                </div>
+                <div className="listeningMain-section-half-right">
+                    <img src={image1} alt="" width="120px"/>
+                </div>
+                
             </div>
         </div>
       </div>

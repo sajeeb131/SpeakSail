@@ -83,7 +83,9 @@ const Storytelling = (progress) => {
       }
   };
 
-
+    const handleSkipButton = ()=>{
+        navigate(-1)
+    }
 
     // Conditional rendering to handle case when lesson is still null
     if (!lesson || !lesson.story || progressPercentage ===null ) {
@@ -113,10 +115,8 @@ const Storytelling = (progress) => {
             </div>
             <hr className="sd-horizontal-line"/>
             <div className='container-sd-button'>
-                
-                <button className='sd-button1' style={{ visibility: 'hidden' }}>Can't listen now</button>
+                <button className='sd-button1' onClick={handleSkipButton}>Can't Record now</button>
                 <button className='sd-button2' onClick={handleAudioSubmit}>Submit</button>
-                
             </div>
         </div>
         <SubmissionPopup showPopup={popUp} onClose = {()=>setPopup(false)}/>

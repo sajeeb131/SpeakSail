@@ -62,8 +62,8 @@ a{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    row-gap: 15px;
-    
+    row-gap: 10px;
+  
     
 }
 .listeningMain-section-half h2{
@@ -73,8 +73,15 @@ a{
 .listeningMain-section-half p{
     color: #909090;
     font-family: Urbanist;
-    font-size: 19px;
+    font-size: 17px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    width: 100%;
+}
+.lesson-unavailable{
+    cursor: default;
+}
+.lesson-unavailable:hover{
+    background-color: rgb(255, 255, 255);
 }

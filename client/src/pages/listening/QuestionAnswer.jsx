@@ -61,6 +61,10 @@ const QuestionAnswer = () => {
         }
     };
 
+    const handleSkipButton = ()=>{
+        navigate(-1)
+    }
+
     if (!lesson || !lesson.questions || lesson.questions.length !== 3 || progressPercentage === null) {
         return <div>Loading...</div>;
     }
@@ -102,7 +106,7 @@ const QuestionAnswer = () => {
                 </div>
                 <hr className="sd-horizontal-line" />
                 <div className='container-sd-button'>
-                    <button className='sd-button1' style={{ visibility: 'hidden' }}>Can't listen now</button>
+                    <button className='sd-button1' onClick={handleSkipButton} >Can't listen now</button>
                     <button className='sd-button2' onClick={handleSubmit}>Submit</button>
                 </div>
             </div>

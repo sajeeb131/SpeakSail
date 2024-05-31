@@ -21,7 +21,8 @@ const SpeakingMain = () => {
             <div className='listeningMain-section-half' onClick={()=>handleLinkClick('storytelling')}>
                 <div className="listeningMain-section-half-left">
                     <h2>Storytelling</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                    <p>A prompt will be given to talk about a situation and you will have to
+record your story.</p>
                 </div>
                 <div className="listeningMain-section-half-right">
                     <img src={image1} alt="" width="120px"/>
@@ -29,10 +30,10 @@ const SpeakingMain = () => {
                 
             </div>
             
-            <div className='listeningMain-section-half' >
+            <div className='listeningMain-section-half lesson-unavailable' >
                 <div className="listeningMain-section-half-left">
                     <h2>ABC Exercise</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                    <p>Not available yet. Coming soon!</p>
                 </div>
                 <div className="listeningMain-section-half-right">
                     <img src={image2} alt="" width="120px"/>

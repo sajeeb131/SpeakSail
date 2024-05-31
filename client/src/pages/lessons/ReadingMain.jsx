@@ -21,7 +21,8 @@ const ListeningMain = () => {
             <div className='listeningMain-section-half' onClick={()=>handleLinkClick('comprehension')}>
                 <div className="listeningMain-section-half-left">
                     <h2>Comprehension</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                    <p>An passage will be given and you will have to select the 
+answers..</p>
                 </div>
                 <div className="listeningMain-section-half-right">
                     <img src={image1} alt="" width="120px"/>
@@ -29,10 +30,10 @@ const ListeningMain = () => {
                 
             </div>
             
-            <div className='listeningMain-section-half' onClick={()=>handleLinkClick('storyboarding')}>
+            <div className='listeningMain-section-half lesson-unavailable' >
                 <div className="listeningMain-section-half-left">
                     <h2>Story boarding</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+                    <p>Not available yet. Coming soon!</p>
                 </div>
                 <div className="listeningMain-section-half-right">
                     <img src={image2} alt="" width="120px"/>

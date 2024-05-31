@@ -85,6 +85,11 @@ const SentenceDictation = (lessonType, lessonNumber) => {
       console.error('Error submitting answer: ', error)
     }
   }
+
+  const handleSkipButton = ()=>{
+    navigate(-1)
+  }
+
   if (!lesson ||  progressPercentage === null) {
     return <div>Loading...</div>;
   }
@@ -124,10 +129,8 @@ const SentenceDictation = (lessonType, lessonNumber) => {
         </div>
         <hr className="sd-horizontal-line"/>
         <div className='container-sd-button'>
-          
-          <button className='sd-button1' style={{ visibility: 'hidden' }}>Can't listen now</button>
+          <button className='sd-button1' onClick={handleSkipButton}>Can't listen now</button>
           <button className='sd-button2' onClick={handleSubmit}>Submit</button>
-          
         </div>
       </div>
       <SubmissionPopup showPopup={popUp} onClose = {()=>setPopup(false)}/>
