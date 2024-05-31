@@ -4,6 +4,7 @@ import Logo from '../assets/images/LogoWhite.png'
 import './navbar.css'
 import image from "../assets/images/student.jpg"
 import Notifications from './notification/Notifications';
+import { FaPowerOff } from "react-icons/fa6";
 
 const InitialNav = () => {
     const navigate = useNavigate();
@@ -30,8 +31,8 @@ const InitialNav = () => {
                 <li><Link to='/home'>Home</Link></li>
                 <li><Link to="/completions">Completions</Link></li>
                 <li><Link to="/guide">Guide</Link></li>
-                <li><Link onClick={handleLogout} to='/'>Logout</Link></li>
             </ul>
+            <div className='buttons-main'>
             <div className='buttons'>
                 <Link className='notfications-icon' onClick={toggleDropdown}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
@@ -51,7 +52,13 @@ const InitialNav = () => {
                 <Link to="/profile" className='navbar-avatar'>
                     <img src={profilePic} alt=""/>
                 </Link>
+                
             </div>
+            <Link onClick={handleLogout} to='/' className='student-logout'>
+                    <FaPowerOff  color='#FF5E5B' size={33} />
+            </Link>
+            </div>
+            
         </div>
     </>
   )

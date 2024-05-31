@@ -50,10 +50,8 @@ const UploadST = () => {
     if (!story.trim()) {
       setStoryError('story cannot be empty');
       return;
-    } else if (!/^[a-zA-Z\s]+$/.test(lessonName.trim())) {
-      setStoryError('Story should contain alphabets only');
-      return;
-    } else {
+    } 
+     else {
       setStoryError('');
     }
 

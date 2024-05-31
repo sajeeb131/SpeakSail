@@ -62,12 +62,10 @@ const VocabTreasure = () => {
                   <div className="word">
                     <div className="parts-of-speech">
                       <span className="word-name">{word.word}</span>
-                      <i className="noun">({word.partOfSpeech})</i>
+                      <i className="noun">({word.partsOfSpeech})</i>
                     </div>
                   </div>
-                  <div className="speaker">
-                    <img className="speaker-icon" loading="lazy" alt="" src={Volume} />
-                  </div>
+                  
                 </div>
 
                 <div className="meaning-of-the-word">

@@ -61,10 +61,7 @@ const UploadC = () => {
     if (!passage.trim()) {
       setPassageError('passage cannot be empty');
       return;
-    } else if (!/^[a-zA-Z\s]+$/.test(passage.trim())) {
-      setPassageError('Passage should contain alphabets only');
-      return;
-    } else {
+    }  else {
       setPassageError('');
     }
     
