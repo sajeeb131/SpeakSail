@@ -45,9 +45,6 @@ const UploadPD = () => {
     if (!lessonName.trim()) {
       setLessonNameError('Lesson Name cannot be empty');
       return;
-    } else if (!/^[a-zA-Z\s]+$/.test(lessonName.trim())) {
-      setLessonNameError('Lesson Name should contain alphabets only');
-      return;
     } else {
       setLessonNameError('');
     }
