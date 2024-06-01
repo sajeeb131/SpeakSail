@@ -41,39 +41,39 @@ const ListeningGuide = () => {
             </header>
             <div className="guide-content-intro">
                 <h2 className='guide-content-title'>Listening Lesson</h2>
-                <p className='guide-content-inline'>Click on the Listening card to explore two exciting ways to improve your listening skills.</p>
+                <p className='guide-content-inline'>আপনার শোনার দক্ষতা উন্নত করার দুটি উত্তেজনাপূর্ণ উপায় অন্বেষণ করতে লিসেনিং কার্ডে ক্লিক করুন:</p>
             </div>
             <div className="guide-content-navigation">
                 <h2 className='guide-content-title'>Sentence Dictation</h2>
                 <ul className='guide-content-inlinetext'>
-                    <li><strong>Choose an Exercise:</strong> Select one of the available exercises to get started.</li>
-                    <li><strong>Audio Dictation:</strong> You'll be taken to a page where an audio clip will play a sentence.</li>
-                    <li><strong>Type What You Hear:</strong> Listen carefully and type out the sentence in the text box provided.</li>
-                    <li><strong>Submit Your Answer:</strong> Once you're done, submit your answer to see how well you did.</li>
-                    <li><strong>Can't Listen Now:</strong> If you can't listen at that moment, click the "Can't Listen Now" button. This will take you 
-                        back to the exercise selection page so you can try a different activity.</li>
+                    <li><strong className='guide-content-name'>Choose an Exercise:</strong> শুরু করার জন্য উপলব্ধ ব্যায়ামগুলির মধ্যে একটি নির্বাচন করুন।</li>
+                    <li><strong className='guide-content-name'>Audio Dictation:</strong> আপনাকে একটি পৃষ্ঠায় নিয়ে যাওয়া হবে যেখানে একটি অডিও ক্লিপ একটি বাক্য চালাবে৷</li>
+                    <li><strong className='guide-content-name'>Type What You Hear:</strong> মনোযোগ সহকারে শুনুন এবং প্রদত্ত পাঠ্য বাক্সে বাক্যটি টাইপ করুন।</li>
+                    <li><strong className='guide-content-name'>Submit Your Answer:</strong> একবার আপনি সম্পন্ন হলে, আপনি কতটা ভাল করেছেন তা দেখতে আপনার উত্তর জমা দিন।</li>
+                    <li><strong className='guide-content-name'>Can't Listen Now:</strong> আপনি যদি সেই মুহুর্তে শুনতে না পারেন তবে "এখনই শোনা যাবে না" বোতামে ক্লিক করুন। এটি 
+                    আপনাকে ব্যায়াম নির্বাচন পৃষ্ঠায় ফিরিয়ে নিয়ে যাবে যাতে আপনি একটি ভিন্ন কার্যকলাপ চেষ্টা করতে পারেন।</li>
                 </ul>
             </div>
             <div className="guide-content-notifications">
                 <h2 className='guide-content-title'>Question and Answer</h2>
                 <ul className='guide-content-inlinetext'>
-                    <li><strong>Listen to the Audio:</strong> An audio clip will play, telling you a short story or information.</li>
-                    <li><strong>Answer the Questions:</strong> After listening, you'll see questions related to what you just heard.</li>
-                    <li><strong>Submit Your Answers:</strong> Type in your answers and submit them to check your understanding.</li>
+                    <li><strong className='guide-content-name'>Listen to the Audio:</strong> একটি অডিও ক্লিপ প্লে হবে, আপনাকে একটি ছোট গল্প বা তথ্য বলবে।</li>
+                    <li><strong className='guide-content-name'>Answer the Questions:</strong> শোনার পরে, আপনি যা শুনেছেন তার সাথে সম্পর্কিত প্রশ্নগুলি দেখতে পাবেন।</li>
+                    <li><strong className='guide-content-name'>Submit Your Answers:</strong> আপনার উত্তর টাইপ করুন এবং আপনার বোঝার পরীক্ষা করতে সেগুলি জমা দিন।</li>
                 </ul>
             </div>
             <div className="guide-content-profile">
                 <h2 className='guide-content-title'>Tips for Listening Lesson</h2>
                 <ul className='guide-content-inlinetext'>
-                    <li><strong>Find a Quiet Place:</strong> Make sure you are in a quiet place so you can hear the audio clearly.</li>
-                    <li><strong>Listen Carefully:</strong> Pay close attention to the details in the audio.</li>
-                    <li><strong>Take Your Time:</strong> Don't rush. Listen as many times as you need before answering.</li>
-                    <li><strong>Practice Regularly:</strong> The more you practise, the better you'll get at understanding and remembering what you hear.</li>
+                    <li><strong className='guide-content-name'>Find a Quiet Place:</strong> নিশ্চিত করুন যে আপনি একটি শান্ত জায়গায় আছেন যাতে আপনি স্পষ্টভাবে অডিও শুনতে পারেন।</li>
+                    <li><strong className='guide-content-name'>Listen Carefully:</strong>অডিওতে বিস্তারিত মনোযোগ দিন।</li>
+                    <li><strong className='guide-content-name'>Take Your Time:</strong> তাড়াহুড়ো করবেন না। উত্তর দেওয়ার আগে যতবার প্রয়োজন ততবার শুনুন।</li>
+                    <li><strong className='guide-content-name'>Practice Regularly:</strong> আপনি যত বেশি অনুশীলন করবেন, আপনি যা শুনেছেন তা বোঝার এবং মনে রাখতে আপনি তত বেশি ভাল পাবেন।</li>
                 </ul>
             </div>  
             <br />
             <br />
-            <p className='guide-content-inline'>By practising these listening activities, you'll improve your ability to understand spoken English, which is an important part of learning the language. Enjoy your lessons and have fun improving your skills!</p>
+            <p className='guide-content-inline'>এই শোনার কার্যকলাপগুলি অনুশীলন করে, আপনি কথ্য ইংরেজি বোঝার ক্ষমতা উন্নত করবেন, যা ভাষা শেখার একটি গুরুত্বপূর্ণ অংশ। আপনার পাঠগুলি উপভোগ করুন এবং আপনার দক্ষতা উন্নত করার মজা নিন!</p>
         </div>
         
         <Footer></Footer>

@@ -42,18 +42,18 @@ const SpecialActivity = () => {
             <div className="guide-content-intro">
                 <h2 className='guide-content-title'>Vocab Treasure:</h2>
                 <ul className='guide-content-inlinetext'>
-                    <li>Every day, a new word will be added to your list.</li>
-                    <li>You'll see the word, its meaning, and how to use it in a sentence.</li>
-                    <li>Try to learn the new word and use it when you talk or write!</li>
+                    <li>প্রতিদিন, আপনার তালিকায় একটি নতুন শব্দ যুক্ত হবে।</li>
+                    <li>আপনি শব্দটি, এর অর্থ এবং একটি বাক্যে এটি কীভাবে ব্যবহার করবেন তা দেখতে পাবেন।</li>
+                    <li>নতুন শব্দ শেখার চেষ্টা করুন এবং আপনি যখন কথা বলবেন বা লিখবেন তখন এটি ব্যবহার করুন!</li>
                 </ul>
             </div>
             <div className="guide-content-navigation">
                 <h2 className='guide-content-title'>Daily Missions</h2>
                 <ul className='guide-content-inlinetext'>
-                    <li>Each day, you'll get a new fill-in-the-blank question.</li>
-                    <li>Read the question, think about the answer, and type it in.</li>
-                    <li>You can submit your answer to see if you're right.</li>
-                    <li>If you find the question too tricky, you can choose to skip it and try another day.</li>
+                    <li>প্রতিদিন, আপনি একটি নতুন প্রশ্ন পূরণ করবেন।</li>
+                    <li>প্রশ্নটি পড়ুন, উত্তর সম্পর্কে চিন্তা করুন এবং টাইপ করুন।</li>
+                    <li>আপনি সঠিক কিনা তা দেখতে আপনার উত্তর জমা দিতে পারেন।</li>
+                    <li>আপনি যদি প্রশ্নটি খুব জটিল মনে করেন, আপনি এটি এড়িয়ে যেতে এবং অন্য দিন চেষ্টা করতে পারেন।</li>
                 </ul>
             </div>
         </div>

@@ -48,6 +48,11 @@
   .navbar-dropdown {
     position: relative;
   }
+
+  .guide-content-name{
+    color: #00008b;
+    font-size: 30px;
+  }
   
   .dropdown-menu {
     position: absolute;

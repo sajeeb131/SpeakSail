@@ -41,31 +41,30 @@ const Guide = () => {
             </header>
             <div className="guide-content-intro">
                 <h2 className='guide-content-title'>How to use the website:</h2>
-                <p className='guide-content-inline'>Welcome, young learners! We're excited to have you on our platform where you can have fun while learning English.
-                Let's take a tour and see how you can use everything.</p>
+                <p className='guide-content-inline'>স্বাগতম, তরুণ শিক্ষার্থীরা! আমরা আপনাকে আমাদের প্ল্যাটফর্মে পেয়ে আনন্দিত যেখানে আপনারা মজা করে ইংরেজি শিখতে পারবেন। চলুন ঘুরে আসুন এবং দেখুন কিভাবে আপনি সবকিছু ব্যবহার করতে পারেন।</p>
             </div>
             <div className="guide-content-navigation">
                 <h2 className='guide-content-title'>Navigating the Navbar</h2>
                 <ul className='guide-content-inlinetext'>
-                <li><b>Home:</b> This is where you start! You'll find the vocab treasure and daily missions here.</li>
-                <li><b>Completion:</b> Check out the progress you've made on your activities.</li>
-                <li><b>Guide:</b> If you ever need help, come here for instructions.</li>
+                <li><b className='guide-content-name'>Home:</b> এখানেই আপনি শুরু করুন! আপনি এখানে ভোকাব ট্রেজার এবং প্রতিদিনের মিশন পাবেন।</li>
+                <li><b className='guide-content-name'>Completion:</b> আপনার ক্রিয়াকলাপগুলিতে আপনি যে অগ্রগতি করেছেন তা দেখুন।</li>
+                <li><b className='guide-content-name'>Guide:</b> আপনার যদি কখনও সাহায্যের প্রয়োজন হয়, নির্দেশের জন্য এখানে আসুন।</li>
                 </ul>
             </div>
             <div className="guide-content-notifications">
                 <h2 className='guide-content-title'>Notification</h2>
                 <ul className='guide-content-inlinetext'>
-                <li><b>Stay Updated:</b> The notification icon at the top of the page will keep you updated with the latest news.</li>
-                <li><b>Earn Badges:</b> When you complete certain milestones, you'll earn badges. A notification will pop up to let you know when you've earned a new badge.</li>
-                <li><b>View Notifications:</b> Click on the notification icon to see a list of all your recent notifications, including new badges earned and important updates.</li>
+                <li><b className='guide-content-name'>Stay Updated:</b> পৃষ্ঠার শীর্ষে বিজ্ঞপ্তি আইকন আপনাকে সর্বশেষ খবরের সাথে আপডেট রাখবে।</li>
+                <li><b className='guide-content-name'>Earn Badges:</b> আপনি যখন নির্দিষ্ট মাইলস্টোন সম্পূর্ণ করবেন, তখন আপনি ব্যাজ অর্জন করবেন। আপনি যখন একটি নতুন ব্যাজ অর্জন করেছেন তখন আপনাকে জানাতে একটি বিজ্ঞপ্তি পপ আপ হবে৷</li>
+                <li><b className='guide-content-name'>View Notifications:</b> নতুন অর্জিত ব্যাজ এবং গুরুত্বপূর্ণ আপডেট সহ আপনার সাম্প্রতিক সমস্ত বিজ্ঞপ্তিগুলির একটি তালিকা দেখতে বিজ্ঞপ্তি আইকনে ক্লিক করুন৷</li>
                 </ul>
             </div>
             <div className="guide-content-profile">
                 <h2 className='guide-content-title'>Profile</h2>
                 <ul className='guide-content-inlinetext'>
-                <li><b>View Profile Information:</b> In the profile section, you can see all the information you provided when you signed up.</li>
-                <li><b>Track Your Progress:</b> Check out the stats of your completed lessons to see how much you've accomplished.</li>
-                <li><b>Lessons Completed:</b> See the number of lessons you've finished in each language skill.</li>
+                <li><b className='guide-content-name'>View Profile Information:</b> প্রোফাইল বিভাগে, আপনি সাইন আপ করার সময় আপনার দেওয়া সমস্ত তথ্য দেখতে পাবেন।</li>
+                <li><b className='guide-content-name'>Track Your Progress:</b> আপনি কতটা সম্পন্ন করেছেন তা দেখতে আপনার সম্পূর্ণ পাঠের পরিসংখ্যান দেখুন।</li>
+                <li><b className='guide-content-name'>Lessons Completed:</b> প্রতিটি ভাষার দক্ষতায় আপনি কতগুলি পাঠ শেষ করেছেন তা দেখুন।</li>
                 </ul>
             </div>  
         </div>

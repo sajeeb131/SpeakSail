@@ -41,27 +41,27 @@ const WritingGuide = () => {
             </header>
             <div className="guide-content-intro">
                 <h2 className='guide-content-title'>Writing Lesson</h2>
-                <p className='guide-content-inline'>Click on the Writing card to practise your writing skills with a fun activity:</p>
+                <p className='guide-content-inline'>একটি মজার কার্যকলাপের সাথে আপনার লেখার দক্ষতা অনুশীলন করতে রাইটিং কার্ডে ক্লিক করুন:</p>
             </div>
             <div className="guide-content-navigation">
                 <h2 className='guide-content-title'>Picture Description</h2>
                 <ul className='guide-content-inlinetext'>
-                    <li><strong>View the Image:</strong> You'll see a picture showing a scenario.</li>
-                    <li><strong>Describe the Scene:</strong> Write a description of what you see in the picture. Use as many details as you can to explain the scene.</li>
-                    <li><strong>Submit Your Description:</strong> After writing, submit your description to complete the activity.</li>
+                    <li><strong className='guide-content-name'>View the Image:</strong> আপনি একটি দৃশ্য দেখায় একটি ছবি দেখতে পাবেন।</li>
+                    <li><strong className='guide-content-name'>Describe the Scene:</strong>আপনি ছবিতে যা দেখছেন তার একটি বর্ণনা লিখুন। দৃশ্যটি ব্যাখ্যা করার জন্য যতটা সম্ভব বিশদ ব্যবহার করুন।</li>
+                    <li><strong className='guide-content-name'>Submit Your Description:</strong> লেখার পরে, কার্যকলাপ সম্পূর্ণ করতে আপনার বিবরণ জমা দিন।</li>
                 </ul>
             </div>
             <div className="guide-content-notifications">
                 <h2 className='guide-content-title'>Tips for Writing Lesson</h2>
                 <ul className='guide-content-inlinetext'>
-                    <li><strong>Be Observant:</strong> Look carefully at the picture and notice all the details.</li>
-                    <li><strong>Use Descriptive Words:</strong> Try to use a variety of words to make your description interesting.</li>
-                    <li><strong>Practice:</strong> The more you write, the better you'll get at describing scenes.</li>
+                    <li><strong className='guide-content-name'>Be Observant:</strong> ছবিটি মনোযোগ সহকারে দেখুন এবং সমস্ত বিবরণ লক্ষ্য করুন।</li>
+                    <li><strong className='guide-content-name'>Use Descriptive Words:</strong> আপনার বর্ণনা আকর্ষণীয় করতে বিভিন্ন শব্দ ব্যবহার করার চেষ্টা করুন।</li>
+                    <li><strong className='guide-content-name'>Practice:</strong> আপনি যত বেশি লিখবেন, দৃশ্যগুলি বর্ণনা করতে তত ভাল পাবেন।</li>
                 </ul>
             </div>
             <br />
             <br />
-            <p className='guide-content-inline'>By practising this writing activity, you'll enhance your ability to express yourself clearly in English. Enjoy your lessons and have fun developing your creativity and skills!</p>
+            <p className='guide-content-inline'>এই লেখার কার্যকলাপটি অনুশীলন করে, আপনি ইংরেজিতে স্পষ্টভাবে নিজেকে প্রকাশ করার ক্ষমতা বাড়াবেন। আপনার পাঠ উপভোগ করুন এবং আপনার সৃজনশীলতা ও দক্ষতা বিকাশের মজা নিন!</p>
         </div>
         
         <Footer></Footer>

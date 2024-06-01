@@ -41,53 +41,51 @@ const DownloadableMaterial = () => {
             </header>
             <div className="guide-content-intro">
                 <h2 className='guide-content-title'>Downloadable Materials</h2>
-                <p className='guide-content-inline'>Below the lessons section, you will 
-                find another section called Downloadable Materials. Here, you can find additional 
-                practice materials for each of the four language skills. These materials can be 
-                downloaded and used offline.</p>
+                <p className='guide-content-inline'>পাঠ বিভাগের নীচে, আপনি ডাউনলোডযোগ্য উপকরণ নামে আরেকটি বিভাগ পাবেন। এখানে,
+                 আপনি চারটি ভাষার দক্ষতার জন্য অতিরিক্ত অনুশীলন সামগ্রী পেতে পারেন। এই উপকরণগুলি ডাউনলোড এবং অফলাইনে ব্যবহার করা যেতে পারে।</p>
             </div>
             <div className="guide-content-navigation">
                 <h2 className='guide-content-title'>Listening Materials:</h2>
                 <ul className='guide-content-inlinetext'>
-                <li><b>Audio and Worksheets:</b> Each set includes an audio clip and a worksheet.</li>
-                <li><b>Listen to the Audio:</b> Play the audio clip to practice your listening skills.</li>
-                <li><b>Complete the Worksheet:</b> Follow the instructions on the worksheet related to the audio you heard.</li>
+                <li><b className='guide-content-name'>Audio and Worksheets:</b> প্রতিটি সেটে একটি অডিও ক্লিপ এবং একটি ওয়ার্কশীট রয়েছে।</li>
+                <li><b className='guide-content-name'>Listen to the Audio:</b> আপনার শোনার দক্ষতা অনুশীলন করতে অডিও ক্লিপটি চালান।</li>
+                <li><b className='guide-content-name'>Complete the Worksheet:</b> আপনি যে অডিও শুনেছেন তার সাথে সম্পর্কিত ওয়ার্কশীটে নির্দেশাবলী অনুসরণ করুন।</li>
                 </ul>
             </div>
             <div className="guide-content-notifications">
                 <h2 className='guide-content-title'>Speaking Materials:</h2>
                 <ul className='guide-content-inlinetext'>
-                <li><b>Short Prompts:</b> You'll find prompts to help you practice speaking.</li>
-                <li><b>Talk About the Prompt:</b> Use the prompts to create short speeches or stories. Record yourself if possible to listen back and improve.</li>
+                <li><b className='guide-content-name'>Short Prompts:</b> কথা বলার অভ্যাস করতে সাহায্য করার জন্য আপনি প্রম্পট পাবেন।</li>
+                <li><b className='guide-content-name'>Talk About the Prompt:</b> ছোট বক্তৃতা বা গল্প তৈরি করতে প্রম্পট ব্যবহার করুন। ফিরে শুনতে এবং উন্নতি করতে সম্ভব হলে নিজেকে রেকর্ড করুন।</li>
                 </ul>
             </div>
             <div className="guide-content-profile">
                 <h2 className='guide-content-title'>Reading Materials:</h2>
                 <ul className='guide-content-inlinetext'>
-                <li><b>Real-Life Comprehensions:</b> These are small comprehension passages based on real-life situations.</li>
-                <li><b>Read the Passage:</b> Carefully read the given passage.</li>
-                <li><b>Answer the Questions:</b> Answer the questions based on the passage to check your understanding.</li>
+                <li><b className='guide-content-name'>Real-Life Comprehensions:</b> এগুলি বাস্তব জীবনের পরিস্থিতির উপর ভিত্তি করে ছোট বোঝার অনুচ্ছেদ।</li>
+                <li><b className='guide-content-name'>Read the Passage:</b> প্রদত্ত অনুচ্ছেদটি মনোযোগ সহকারে পড়ুন।</li>
+                <li><b className='guide-content-name'>Answer the Questions:</b> আপনার বোঝাপড়া পরীক্ষা করার জন্য প্যাসেজের উপর ভিত্তি করে প্রশ্নের উত্তর দিন।</li>
                 </ul>
             </div>  
             <div className="guide-content-profile">
                 <h2 className='guide-content-title'>Writing Materials:</h2>
                 <ul className='guide-content-inlinetext'>
-                <li><b>Writing Prompts:</b> Each prompt comes with a list of suitable words to use in your essay.</li>
-                <li><b>Read the Prompt:</b> Think about the prompt and what you want to write.</li>
-                <li><b>Use the Words:</b> Incorporate the suggested words into your writing to help structure your essay.</li>
-                <li><b>Write Your Essay:</b> Write a complete essay based on the prompt.</li>
+                <li><b className='guide-content-name'>Writing Prompts:</b> প্রতিটি প্রম্পট আপনার প্রবন্ধে ব্যবহার করার জন্য উপযুক্ত শব্দগুলির একটি তালিকা নিয়ে আসে।</li>
+                <li><b className='guide-content-name'>Read the Prompt:</b> প্রম্পট সম্পর্কে চিন্তা করুন এবং আপনি কি লিখতে চান।</li>
+                <li><b className='guide-content-name'>Use the Words:</b> আপনার প্রবন্ধ গঠনে সাহায্য করার জন্য প্রস্তাবিত শব্দগুলিকে আপনার লেখায় অন্তর্ভুক্ত করুন।</li>
+                <li><b className='guide-content-name'>Write Your Essay:</b> প্রম্পটের উপর ভিত্তি করে একটি সম্পূর্ণ রচনা লিখুন।</li>
                 </ul>
             </div>  
             <div className="guide-content-profile">
                 <h2 className='guide-content-title'>Tips for Downloadable Materials:</h2>
                 <ul className='guide-content-inlinetext'>
-                <li><b>Use Regularly:</b> Incorporate these materials into your daily study routine to enhance your skills.</li>
-                <li><b>Check Your Work:</b> After completing an activity, review your work to see where you can improve.</li>
-                <li><b>Ask for Feedback:</b> if possible, ask a parent to review your work and provide feedback.</li>
+                <li><b className='guide-content-name'>Use Regularly:</b> আপনার দক্ষতা বাড়াতে আপনার দৈনন্দিন অধ্যয়নের রুটিনে এই উপকরণগুলিকে অন্তর্ভুক্ত করুন।</li>
+                <li><b className='guide-content-name'>Check Your Work:</b> একটি কার্যকলাপ সম্পূর্ণ করার পরে, আপনি কোথায় উন্নতি করতে পারেন তা দেখতে আপনার কাজ পর্যালোচনা করুন।</li>
+                <li><b className='guide-content-name'>Ask for Feedback:</b> যদি সম্ভব হয়, একজন শিক্ষক বা অভিভাবককে আপনার কাজ পর্যালোচনা করতে এবং প্রতিক্রিয়া জানাতে বলুন।</li>
                 </ul>
                 <br/>
                 <br/>
-                <p className='guide-content-inline'>By using these downloadable materials, you can practice and improve your English skills even when you're not online.<br/> <b style = {{color: '#00008b'}}>Happy learning!</b></p>
+                <p className='guide-content-inline'>এই ডাউনলোডযোগ্য উপকরণগুলি ব্যবহার করে, আপনি অনলাইনে না থাকলেও আপনি আপনার ইংরেজি দক্ষতা অনুশীলন এবং উন্নত করতে পারেন।<br/> <b style = {{color: '#00008b'}}>Happy learning!</b></p>
             </div>  
         </div>
         

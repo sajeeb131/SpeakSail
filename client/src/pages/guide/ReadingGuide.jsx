@@ -41,27 +41,27 @@ const ReadingGuide = () => {
             </header>
             <div className="guide-content-intro">
                 <h2 className='guide-content-title'>Reading Lesson</h2>
-                <p className='guide-content-inline'>Click on the Reading card to improve your reading skills with two different types of lessons:</p>
+                <p className='guide-content-inline'>দুটি ভিন্ন ধরনের পাঠের মাধ্যমে আপনার পড়ার দক্ষতা উন্নত করতে রিডিং কার্ডে ক্লিক করুন:</p>
             </div>
             <div className="guide-content-navigation">
                 <h2 className='guide-content-title'>Comprehension</h2>
                 <ul className='guide-content-inlinetext'>
-                <li><strong>Read the Passage:</strong> You'll see a passage to read. Take your time to understand it well.</li>
-                <li><strong>Answer the Question:</strong> After reading, you'll find a multiple-choice question related to the passage.</li>
-                <li><strong>Select and Submit:</strong> Choose the correct answer and press submit to see if you got it right.</li>
+                <li><strong className='guide-content-name'>Read the Passage:</strong> আপনি পড়ার জন্য একটি প্যাসেজ দেখতে পাবেন। ভাল করে বুঝতে আপনার সময় নিন।</li>
+                <li><strong className='guide-content-name'>Answer the Question:</strong> পড়ার পরে, আপনি উত্তরণ সম্পর্কিত একটি বহু-পছন্দের প্রশ্ন পাবেন।</li>
+                <li><strong className='guide-content-name'>Select and Submit:</strong> সঠিক উত্তর চয়ন করুন এবং আপনি এটি সঠিক পেয়েছেন কিনা তা দেখতে সাবমিট টিপুন।</li>
                 </ul>
             </div>
             <div className="guide-content-notifications">
                 <h2 className='guide-content-title'>Tips for Reading Lessons</h2>
                 <ul className='guide-content-inlinetext'>
-                <li><strong>Read Carefully:</strong> Take your time to read and understand each passage and picture description.</li>
-                <li><strong>Think Before Answering:</strong> Make sure you understand the question or task before you answer.</li>
-                <li><strong>Practice Regularly:</strong> The more you read, the better you'll get at understanding and enjoying English stories.</li>
+                <li><strong className='guide-content-name'>Read Carefully:</strong> প্রতিটি অনুচ্ছেদ এবং ছবির বিবরণ পড়তে এবং বুঝতে আপনার সময় নিন।</li>
+                <li><strong className='guide-content-name'>Think Before Answering:</strong> আপনি উত্তর দেওয়ার আগে প্রশ্ন বা কাজটি বুঝতে পেরেছেন তা নিশ্চিত করুন।</li>
+                <li><strong className='guide-content-name'>Practice Regularly:</strong> আপনি যত বেশি পড়বেন, ততই ভালো আপনি ইংরেজি গল্প বুঝতে এবং উপভোগ করতে পারবেন।</li>
                 </ul>
             </div>
             <br />
             <br />
-            <p className='guide-content-inline'>By doing this reading activity you'll improve your ability to comprehend written English, which is an essential part of mastering the language. Enjoy your lessons and have fun expanding your understanding and skills!</p>
+            <p className='guide-content-inline'>এই পড়ার কার্যকলাপটি করে, আপনি লিখিত ইংরেজি বোঝার ক্ষমতা উন্নত করবেন, যা ভাষা আয়ত্ত করার একটি অপরিহার্য অংশ। আপনার পাঠ উপভোগ করুন এবং আপনার বোঝাপড়া এবং দক্ষতা বাড়ানোর মজা নিন!</p>
         </div>
         
         <Footer></Footer>
