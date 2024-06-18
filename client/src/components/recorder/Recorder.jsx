@@ -1,19 +1,21 @@
 import React, { useState, useRef } from 'react';
 import { FaMicrophoneAlt } from "react-icons/fa";
-import './recorder.css'
+import './recorder.css';
 import Waveform from '../wavesurfer/Waveform';
 
-const Recorder = ({onRecordingStop}) => {
+const Recorder = ({ onRecordingStop }) => {
   const [isRecording, setIsRecording] = useState(false);
   const [audioUrl, setAudioUrl] = useState(null);
   const mediaRecorder = useRef(null);
-  const reload = true;
+  const buttonRef = useRef(null); // Ref for the button
   const chunks = useRef([]);
 
   const startRecording = () => {
     setIsRecording(true);
     chunks.current = []; // Clear the previous recording chunks
-    document.querySelector('.button-record').classList.add('button-stop');
+    if (buttonRef.current) {
+      buttonRef.current.classList.add('button-stop');
+    }
     navigator.mediaDevices.getUserMedia({ audio: true })
       .then(stream => {
         mediaRecorder.current = new MediaRecorder(stream);
@@ -32,29 +34,32 @@ const Recorder = ({onRecordingStop}) => {
       })
       .catch(error => console.error('Error accessing microphone:', error));
   };
-  
 
   const stopRecording = () => {
     setIsRecording(false);
-    document.querySelector('.button-record').classList.remove('button-stop');
+    if (buttonRef.current) {
+      buttonRef.current.classList.remove('button-stop');
+    }
     mediaRecorder.current.stop();
   };
 
   return (
     <div className='player-container'>
       <div className='button-container'>
-        <button className= 'button-record' onClick={isRecording ? stopRecording : startRecording}>
-         <FaMicrophoneAlt/>
+        <button
+          ref={buttonRef} // Attach the ref to the button
+          className='button-record'
+          onClick={isRecording ? stopRecording : startRecording}
+        >
+          <FaMicrophoneAlt />
           {isRecording ? ' Stop ' : 'Start'}
         </button>
       </div>
       {audioUrl && (
         <div className='player'>
-          <Waveform audioUrl={audioUrl} reload = {reload}/>
+          <Waveform audioUrl={audioUrl} reload={true} />
         </div>
       )}
-      
-      
     </div>
   );
 };

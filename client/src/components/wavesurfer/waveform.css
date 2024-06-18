@@ -10,7 +10,7 @@
   margin-top: 20px;
 }
 
-#waveform {
+.waveform {
   background-color: #FABC2A;
   border-radius: 50px;
   padding: 10px;
@@ -38,12 +38,12 @@ button {
     opacity: 0;
   }
   100% {
-    height: 100px; /* Adjust the final height */
+    height: 70px; /* Adjust the final height */
     opacity: 1;
   }
 }
 
-#waveform {
+.waveform {
   background-color: #fff;
   border-radius: 50px;
   padding: 10px 25px;

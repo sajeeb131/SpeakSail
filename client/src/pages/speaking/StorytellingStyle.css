@@ -9,7 +9,7 @@
   .st-main{
     display: flex;
     flex-direction: column;
-    height: 520px;
+    min-height: 520px;
   }
   .st-top {
     display: flex;
@@ -25,6 +25,7 @@
     font-size: 40px;
     font-weight: 700;
     line-height: 125%;
+    margin-bottom: 20px;
   }
   .st-para {
      width: 800px; 
@@ -35,6 +36,45 @@
         width: 100%;
         word-wrap: break-word; 
         
+    }
+    .ce-dialogue{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      justify-content: space-between;
+    }
+    .ce-dialogue-p{
+      width: fit-content;
+      top: 98px;
+      left: 88px;
+      padding: 20px 20px;
+      gap: 10px;
+      border-radius: 40px 40px 40px 0px;
+      opacity: 0px;
+      background-color: #E2A2E9;
+      color: #002E88;
+      font-family: Urbanist;
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 125%;
+
+    }
+    .ce-top{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: 20px 110px 50px;
+      row-gap: 20px;
+      
+      h1{
+        color: #002E88;
+      font-family: Urbanist;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 125%;
+      margin-bottom: 20px;
+      }
     }
   .st-middle{
     display: flex;
@@ -61,4 +101,25 @@
     font-weight: 600;
     line-height: 125%; /* 37.5px */
   }
-  
+  .dialogue-main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .dialogue-and-icon{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 5px;
+  }
+  .done-icon{
+    transition: all 0.3s ease;
+  }
+  .done-icon:hover{
+    color: green;
+  }
+  .disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}

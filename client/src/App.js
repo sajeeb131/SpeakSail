@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// Import your components
+// components
 import LandingPage from './pages/landing-page/LandingPage';
 import HomePage from './pages/home/HomePage';
 import ListeningMain from './pages/lessons/ListeningMain';
@@ -20,10 +20,7 @@ import VocabTreasure from './pages/vocab-treasure/VocabTreasure';
 import DailyMission from './pages/daily-mission/DailyMission';
 import PictureDescription from './pages/writing/PictureDescription';
 import LessonsTable from './pages/lessons-table/LessonsTable';
-
-// Dashboard Components
 import TeachersMainPage from './pages/teachers/Teachers-main'
-
 import Materials from './pages/materials-download/Materials'
 import Notifications from './components/notification/Notifications';
 import Completions from './pages/completions/Completions'
@@ -34,12 +31,10 @@ import ListeningGuide from './pages/guide/ListeningGuide';
 import SpeakingGuide from './pages/guide/SpeakingGuide';
 import WritingGuide from './pages/guide/WritingGuide';
 import ReadingGuide from './pages/guide/ReadingGuide';
-
 import Status403 from './components/auth/Status403';
-
 import PrivateRoute from './components/auth/PrivateRoute';
 import TeacherRoute from './components/auth/TeacherRoute';
-
+import ConversationExchange from './pages/speaking/ConversationExchange';
 
 function App() {
   return (
@@ -73,12 +68,12 @@ function App() {
           <Route path='/lessons/speaking' element={<PrivateRoute element={<SpeakingMain />} />} />
           
           
-
           {/* Lessons pages */}
           <Route path='/lessons/listening/sentence-dictation/:lessonNumber' element={<PrivateRoute element={<SentenceDictation />} />} />
           <Route path='/lessons/listening/QA/:lessonNumber' element={<PrivateRoute element={<QuestionAnswer />} />} />
           <Route path='/lessons/reading/Comprehension/:lessonNumber' element={<PrivateRoute element={<Comprehension />} />} />
           <Route path='/lessons/speaking/storytelling/:lessonNumber' element={<PrivateRoute element={<Storytelling />} />} />
+          <Route path='/lessons/speaking/conversation-exchange/:lessonNumber' element={<PrivateRoute element={<ConversationExchange />} />} />
           <Route path='/lessons/writing/PictureDescription/:lessonNumber' element={<PrivateRoute element={<PictureDescription />} />} />
           
           {/* Extra features */}

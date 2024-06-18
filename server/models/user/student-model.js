@@ -69,6 +69,10 @@ const userSchema = new Schema({
     type: Number,
     default: 0
   },
+  conversation_exchange:{
+    type: Number,
+    default: 0
+  },
   picture_description:{
     type: Number,
     default: 0

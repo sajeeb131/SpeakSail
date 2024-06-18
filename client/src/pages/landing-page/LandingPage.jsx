@@ -29,10 +29,9 @@ const LandingPage = () => {
             <div className='container-getStarted-half-heading'>
               <h1>Start <span style={{ color: '#FABC2A' }}>Learning</span></h1>
               <h1>From The Best</h1>
-              <h1>Paltform</h1>
+              <h1>Platform</h1>
             </div>
-            <div className='container-getStarted-half-des'><p>Lorem Ipsum is simply 
-              dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing</p></div>
+            <div className='container-getStarted-half-des'><p>SpeakSail is an English learning platform dedicated to primary school students. With various activities focusing on the four language skills, to help enhance their communication skills on English.</p></div>
             <div className='container-getStarted-half-button'><Link to='/login/student'>Get Started</Link></div>
           </div>
           <div className='container-getStarted-half'>

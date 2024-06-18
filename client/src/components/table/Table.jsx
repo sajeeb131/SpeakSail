@@ -29,6 +29,9 @@ const Table = ({ student_id, data, lesson_type}) => {
     if(lesson_type=="Storytelling"){
       url = `/lessons/speaking/Storytelling/${lessonNumber}`;
     }
+    if(lesson_type=="Conversation Exchange"){
+      url = `/lessons/speaking/conversation-exchange/${lessonNumber}`;
+    }
     if(lesson_type=="Sentence Dictation"){
        url = `/lessons/listening/sentence-dictation/${lessonNumber}`;
     }
@@ -103,6 +106,11 @@ const Table = ({ student_id, data, lesson_type}) => {
                 <td className='table-mid'>
                   {item.story.substring(0, 50)}
                   {item.story.length > 50 && '...'}
+                </td>
+              )}
+              {lesson_type === 'Conversation Exchange' && (
+                <td className='table-mid'>
+                  {item.dialogues[0]}
                 </td>
               )}
               {lesson_type === 'Storyboarding' && (

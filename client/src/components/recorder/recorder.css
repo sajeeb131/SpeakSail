@@ -1,63 +1,59 @@
-.player-container{
+.player-container {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
 
 .button-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin: 20px 0px 30px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 20px 0px 30px 0px;
+}
 
-  }
-  
-  .button-record {
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    border-radius: 10px; /* Make the button more rounded */
-    background: #FABC2A;
-    border: none;
-    color: #002E88;
-    font-family: Urbanist;
-    font-size: 24px; /* Slightly decrease font size */
-    font-weight: 600;
-    border: 1px solid #dd9c04;
-    text-transform: uppercase; /* Convert text to uppercase */
-    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-    transition: background-color 0.3s ease, transform 0.1s ease;
-  }
-  .button-record:hover{
-    background: #dd9c04;
-  }
-  
-  
-  .button-record.button-stop {
-    background: #FF5722;
-    font-weight: 800;
-  }
+.button-record {
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px; /* Make the button more rounded */
+  background: #FABC2A;
+  border: none;
+  color: #002E88;
+  font-family: Urbanist;
+  font-size: 24px; /* Slightly decrease font size */
+  font-weight: 600;
+  border: 1px solid #dd9c04;
+  text-transform: uppercase; /* Convert text to uppercase */
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
 
-  .player{
-    width: 600px;
-  }
+.button-record:hover {
+  background: #dd9c04;
+}
 
-  
-  .button-record.button-stop {
-    animation: glow 0.5s ease infinite alternate; 
-  }
-  
-  @keyframes glow {
-    0% {
-        transform: scale(1);
-      box-shadow: 0 0 5px #FF5722; 
-    }
-    100% {
-        transform: scale(1.1);
-      box-shadow: 0 0 10px #FF5722; 
-    }
-  }
-  
+.button-record.button-stop {
+  background: #FF5722;
+  font-weight: 800;
+}
 
+.player {
+  width: 600px;
+}
+
+.button-record.button-stop {
+  animation: glow 0.5s ease infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 5px #FF5722;
+  }
+  100% {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #FF5722;
+  }
+}

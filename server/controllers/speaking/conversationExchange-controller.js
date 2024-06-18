@@ -1,13 +1,13 @@
-const {SpeakingStorytelling, SpeakingStorytelling_Answers} = require('../../models/speaking/storytelling-model')
+const {SpeakingConversationExchange, SpeakingConversationExchange_Answers} = require('../../models/speaking/conversationExchange-model')
 const cloudinary = require('../../utils/cloudinary')
 const Student = require('../../models/user/student-model')
 
 
 
-const name = "Storytelling";
+const name = "Conversation Exchange";
 const createLesson = async(req,res) =>{
     try{
-        const newLesson = new SpeakingStorytelling(req.body);
+        const newLesson = new SpeakingConversationExchange(req.body);
         await newLesson.save();
         res.status(201).json(newLesson)
     }catch(err){
@@ -18,7 +18,7 @@ const createLesson = async(req,res) =>{
 
 const getLessons = async(req, res) =>{
     try{
-        const lessons = await SpeakingStorytelling.find();
+        const lessons = await SpeakingConversationExchange.find();
         res.json({lessons, name});
     }catch(err){
         console.error(err);
@@ -29,7 +29,7 @@ const getLessons = async(req, res) =>{
 const getLessonByNumber = async (req,res) =>{
     try{
         const lessonNumber = req.params.lessonNumber;
-        const lesson = await SpeakingStorytelling.findOne({lessonNumber});
+        const lesson = await SpeakingConversationExchange.findOne({lessonNumber});
         if(!lesson){
             return res.status(404).json({message: 'Lesson not found'});
         }
@@ -40,34 +40,47 @@ const getLessonByNumber = async (req,res) =>{
     }
 };
 
-const createAnswers = async(req,res) =>{
-    try{
-        // Upload audio to Cloudinary
-        const uploadResponse = await cloudinary.uploader.upload(
-            req.file.path,
-            { resource_type: 'auto' } 
-        );
-        // create a new answer script
-        const newAnswer = new SpeakingStorytelling_Answers({
+
+const createAnswers = async (req, res) => {
+    try {
+        const audioFile1 = req.files['audio1'][0];
+        const audioFile2 = req.files['audio2'][0];
+        const audioFile3 = req.files['audio3'][0];
+
+        if (!audioFile1 || !audioFile2 || !audioFile3) {
+            return res.status(400).json({ message: 'Please upload three audio files' });
+        }
+
+        const audioUploadResponse1 = await cloudinary.uploader.upload(audioFile1.path, { resource_type: 'auto' });
+        const audioUploadResponse2 = await cloudinary.uploader.upload(audioFile2.path, { resource_type: 'auto' });
+        const audioUploadResponse3 = await cloudinary.uploader.upload(audioFile3.path, { resource_type: 'auto' });
+
+        // Create a new answer script
+        const newAnswer = new SpeakingConversationExchange_Answers({
             lessonNumber: req.body.lessonNumber,
-            audioFilePath: uploadResponse.secure_url, 
-            lessonType: name,
-            story: req.body.story,
+            lessonType: req.body.lessonType,
+            audioFilePath1: audioUploadResponse1.secure_url,
+            audioFilePath2: audioUploadResponse2.secure_url,
+            audioFilePath3: audioUploadResponse3.secure_url,
             studentID: req.body.studentID,
-            studentName: req.body.studentName
         });
+
         await newAnswer.save();
         res.status(201).json(newAnswer);
-    }catch(err){
+    } catch (err) {
         console.error(err);
-        res.status(400).json({message: 'Error creating answers'});
+        res.status(400).json({ message: 'Error creating answers' });
     }
 };
+
+module.exports = { createAnswers };
+
+
 
 const getAnswersByLesson = async(req, res) =>{
     try{
         const lessonNumber = req.params.lessonNumber;
-        const answers = await SpeakingStorytelling_Answers.findOne({lessonNumber});
+        const answers = await SpeakingConversationExchange_Answers.findOne({lessonNumber});
         res.json(answers);
     }catch(err){
         console.error(err);
@@ -78,7 +91,7 @@ const getAnswersByLesson = async(req, res) =>{
 const getAnswersByStudentID = async(req, res) =>{
     try{
         const studentID = req.params.studentID;
-        const answer = await SpeakingStorytelling_Answers.findOne({studentID})
+        const answer = await SpeakingConversationExchange_Answers.findOne({studentID})
         res.json(answer);
     }
     catch(error){
@@ -88,7 +101,7 @@ const getAnswersByStudentID = async(req, res) =>{
 };
 const getAllAnswers = async(req, res) =>{
     try{ 
-        const answers = await SpeakingStorytelling_Answers.find();
+        const answers = await SpeakingConversationExchange_Answers.find();
         res.json(answers);
     }catch(err){
         console.error(err);
@@ -101,7 +114,7 @@ const updateFeedback = async(req, res) =>{
         const id = req.params.id
         const { feedback, lessonNumber, studentID, value1, value2} = req.body;
         const userID = studentID;
-        const updatedLesson = await SpeakingStorytelling_Answers.findByIdAndUpdate(
+        const updatedLesson = await SpeakingConversationExchange_Answers.findByIdAndUpdate(
             id,
             { feedback: feedback }
         );
@@ -109,7 +122,7 @@ const updateFeedback = async(req, res) =>{
             return res.status(404).send('Lesson answer feedback not updated!');
         }
         if(feedback == 'true'){
-            const lesson = await SpeakingStorytelling.findOne({lessonNumber})
+            const lesson = await SpeakingConversationExchange.findOne({lessonNumber})
             if(!lesson){
                 throw new Error('Completed by not updated!')
             }

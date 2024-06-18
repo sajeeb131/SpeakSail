@@ -1,65 +1,57 @@
 import React, { useState, useEffect, useRef } from 'react';
 import WaveSurfer from 'wavesurfer.js';
-import './waveform.css'
-import { AiOutlinePlayCircle } from "react-icons/ai";
-import { AiOutlinePauseCircle } from "react-icons/ai";
+import './waveform.css';
+import { AiOutlinePlayCircle, AiOutlinePauseCircle } from "react-icons/ai";
+
 const Waveform = ({ audioUrl }) => {
   const [playing, setPlaying] = useState(false);
   const waveSurferRef = useRef(null);
+  const containerRef = useRef(null); // Reference for the container div
+  const [uniqueId] = useState(`waveform-${Math.random().toString(36).substr(2, 9)}`);
 
   useEffect(() => {
-    const wavesurfer = waveSurferRef.current;
+    if (!containerRef.current) return;
 
-    const initializeWaveSurfer = () => {
-      if (!wavesurfer) {
-        waveSurferRef.current = WaveSurfer.create({
-          container: '#waveform',
-          cursorWidth: 0,
-          height: 100, // Set the height of the container div
-          barHeight: 10, // Adjust the height of the waveform bars
-          hideScrollbar: true,
-          progressColor: '#002E88',
-          responsive: true,
-          waveColor: '#FABC2A',
-          normalize: true,
-        });
-      }
-    };
+    waveSurferRef.current = WaveSurfer.create({
+      container: `#${uniqueId}`,
+      cursorWidth: 0,
+      height: 70,
+      barHeight: 10,
+      hideScrollbar: true,
+      progressColor: '#002E88',
+      responsive: true,
+      waveColor: '#FABC2A',
+      normalize: true,
+    });
 
-    initializeWaveSurfer();
-
-    // Load new audio URL when it changes
-    if (wavesurfer) {
-      wavesurfer.load(audioUrl);
+    if (audioUrl) {
+      waveSurferRef.current.load(audioUrl);
     }
 
     return () => {
-      // Pause playback and clear the audio URL when the component unmounts
-      if (wavesurfer) {
-        wavesurfer.pause();
-        wavesurfer.empty();
+      if (waveSurferRef.current) {
+        waveSurferRef.current.destroy();
       }
     };
-  }, [audioUrl]);
+  }, [audioUrl, uniqueId]);
 
   const togglePlay = () => {
-    const wavesurfer = waveSurferRef.current;
-    if (wavesurfer) {
+    if (waveSurferRef.current) {
       if (playing) {
-        wavesurfer.pause();
+        waveSurferRef.current.pause();
       } else {
-        wavesurfer.play();
+        waveSurferRef.current.play();
       }
       setPlaying(!playing);
     }
   };
-  
 
   return (
     <div className="audio-player">
-      <button onClick={togglePlay}>{playing ? <AiOutlinePauseCircle size={34} color='#002E88'/> : <AiOutlinePlayCircle size={34} color='#002E88'/>}</button>
-      <div id="waveform"></div>
-      
+      <button onClick={togglePlay}>
+        {playing ? <AiOutlinePauseCircle size={34} color='#002E88' /> : <AiOutlinePlayCircle size={34} color='#002E88' />}
+      </button>
+      <div className='waveform' id={uniqueId} ref={containerRef}></div>
     </div>
   );
 };

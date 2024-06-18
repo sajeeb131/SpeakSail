@@ -22,17 +22,17 @@ const SpeakingMain = () => {
                 <div className="listeningMain-section-half-left">
                     <h2>Storytelling</h2>
                     <p>A prompt will be given to talk about a situation and you will have to
-record your story.</p>
+                        record your story.
+                    </p>
                 </div>
                 <div className="listeningMain-section-half-right">
                     <img src={image1} alt="" width="120px"/>
                 </div>
-                
             </div>
             
-            <div className='listeningMain-section-half lesson-unavailable' >
+            <div className='listeningMain-section-half' onClick={()=>handleLinkClick('conversation-exchange')}>
                 <div className="listeningMain-section-half-left">
-                    <h2>ABC Exercise</h2>
+                    <h2>Conversation Exchange</h2>
                     <p>Not available yet. Coming soon!</p>
                 </div>
                 <div className="listeningMain-section-half-right">

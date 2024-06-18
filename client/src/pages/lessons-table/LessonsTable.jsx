@@ -22,7 +22,7 @@ const LessonsTable = () => {
         } else if (lessonType === "sentence-dictation" || lessonType === "qa") {
           apiUrl = `http://localhost:4000/lessons/listening/${lessonType}`;
         }
-        else if (lessonType === "storytelling" ) {
+        else if (lessonType === "storytelling" || lessonType === "conversation-exchange" ) {
           apiUrl = `http://localhost:4000/lessons/speaking/${lessonType}`;
         }
         if (apiUrl === '') {
