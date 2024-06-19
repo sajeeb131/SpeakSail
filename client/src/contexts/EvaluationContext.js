@@ -45,8 +45,16 @@ export const EvaluationProvider = ({ children }) => {
     {
       lesson: 'Storytelling',
       category: 'speaking',
-      value2: 'speaking',
+      value2: 'storytelling',
       typeUrl: 'storytelling',
+      type: 'S',
+      background: '#FABC2A'
+    },
+    {
+      lesson: 'Conversation Exchange',
+      category: 'speaking',
+      value2: 'conversation_exchange',
+      typeUrl: 'conversation-exchange',
       type: 'S',
       background: '#FABC2A'
     },
@@ -85,6 +93,9 @@ export const EvaluationProvider = ({ children }) => {
             break;
           case 'Storytelling':
             url = 'http://localhost:4000/lessons/speaking/storytelling/answer/all';
+            break;
+          case 'Conversation Exchange':
+            url = 'http://localhost:4000/lessons/speaking/conversation-exchange/answer/all';
             break;
           case 'Picture Description':
             url = 'http://localhost:4000/lessons/writing/picturedescription/answer/all';

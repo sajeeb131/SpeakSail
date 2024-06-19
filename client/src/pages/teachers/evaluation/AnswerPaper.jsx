@@ -72,7 +72,6 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
         }
         
         
-
         const notification = { studentID, type, lessonNumber, message };
         console.log(notification);
 
@@ -141,6 +140,13 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
           {type === 'Storytelling' && audioUrl && (
             <div className='evaluation-lesson-mid-audio'>
               <AudioPlayer src={audioUrl} onPlay={() => console.log("onPlay")} />
+            </div>
+          )}
+          {type === 'Conversation Exchange'  && (
+            <div className='evaluation-lesson-mid-audio'>
+              <AudioPlayer src={currentLesson.audioFilePath1} onPlay={() => console.log("onPlay")} />
+              <AudioPlayer src={currentLesson.audioFilePath2} onPlay={() => console.log("onPlay")} />
+              <AudioPlayer src={currentLesson.audioFilePath3} onPlay={() => console.log("onPlay")} />
             </div>
           )}
           {type === 'Question Answer' && (

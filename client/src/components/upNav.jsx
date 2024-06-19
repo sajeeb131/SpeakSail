@@ -15,6 +15,7 @@ const Navbar = ({ submitType }) => {
         <li className='UpLi'><Link  className='linkss' onClick={() => handleClick('uploadST')}>Storytelling</Link></li>
         <li className='UpLi'><Link  className='linkss' onClick={() => handleClick('uploadPD')}>Picture Description</Link></li>
         <li className='UpLi'><Link  className='linkss' onClick={() => handleClick('uploadC')}>Comprehension</Link></li>
+        <li className='UpLi'><Link  className='linkss' onClick={() => handleClick('uploadCE')}>Conversation</Link></li>
       </ul>
     </nav>
   );

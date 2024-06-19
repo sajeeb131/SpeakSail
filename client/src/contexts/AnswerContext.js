@@ -20,7 +20,8 @@ export const AnswerProvider = ({ children }) => {
       'http://localhost:4000/lessons/listening/qa/answer/all',
       'http://localhost:4000/lessons/speaking/storytelling/answer/all',
       'http://localhost:4000/lessons/writing/picturedescription/answer/all',
-      'http://localhost:4000/lessons/reading/comprehension/answer/all'
+      'http://localhost:4000/lessons/reading/comprehension/answer/all',
+      'http://localhost:4000/lessons/speaking/conversation-exchange/answer/all'
     ];
 
     try {

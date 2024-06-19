@@ -4,7 +4,6 @@ const speakingConversationExchangeSchema = new mongoose.Schema({
     lessonNumber: {
         type: String,
         required: true,
-        unique: true,
     },
     dialogues: {
         type: [String],

@@ -16,7 +16,7 @@
     align-items: center;
     background-color: white;
     width: 750px;
-    height: 65vh;
+    min-height: 65vh;
     padding: 20px;
     border-radius: 20px;
     gap: 20px;

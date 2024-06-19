@@ -8,7 +8,7 @@ import UploadQA from './Forms/UploadQA';
 import UploadST from './Forms/UploadST';
 import UploadPD from './Forms/UploadPD';
 import UploadC from './Forms/UploadC';
-
+import UploadCE from './Forms/UploadCE';
 
 import './UploadMain.css'
 
@@ -32,6 +32,7 @@ const UploadMain = ({submitType}) => {
               {submitType=='uploadST' && <UploadST />}
               {submitType=='uploadPD' && <UploadPD />}
               {submitType=='uploadC' && <UploadC />}
+              {submitType=='uploadCE' && <UploadCE />}
 
             </div>
             

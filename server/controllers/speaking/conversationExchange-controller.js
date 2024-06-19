@@ -5,14 +5,22 @@ const Student = require('../../models/user/student-model')
 
 
 const name = "Conversation Exchange";
-const createLesson = async(req,res) =>{
-    try{
-        const newLesson = new SpeakingConversationExchange(req.body);
+const createLesson = async (req, res) => {
+    try {
+        
+        const { lessonNumber, dialogues} = req.body; // Extract lessonNumber and dialogues from request body
+        console.log('The lesson number :', lessonNumber)
+
+        const newLesson = new SpeakingConversationExchange({
+            lessonNumber: req.body.lessonNumber,
+            dialogues: req.body.dialogues
+          });
+
         await newLesson.save();
-        res.status(201).json(newLesson)
-    }catch(err){
+        res.status(201).json(newLesson);
+    } catch (err) {
         console.error(err);
-        res.status(400).json({message: "Error creating lesson"})
+        res.status(400).json({ message: "Error creating lesson" });
     }
 };
 
@@ -131,7 +139,7 @@ const updateFeedback = async(req, res) =>{
         }
         const student = await Student.findOneAndUpdate(
             {userID},
-            {speaking: value1, storytelling: value2 }
+            {speaking: value1, conversation_exchange: value2 }
         )
         await student.save()
         
