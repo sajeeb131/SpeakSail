@@ -97,6 +97,34 @@ const userSchema = new Schema({
   daily_mission_completed:{
     type: Boolean,
     required: false
+  },
+  marks_comprehension:{
+    type: Number,
+    default: 0
+  },
+  marks_storytelling:{
+    type: Number,
+    default: 0
+  },
+  marks_conversation_exchange:{
+    type: Number,
+    default: 0
+  },
+  marks_picture_description:{
+    type: Number,
+    default: 0
+  },
+  marks_question_answer:{
+    type: Number,
+    default: 0
+  },
+  marks_sentence_dictation:{
+    type: Number,
+    default: 0
+  },
+  comment:{
+    type: String,
+    required: false
   }
 });
 

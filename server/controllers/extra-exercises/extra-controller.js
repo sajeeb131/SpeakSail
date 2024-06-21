@@ -62,7 +62,7 @@ const getDailyMission = async (req, res) => {
     try {
         const userID = req.params.id;
         storedUserID = userID; // Store userID for interval usage
-        console.log('UserID received in getDailyMission:', userID); // Debugging statement
+        // console.log('UserID received in getDailyMission:', userID); // Debugging statement
         const { skip } = req.query;
         if (skip || !currentQuestionSet) {
             await updateQuestionSet(userID);
@@ -80,7 +80,7 @@ const updateQuestionSetWrapper = () => {
         if (storedUserID) {
             updateQuestionSet(storedUserID);
         } else {
-            console.log('Stored userID is undefined in interval');
+            // console.log('Stored userID is undefined in interval');
         }
     };
 };

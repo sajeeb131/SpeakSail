@@ -35,6 +35,7 @@ import Status403 from './components/auth/Status403';
 import PrivateRoute from './components/auth/PrivateRoute';
 import TeacherRoute from './components/auth/TeacherRoute';
 import ConversationExchange from './pages/speaking/ConversationExchange';
+import Report from './pages/performance-report/Report'
 
 function App() {
   return (
@@ -97,6 +98,8 @@ function App() {
           
           {/* Notifications route */}
           <Route path='/notifications' element={<PrivateRoute element={<Notifications />} />} />
+
+          <Route path='/report' element={<PrivateRoute element={<Report/>}/>}/>
 
           {/* Teachers route */}
           <Route path='/teachers/:type' element={<TeacherRoute element={<TeachersMainPage />} />} />

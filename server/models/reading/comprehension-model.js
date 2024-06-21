@@ -61,6 +61,10 @@ const readingComprehensionAnswerSchema = new mongoose.Schema({
     time : { 
         type : Date,
         default: Date.now
+      },
+      comment:{
+        type: String,
+        required: false
       }
 });
 

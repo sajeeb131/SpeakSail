@@ -7,11 +7,13 @@ import './HomePage.css'
 import VocabMission from '../../assets/images/VT-Card.png'
 import DailyMission from '../../assets/images/DM-CARD.png'
 
+import Report from '../performance-report/Report';
+
 const HomePage = () => {
     const navigate = useNavigate();
     const userID = localStorage.getItem('user');
     const [user, setUser] = useState([]);
-
+    
     const [overallProgress, setOverallProgress] = useState('');
     const progressStyle = {
         width: `${overallProgress}%`
@@ -91,20 +93,8 @@ const HomePage = () => {
                 setSpeakingProgress(userData.speaking);
                 console.log(listeningProgress, readingProgress, speakingProgress, writingProgress)
 
-                const listeningLessonsUrls = [
-                    'http://localhost:4000/lessons/listening/sentence-dictation',
-                    'http://localhost:4000/lessons/listening/qa',
-                ];
-                const speakingLessonsUrls = [
-                    'http://localhost:4000/lessons/speaking/storytelling'
-                ];
-                const readingLessonsUrls = [
-                    'http://localhost:4000/lessons/reading/comprehension'
-                ];
-                const writingLessonsUrls = [
-                    'http://localhost:4000/lessons/writing/picturedescription'
-                ];
 
+                //calculate total lessons
                 const userResponse2 = await fetch('http://localhost:4000/lessons/listening/sentence-dictation');
                 const sd = await userResponse2.json()
                 const userResponse3 = await fetch('http://localhost:4000/lessons/listening/qa');
@@ -113,27 +103,21 @@ const HomePage = () => {
 
                 const userResponse4 = await fetch('http://localhost:4000/lessons/reading/comprehension');
                 const c = await userResponse4.json()
-        
                 setReadingTotalLessons(c.lessons.length)
                 
-
                 const userResponse5 = await fetch('http://localhost:4000/lessons/speaking/storytelling');
                 const st = await userResponse5.json()
-                setSpeakingTotalLessons(st.lessons.length)
+                const userResponse7 = await fetch('http://localhost:4000/lessons/speaking/conversation-exchange');
+                const ce = await userResponse7.json()
+                setSpeakingTotalLessons(st.lessons.length+ ce.lessons.length)
 
                 const userResponse6 = await fetch('http://localhost:4000/lessons/writing/picturedescription');
                 const pd = await userResponse6.json()
                 setWritingTotalLessons(pd.lessons.length)
                 
-                
-                // setListeningTotalLessons(await calculateTotalLessons(listeningLessonsUrls));
-                // setSpeakingTotalLessons(await calculateTotalLessons(speakingLessonsUrls));
-                // setReadingTotalLessons(await calculateTotalLessons(readingLessonsUrls));
-                // setWritingTotalLessons(await calculateTotalLessons(writingLessonsUrls));
-                
-                
-
                 await calcOverall()
+
+                
    
                 } catch (error) {
                 console.error('Error fetching data:', error);
@@ -187,7 +171,9 @@ const HomePage = () => {
                 </div>
                 <div className='container-homepage-progress-bar-line'>
                     <div className="progress-bar" style={progressStyle}></div>
+                    
                 </div>
+                <span className='overall-progress-span'>{Math.floor(overallProgress)}%</span>
             </div>
         </div>
         {/* part 3: vocab treasure, daily mission */}

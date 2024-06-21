@@ -5,10 +5,12 @@ import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import CompletedLesson from './CompletedLesson';
 import './completions.css';
 import { Navigate, useNavigate } from 'react-router-dom';
+import {Link} from 'react-router-dom'
 
 const Completions = () => {
   const studentID = localStorage.getItem('user');
   const navigate = useNavigate()
+  const [page1, setPage1] = useState(true)
   {!studentID && navigate('/')}
 
   
@@ -17,7 +19,8 @@ const Completions = () => {
     qa_lessons_ans: [],
     pd_lessons_ans: [],
     comprehension_lessons_ans: [],
-    storytelling_lessons_ans: []
+    storytelling_lessons_ans: [],
+    ce_lessons_ans: []
   });
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,12 +30,16 @@ const Completions = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        //get completed lessons
         const response = await fetch(`http://localhost:4000/home/completed-lessons/${studentID}`);
         if (!response.ok) {
           throw new Error('Can not fetch completed lessons data!');
         }
         const data = await response.json();
         setLessons(data);
+
+        //get comments
+        const response2 =await fetch(`http://localhost:4000/home/get-comments`,{})
       } catch (error) {
         console.log(error.message);
       }
@@ -45,7 +52,8 @@ const Completions = () => {
     ...lessons.qa_lessons_ans.map(lesson => ({ ...lesson, type: 'Question Answer' })),
     ...lessons.pd_lessons_ans.map(lesson => ({ ...lesson, type: 'Picture Description' })),
     ...lessons.comprehension_lessons_ans.map(lesson => ({ ...lesson, type: 'Comprehension' })),
-    ...lessons.storytelling_lessons_ans.map(lesson => ({ ...lesson, type: 'Storytelling' }))
+    ...lessons.storytelling_lessons_ans.map(lesson => ({ ...lesson, type: 'Storytelling' })),
+    ...lessons.ce_lessons_ans.map(lesson => ({ ...lesson, type: 'Conversation Exchange' }))
   ];
 
   const totalItems = allLessons.length;
@@ -88,6 +96,7 @@ const Completions = () => {
               <button className='back-button' onClick={handleBackClick}>Back</button>
             </div>
           </div>
+          
         ) : (
           <>
             <div className='completions-main completions-main2'>
@@ -112,6 +121,9 @@ const Completions = () => {
                 <FiChevronRight size={40} color='#002E88' />
               </button>
             </div>
+            <Link to='/report' className='report'>
+                <button>View Performance Report</button>
+          </Link>
           </>
         )}
       </div>

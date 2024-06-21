@@ -7,6 +7,7 @@ import QuestionST from './questions/QuestionST';
 import QuestionC from './questions/QuestionC';
 import AudioPlayer from 'react-h5-audio-player'
 import 'react-h5-audio-player/lib/styles.css'
+import QuestionCE from './questions/QuestionCE';
 
 
 
@@ -38,6 +39,10 @@ const CompletedLesson = ({ lesson }) => {
         case 'Storytelling':
           setCategory('speaking');
           setLessonType('storytelling');
+          break;
+        case 'Conversation Exchange':
+          setCategory('speaking');
+          setLessonType('conversation-exchange');
           break;
         default:
           break;
@@ -79,6 +84,7 @@ const CompletedLesson = ({ lesson }) => {
           {lesson.type === 'Storytelling' && <QuestionST lesson={question} />}
           {lesson.type === 'Comprehension' && <QuestionC lesson={question} />}
           {lesson.type === 'Picture Description' && <QuestionPD lesson={question} />}
+          {lesson.type === 'Conversation Exchange' && <QuestionCE lesson={question} />}
         </div>
         {['Sentence Dictation', 'Comprehension', 'Picture Description'].includes(lesson.type) && (
           <div className='completed-lesson-answer'>
@@ -89,6 +95,22 @@ const CompletedLesson = ({ lesson }) => {
           <div className='completed-lesson-answer'>
             <AudioPlayer 
                 src={lesson.audioFilePath}
+            />
+
+          </div>
+        )}
+        {['Conversation Exchange'].includes(lesson.type) && (
+          <div className='completed-lesson-answer'>
+            <AudioPlayer 
+                src={lesson.audioFilePath1}
+            />
+            <hr />
+            <AudioPlayer 
+                src={lesson.audioFilePath2}
+            />
+            <hr />
+            <AudioPlayer 
+                src={lesson.audioFilePath3}
             />
 
           </div>

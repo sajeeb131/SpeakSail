@@ -8,7 +8,6 @@ const submissionSchema = new mongoose.Schema({
     lessonNumber: {
         type: String,
         required: true,
-        unique: true,
     },
     studentID:{
         type: String,
@@ -21,6 +20,10 @@ const submissionSchema = new mongoose.Schema({
     time : { 
         type : Date,
         default: Date.now
+    },
+    comment:{
+        type: String,
+        required: false
     }
     
 });

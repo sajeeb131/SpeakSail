@@ -141,7 +141,7 @@ const ConversationExchange = (progress) => {
                 <hr className="sd-horizontal-line" />
                 <div className='container-sd-button'>
                     <button className='sd-button1' onClick={handleSkipButton}>Can't Record now</button>
-                    <button className='sd-button2' onClick={handleAudioSubmit} disabled={!allRecorded}>Submit</button>
+                    {allRecorded && <button className='sd-button2' onClick={handleAudioSubmit} >Submit</button>}
                 </div>
             </div>
             <SubmissionPopup showPopup={popUp} onClose={() => setPopup(false)} />

@@ -9,8 +9,11 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
   const [student, setStudent] = useState(null);
   const [audioUrl, setAudioUrl] = useState(null);
   const [message, setMessage] = useState('');
+  const [marks, setMarks] = useState(null);
+  const [comment, setComment] = useState(null)
 
   useEffect(() => {
+
     setStatus(null)
     const fetchData = async () => {
       try {
@@ -54,9 +57,8 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
           message = 'has been declined.';
           setStatus(false)
         }
-        console.log('feedback is:', feedback, 'Status is:', status)
-
-        const response = await fetch(`http://localhost:4000/lessons/${category}/${typeUrl}/${_id}`, {
+          //update completed by and student's lesson progress
+          const response = await fetch(`http://localhost:4000/lessons/${category}/${typeUrl}/${_id}`, {
           method: 'PATCH',
           body: JSON.stringify({ feedback, lessonNumber, studentID, value1, value2 }),
           headers: {
@@ -71,10 +73,8 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
           throw new Error('Feedback submission failed!');
         }
         
-        
+        //update notification
         const notification = { studentID, type, lessonNumber, message };
-        console.log(notification);
-
         const response2 = await fetch(`http://localhost:4000/notifications`, {
           method: 'POST',
           body: JSON.stringify(notification),
@@ -82,15 +82,14 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
             'Content-Type': 'application/json',
           },
         });
-
         if (!response2.ok) {
           throw new Error('Cannot save notification data!');
         } else {
           console.log('Notification sent successfully');
         }
-        console.log(type, lessonNumber, studentID, student.fullName)
+
         //save checked submission to submission collection
-        const submission = { lessonType: type, lessonNumber, studentID, studentName: student.fullName };
+        const submission = { lessonType: type, lessonNumber, studentID, studentName: student.fullName, comment };
         
         const response3 = await fetch(`http://localhost:4000/submission/`, {
           method: 'POST',
@@ -99,9 +98,22 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
             'Content-Type': 'application/json',
           },
         });
-
         if (!response3.ok) {
           throw new Error('Cannot save submission data!');
+        }
+
+        //update marks
+        const marksUpdate = {userID: studentID, field: `marks_${type_convert}`, value: marks}
+        console.log(marksUpdate)
+        const response4 = await fetch('http://localhost:4000/home/update-marks',{
+          method: 'PATCH',
+          body: JSON.stringify(marksUpdate),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        if (!response4.ok) {
+          throw new Error('Cannot save marks data!');
         }
 
         console.log('Submission saved successfully');
@@ -115,6 +127,14 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
       }
     }
   };
+
+  const handleMarksChange = (event) =>{
+    setMarks(event.target.value)
+  }
+  const handleCommentChange = (event) =>{
+    setComment(event.target.value)
+
+  }
 
   if (isLoading || !currentLesson || !student) {
     return <div>Loading...</div>;
@@ -158,20 +178,30 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
           )}
         </div>
         <div className='evaluation-hidden-status'>
-          {console.log('status inside:', status)}
           {status === true && <div><FiCheckCircle size={100} color='#93FF96' /></div>}
           {status === false && <div><FiXCircle size={100} color='#FF5E5B' /></div>}
         </div>
       </div>
       {status === null && (
-        <div className='evaluation-lesson-bottom'>
-          <button className='evaluation-btn-approve' style={{ backgroundColor: '#93FF96' }} onClick={() => handleSubmit('approve')}>
-            Approve
-          </button>
-          <button className='evaluation-btn-decline' style={{ backgroundColor: '#FF5E5B' }} onClick={() => handleSubmit('decline')}>
-            Decline
-          </button>
+        <div>
+          <div className='evaluation-lesson-bottom'>
+            <button className='evaluation-btn-approve' style={{ backgroundColor: '#93FF96' }} onClick={() => handleSubmit('approve')}>
+              Approve
+            </button>
+            <div className='marks'>
+              <span>Marks:</span>
+              <input type="Number" min='0' max='100' onChange={handleMarksChange}/>
+            </div>
+            <button className='evaluation-btn-decline' style={{ backgroundColor: '#FF5E5B' }} onClick={() => handleSubmit('decline')}>
+              Decline
+            </button>
+          </div>
+          <div className='evaluation-comment'>
+            <textarea name="" id="" placeholder='Write your comment on this exercise here...' maxLength={250} rows={2} onChange={handleCommentChange}/>
+          </div>
         </div>
+        
+        
       )}
     </div>
   );

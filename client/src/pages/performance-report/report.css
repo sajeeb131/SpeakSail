@@ -1,0 +1,119 @@
+.container-report{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.completions-header{
+    margin: 40px;
+    span{
+        background-color: #52D1DC;
+    }
+}
+.report-table-container {
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32.5px;
+    text-align: left;
+    border-radius: 20px;
+    max-width: 1200px;
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        
+        
+    }
+    
+    th, td {
+        text-align: center;
+        border: 1px solid #5B5B5B;
+        
+
+    }
+    
+    
+    
+    td {
+        padding: 5px;
+
+    }
+    .row-a td{
+  
+         background-color: #D4E0F9;;
+
+    }
+    
+    thead th {
+        background-color: #002E88;
+        color: white;
+    }
+    
+    tbody tr {
+        height: 40px; /* Adjust the height as needed */
+    }
+    
+    
+    .th-at{
+        text-align: left;
+        width: 300px;
+    }
+    .th-cat{
+        width: 200px;
+    }
+    .th-ct{
+        
+    }
+    .th-om{
+        
+    }   
+
+}
+
+.feedback-table {
+    margin-top: 40px;
+    width: 50%; /* Adjust width as needed */
+    border: none;
+    outline: none;
+}
+
+.feedback-table td {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #5B5B5B;
+    border-top: 1px solid #5B5B5B;
+    padding: 8px;
+    text-align: left;
+    
+    
+}
+
+.feedback-table input[type="checkbox"] {
+    margin-left: 10px;
+}
+
+.feedback-table {
+    .row-first{
+        border-right: 1px solid #5B5B5B;
+    }
+}
+.teachers-comment{
+    margin-top: 30px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    align-items: first baseline;
+    
+    
+    span{
+        width: 340px;
+        font-weight: 700;
+    }
+    p{
+        font-weight: 500;
+        line-height: 26px;
+        text-align: left;
+
+    }
+}

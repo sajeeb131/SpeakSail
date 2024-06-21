@@ -11,14 +11,15 @@ const getSubmissions = async (req, res) => {
 };
 const postSubmissions = async (req, res) => {
     try {
-        const { lessonType, lessonNumber, studentID, studentName } = req.body;
+        const { lessonType, lessonNumber, studentID, studentName, comment } = req.body;
 
         // Create a new submission
         const newSubmission = new Submission({
             lessonType,
             lessonNumber,
             studentID,
-            studentName
+            studentName,
+            comment
         });
 
         // Save the submission to the database
@@ -31,4 +32,25 @@ const postSubmissions = async (req, res) => {
     }
 };
 
-module.exports = {getSubmissions, postSubmissions}
+// Controller to get the comment for a specific submission
+const getSubmissionComment = async (req, res) => {
+    const { lessonType, studentID, lessonNumber } = req.query;
+  
+    try {
+      const submission = await Submission.findOne({
+        lessonType,
+        studentID,
+        lessonNumber
+      });
+  
+      if (!submission) {
+        return res.status(404).json({ error: 'Submission not found' });
+      }
+  
+      res.status(200).json({ comment: submission.comment });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+};
+
+module.exports = {getSubmissions, postSubmissions, getSubmissionComment}
