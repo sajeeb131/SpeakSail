@@ -94,9 +94,11 @@
 }
 
 .feedback-table {
+    
     .row-first{
         border-right: 1px solid #5B5B5B;
     }
+    
 }
 .teachers-comment{
     margin-top: 30px;
@@ -117,3 +119,4 @@
 
     }
 }
+

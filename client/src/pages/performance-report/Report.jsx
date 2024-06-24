@@ -6,7 +6,7 @@ import FetchProgress from '../../components/FetchProgress'
 const Report = () => {
     const userID = localStorage.getItem('user');
     const [progressData, setProgressData] = useState(null);
-
+    const [averageMarks, setAverageMarks] = useState(null);
     const [marks, setMarks] = useState({
         marks_sentence_dictation: 0,
         marks_question_answer: 0,
@@ -64,7 +64,11 @@ const Report = () => {
                 }
                 const marksData = await marksResponse.json();
                 setMarks(marksData);
-                console.log(marksData);
+                setAverageMarks(Math.floor((marks.marks_conversation_exchange+marks.marks_question_answer+
+                    marks.marks_comprehension+marks.marks_picture_description+marks.marks_sentence_dictation
+                    +marks.marks_storytelling)/6)
+                )
+
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -72,6 +76,26 @@ const Report = () => {
 
         fetchData();
     }, [userID]);
+
+    const [checkedState, setCheckedState] = useState({
+        excellent: false,
+        veryGood: false,
+        good: false,
+        needsImprovement: false
+    });
+
+    // Effect to update the checked state based on averageMarks
+    useEffect(() => {
+        if (averageMarks > 90) {
+            setCheckedState({ excellent: true, veryGood: false, good: false, needsImprovement: false });
+        } else if (averageMarks > 75) {
+            setCheckedState({ excellent: false, veryGood: true, good: false, needsImprovement: false });
+        } else if (averageMarks > 60) {
+            setCheckedState({ excellent: false, veryGood: false, good: true, needsImprovement: false });
+        } else {
+            setCheckedState({ excellent: false, veryGood: false, good: false, needsImprovement: true });
+        }
+    }, [averageMarks]);
     
   return (
     <div>
@@ -99,7 +123,7 @@ const Report = () => {
                         <td className='th-at'>Sentence Dictation</td>
                         <td className='th-cat'>Listening Skill</td>
                         <td className='th-ct'>{user.sentence_dictation}/{SD_total}</td>
-                        <td className='th-om'>{marks.marks_sentence_dictation}</td>
+                        <td className='th-om'>{Math.floor(marks.marks_sentence_dictation/SD_total)}</td>
                     </tr>
                     
                     <tr className='row-b'>
@@ -107,35 +131,35 @@ const Report = () => {
                         <td className='th-at'>Question and Answer</td>
                         <td className='th-cat'>Listening Skill</td>
                         <td className='th-ct'>{user.question_answer}/{QA_total}</td>
-                        <td className='th-om'>{marks.marks_question_answer}</td>
+                        <td className='th-om'>{Math.floor(marks.marks_question_answer/QA_total)}</td>
                     </tr>
                     <tr className='row-a'>
                         <td className='th-sl'>3</td>
                         <td className='th-at'>Storytelling</td>
                         <td className='th-cat'>Speaking Skill</td>
                         <td className='th-ct'>{user.storytelling}/{ST_total}</td>
-                        <td className='th-om'>{marks.marks_storytelling}</td>
+                        <td className='th-om'>{Math.floor(marks.marks_storytelling/ST_total)}</td>
                     </tr>
                     <tr className='row-b'>
                         <td className='th-sl'>4</td>
                         <td className='th-at'>Conversation Exchange</td>
                         <td className='th-cat'>Speaking Skill</td>
                         <td className='th-ct'>{user.conversation_exchange}/{CE_total}</td>
-                        <td className='th-om'>{marks.marks_conversation_exchange}</td>
+                        <td className='th-om'>{Math.floor(marks.marks_conversation_exchange/CE_total)}</td>
                     </tr>
                     <tr className='row-a'>
                         <td className='th-sl'>5</td>
                         <td className='th-at'>Comprehension</td>
                         <td className='th-cat'>Reading Skill</td>
                         <td className='th-ct'>{user.comprehension}/{CM_total}</td>
-                        <td className='th-om'>{Math.floor(marks.marks_comprehension/user.comprehension)}</td>
+                        <td className='th-om'>{Math.floor(marks.marks_comprehension/CM_total)}</td>
                     </tr>
                     <tr className='row-b'>
                         <td className='th-sl'>6</td>
                         <td className='th-at'>Picture Description</td>
                         <td className='th-cat'>Writing Skill</td>
                         <td className='th-ct'>{user.picture_description}/{PD_total}</td>
-                        <td className='th-om'>{marks.marks_picture_description}</td>
+                        <td className='th-om'>{Math.floor(marks.marks_picture_description/PD_total)}</td>
                         {console.log(marks)}
                     </tr>
                 </tbody>
@@ -144,21 +168,22 @@ const Report = () => {
                 <tbody>
                     <tr>
                         <td className='row-first'>* Has improved Performance?</td>
-                        <td><input type="checkbox" checked /> Yes</td>
-                        <td><input type="checkbox" /> No</td>
+                        <td><input type="checkbox" checked disabled /> Yes</td>
+                        <td><input type="checkbox" disabled /> No</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td className='row-first'>* Performance Quality?</td>
-                        <td><input type="checkbox" checked /> Excellent</td>
-                        <td><input type="checkbox" /> Very Good</td>
-                        <td><input type="checkbox" /> Good</td>
+                        <td><input type="checkbox" checked={checkedState.excellent} disabled /> Excellent</td>
+                        <td><input type="checkbox" checked={checkedState.veryGood} disabled /> Very Good</td>
+                        <td><input type="checkbox" checked={checkedState.good} disabled /> Good</td>
+                        <td><input type="checkbox" checked={checkedState.needsImprovement} disabled /> Needs Improvement</td>
                     </tr>
                 </tbody>
             </table>
             <div className='teachers-comment'>
                 <span>Teacher's comment: </span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>No comment yet.</p>
             </div>
         </div>
       

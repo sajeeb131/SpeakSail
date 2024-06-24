@@ -27,6 +27,8 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
         if (type === 'Storytelling') {
           setAudioUrl(currentLesson.audioFilePath);
         }
+        let value2 = student[type_convert];
+  
       } catch (error) {
         console.log('Error:', error.message);
       } finally {
@@ -44,6 +46,7 @@ const AnswerPaper = ({ type, currentLesson, category, type_convert, typeUrl }) =
 
         let value1 = student[category];
         let value2 = student[type_convert];
+        console.log(value2)
         const { _id, studentID, lessonNumber } = currentLesson;
         const feedback = action === 'approve' ? 'true' : 'false';
         let message = '';

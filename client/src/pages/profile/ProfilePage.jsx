@@ -29,6 +29,7 @@ const ProfilePage = () => {
       const [SD_total, setSDlength] = useState();
       const [QA_total, setQAlength] = useState();
       const [ST_total, setSTlength] = useState();
+      const [CE_total, setCElength] = useState();
       const [PD_total, setPDlength] = useState();
       const [CM_total, setCMLength] = useState();
 
@@ -57,6 +58,9 @@ const ProfilePage = () => {
                 const storytellingUrl = [
                     'http://localhost:4000/lessons/speaking/storytelling'
                 ];
+                const conversation_exchangeUrl = [
+                    'http://localhost:4000/lessons/speaking/conversation-exchange'
+                ];
                 const picturedescriptionUrls = [
                     'http://localhost:4000/lessons/writing/picturedescription'
                 ];
@@ -76,6 +80,10 @@ const ProfilePage = () => {
                 const responseST = await fetch(storytellingUrl);
                 const STdata = await responseST.json();
                 setSTlength(STdata.lessons.length);
+
+                const responseCE = await fetch(conversation_exchangeUrl);
+                const CEdata = await responseCE.json();
+                setCElength(CEdata.lessons.length);
 
                 const responsePD = await fetch(picturedescriptionUrls);
                 const PDdata = await responsePD.json();
@@ -161,6 +169,7 @@ const ProfilePage = () => {
                         <h3 className='stats-text'>Sentence Dictations:</h3>
                         <h3 className='stats-text'>Question and Answer:</h3>
                         <h3 className='stats-text'>Storytelling:</h3>
+                        <h3 className='stats-text'>Conversation Exchange:</h3>
                         <h3 className='stats-text'>Picture Description:</h3>
                         <h3 className='stats-text'>Comprehension:</h3>
 
@@ -173,6 +182,7 @@ const ProfilePage = () => {
                         <h3 className='stats-text'>{user.sentence_dictation}/{SD_total}</h3>
                         <h3 className='stats-text'>{user.question_answer}/{QA_total}</h3>
                         <h3 className='stats-text'>{user.storytelling}/{ST_total}</h3>
+                        <h3 className='stats-text'>{user.conversation_exchange}/{CE_total}</h3>
                         <h3 className='stats-text'>{user.picture_description}/{PD_total}</h3>
                         <h3 className='stats-text'>{user.comprehension}/{CM_total}</h3>
 
