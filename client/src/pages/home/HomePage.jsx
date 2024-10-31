@@ -95,23 +95,23 @@ const HomePage = () => {
 
 
                 //calculate total lessons
-                const userResponse2 = await fetch('http://localhost:4000/lessons/listening/sentence-dictation');
+                const userResponse2 = await fetch('https://speaksail-client.onrender.com/lessons/listening/sentence-dictation');
                 const sd = await userResponse2.json()
-                const userResponse3 = await fetch('http://localhost:4000/lessons/listening/qa');
+                const userResponse3 = await fetch('https://speaksail-client.onrender.com/lessons/listening/qa');
                 const qa = await userResponse3.json()
                 setListeningTotalLessons(sd.lessons.length+ qa.lessons.length)
 
-                const userResponse4 = await fetch('http://localhost:4000/lessons/reading/comprehension');
+                const userResponse4 = await fetch('https://speaksail-client.onrender.com/lessons/reading/comprehension');
                 const c = await userResponse4.json()
                 setReadingTotalLessons(c.lessons.length)
                 
-                const userResponse5 = await fetch('http://localhost:4000/lessons/speaking/storytelling');
+                const userResponse5 = await fetch('https://speaksail-client.onrender.com/lessons/speaking/storytelling');
                 const st = await userResponse5.json()
-                const userResponse7 = await fetch('http://localhost:4000/lessons/speaking/conversation-exchange');
+                const userResponse7 = await fetch('https://speaksail-client.onrender.com/lessons/speaking/conversation-exchange');
                 const ce = await userResponse7.json()
                 setSpeakingTotalLessons(st.lessons.length+ ce.lessons.length)
 
-                const userResponse6 = await fetch('http://localhost:4000/lessons/writing/picturedescription');
+                const userResponse6 = await fetch('https://speaksail-client.onrender.com/lessons/writing/picturedescription');
                 const pd = await userResponse6.json()
                 setWritingTotalLessons(pd.lessons.length)
                 
