@@ -31,7 +31,7 @@ const LoginPage = () => {
         try {
           setIsLoading(true); // Set a loading state (optional)
             const user = {email,password, userID, name}
-            const response = await fetch(`http://localhost:4000/${user_type}/login`, {
+            const response = await fetch(`https://speaksail-server.onrender.com/${user_type}/login`, {
             method:'POST',
             body: JSON.stringify(user),
             headers:{
