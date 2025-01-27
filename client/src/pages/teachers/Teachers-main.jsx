@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import Navbar from '../../components/TeacherNav'
 import './teachersMain.css'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import Dashboard from './dashboard/Dashboard'
@@ -12,7 +11,6 @@ const MainPage = () => {
   return (
     <div className='page-container'>
       
-      {/* <Navbar/> */}
       
       <div className="content-beside-navbar">
         
